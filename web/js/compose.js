@@ -92,7 +92,7 @@ function bassRootMidi(rootPc) {
   return best;
 }
 
-function melodyEvents(recipe, bars, introBars, stepS) {
+function melodyEvents(recipe, bars, introBars, _stepS) {
   const cfg = CHANNELS[recipe.channel];
   const density = cfg.melody_density;
   const rng = new SplitMix64(BigInt(recipe.seed) ^ TAG_MELODY);

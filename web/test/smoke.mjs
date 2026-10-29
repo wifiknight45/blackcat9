@@ -5,6 +5,7 @@
 //
 // Requires (dev-only): playwright-core and a Chromium build.
 //   node web/test/smoke.mjs        # exit 0 = on air
+/* global window, document, localStorage, WheelEvent, KCAT -- page-side names inside page.evaluate callbacks */
 import http from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, dirname } from "node:path";

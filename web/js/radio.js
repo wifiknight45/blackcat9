@@ -47,7 +47,6 @@ export function playStatic(ctx, dest, dur = 0.9, level = 0.4) {
       const d = buf.getChannelData(c);
       let lp = 0;
       for (let i = 0; i < n; i++) {
-        const t = i / n;
         const env = Math.min(1, i / (sr * 0.03)) * Math.min(1, (n - i) / (sr * 0.12));
         const white = Math.random() * 2 - 1;
         lp += 0.16 * (white - lp);

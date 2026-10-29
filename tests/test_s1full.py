@@ -23,7 +23,8 @@ class TestVoices(unittest.TestCase):
         self.assertAlmostEqual(len(sig), int(1.2 * SR), delta=2)
         self.assertLessEqual(float(np.max(np.abs(sig))), 0.8 + 1e-6)
         half = len(sig) // 2
-        rms = lambda x: float(np.sqrt(np.mean(x ** 2)))
+        def rms(x):
+            return float(np.sqrt(np.mean(x ** 2)))
         self.assertLess(rms(sig[half:]), rms(sig[:half]))
 
     def test_pad_is_stereo_and_decorrelated(self):

@@ -7,7 +7,7 @@ the composer; this module only makes the sounds.
 
 import numpy as np
 
-from .dsp import SR, bandpass, exp_env, highpass, np_rng
+from .dsp import SR, bandpass, exp_env, highpass
 
 
 def kick(velocity: float = 1.0) -> np.ndarray:

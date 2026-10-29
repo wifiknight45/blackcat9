@@ -180,12 +180,10 @@ makeKnob($("kTreble"), {
   min: -12, max: 12, value: 0,
   onInput: (v) => { if (trebleF) trebleF.gain.setTargetAtTime(Math.abs(v) < 1 ? 0 : v, ctx.currentTime, 0.03); },
 });
-let tunePreview = 0;
 makeKnob($("kTune"), {
   min: 0, max: TUNES.length - 1, value: 0, wheelStep: 1,
   onInput: (v) => {
     const d = Math.round(v);
-    tunePreview = d;
     if (d === 0) setDisplay("99.9", "TUNING · · · ALL STATIONS · · · THE WHOLE DIAL");
     else setDisplay(FREQ[TUNES[d]], `TUNING · · · ${CHANNELS[TUNES[d]].label}`);
   },
@@ -249,11 +247,11 @@ vuX.fillStyle = "rgba(10,6,2,.55)"; vuX.fillRect(0, 0, 168, 88);
 /* ------------------------------------------------ tapes */
 let tapes = [];
 const tapeBufs = new Map();
-try { tapes = JSON.parse(localStorage.getItem("kcat.tapes.v1") || "[]"); } catch (e) { tapes = []; }
+try { tapes = JSON.parse(localStorage.getItem("kcat.tapes.v1") || "[]"); } catch { tapes = []; }
 function persistTapes() {
   try {
     localStorage.setItem("kcat.tapes.v1", JSON.stringify(tapes.map((t) => ({ seed: t.seed, channel: t.channel, title: t.title, dur: t.dur }))));
-  } catch (e) { /* shelf is session-only */ }
+  } catch { /* shelf is session-only */ }
 }
 const SPINE_COLS = ["#8a3324", "#20504a", "#71591c", "#3d4d8a", "#5d2f52", "#7a4a1f"];
 function addSpine(t) {

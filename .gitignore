@@ -8,3 +8,4 @@ build/
 renders/
 *.wav
 !tests/fixtures/*.wav
+web/node_modules/

@@ -232,12 +232,12 @@ export class Player {
       this._timer = null;
     }
     for (const src of this._sources) {
-      try { src.stop(); } catch (e) { /* already stopped */ }
-      try { src.disconnect(); } catch (e) { /* noop */ }
+      try { src.stop(); } catch { /* already stopped */ }
+      try { src.disconnect(); } catch { /* noop */ }
     }
     this._sources = [];
     for (const node of this._nodes) {
-      try { node.disconnect(); } catch (e) { /* noop */ }
+      try { node.disconnect(); } catch { /* noop */ }
     }
     this._nodes = [];
   }

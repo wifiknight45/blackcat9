@@ -14,8 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 
 from kcat.dsp import SR, midi_freq, np_rng
-from kcat.moog import (analog_osc, ladder_filter, moog_lead, moog_pad,
-                       taurus_bass)
+from kcat.moog import analog_osc, ladder_filter, moog_lead, moog_pad, taurus_bass
 
 
 def _band_energy_ratio(x: np.ndarray, lo: float, hi: float) -> float:

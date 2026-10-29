@@ -19,8 +19,7 @@ import numpy as np
 
 from . import voices
 from .dsp import SR, bandpass, np_rng, place
-from .recipes import (CHANNELS, SIGNATURE_CHANNEL, SIGNATURE_SEED,
-                      Recipe, generate_recipe)
+from .recipes import CHANNELS, SIGNATURE_CHANNEL, SIGNATURE_SEED, Recipe, generate_recipe
 from .render import render_recipe
 from .rng import SplitMix64
 

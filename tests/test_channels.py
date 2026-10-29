@@ -60,7 +60,8 @@ class TestPluck(unittest.TestCase):
         self.assertFalse(np.array_equal(a, c))
         self.assertLessEqual(float(np.max(np.abs(a))), 0.9 + 1e-6)
         q = len(a) // 4
-        rms = lambda x: float(np.sqrt(np.mean(x ** 2)))
+        def rms(x):
+            return float(np.sqrt(np.mean(x ** 2)))
         self.assertLess(rms(a[-q:]), rms(a[:q]))
 
 

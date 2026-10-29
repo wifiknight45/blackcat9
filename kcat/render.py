@@ -17,9 +17,9 @@ from . import drums, moog, voices
 from .damage import apply_wobble, crackle
 from .dsp import SR, lowpass, normalize_peak, place, place_stereo, soft_clip
 from .recipes import CHANNELS, Recipe
+from .rng import SplitMix64
 from .theory import SCALES, pc_of
 from .traditional import TUNES
-from .rng import SplitMix64
 
 # Stream tags: each subsystem gets its own deterministic stream so a
 # change in one never reshuffles the others' decisions.
@@ -197,13 +197,17 @@ def render_recipe(recipe: Recipe, bars: int = 16,
             t = humanize(t_of(bar * 16 + step), rng_drums)
             start = int(t * SR)
             drum_density = CHANNELS[recipe.channel].get("drum_density", 1.0)
-            if step in kick_pattern and not (intro and step != 0) and not (is_break and step != 0) and (step == 0 or drum_density >= 1.0 or rng_drums.chance(drum_density + 0.25)):
+            if (step in kick_pattern and not (intro and step != 0)
+                    and not (is_break and step != 0)
+                    and (step == 0 or drum_density >= 1.0
+                         or rng_drums.chance(drum_density + 0.25))):
                 place(buf, drums.kick(0.95), start, pan=0.0, gain=0.95)
             if step in (4, 12) and not intro and not is_break:
                 place(buf, drums.snare(noise, 0.85), start, pan=0.05, gain=0.55)
             elif step == 15 and not intro and not is_break and rng_drums.chance(0.22):
                 place(buf, drums.snare(noise, 0.3), start, pan=0.05, gain=0.4)
-            if step % 2 == 0 and (drum_density >= 1.0 or step % 4 == 0 or rng_drums.chance(drum_density + 0.3)):
+            if (step % 2 == 0 and (drum_density >= 1.0 or step % 4 == 0
+                    or rng_drums.chance(drum_density + 0.3))):
                 vel = 0.8 if step % 4 == 0 else 0.55
                 place(buf, drums.hat(noise, False, vel), start, pan=0.12, gain=0.30)
             elif not is_break and rng_drums.chance(0.30):

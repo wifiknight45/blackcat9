@@ -16,3 +16,14 @@ kcat = "kcat.__main__:main"
 
 [tool.setuptools]
 packages = ["kcat"]
+
+# Lint: ruff (pip install ruff, or pipx run ruff). The codebase is
+# stdlib-flavoured and hand-formatted; the config meets it where it
+# lives rather than reformatting the world: pyflakes + import order
+# + the pycodestyle errors that signal real mistakes.
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

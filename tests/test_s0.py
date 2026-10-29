@@ -10,9 +10,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from kcat.rng import SplitMix64
-from kcat.theory import (chord_for_degree, midi_of, scale_notes, scale_pcs)
 from kcat.recipes import CHANNELS, Recipe, generate_recipe
+from kcat.rng import SplitMix64
+from kcat.theory import chord_for_degree, midi_of, scale_notes, scale_pcs
 
 
 class TestRng(unittest.TestCase):

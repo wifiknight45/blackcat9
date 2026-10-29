@@ -177,7 +177,7 @@ export function pluckSamples(sr, midi, durS, velocity = 1.0, seed = 0n) {
   const n = Math.max(1, Math.trunc(durS * sr));
   const period = Math.max(2, Math.round(sr / freq));
   const rng = new NoiseGen(seed);
-  let cur = rng.fill(period);
+  const cur = rng.fill(period);
   const peak = peakOf(cur) || 1.0;
   for (let i = 0; i < period; i++) cur[i] /= peak;
   const out = new Float32Array(n);
