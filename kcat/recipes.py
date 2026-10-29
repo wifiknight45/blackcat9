@@ -11,6 +11,7 @@ from dataclasses import asdict, dataclass, field
 
 from .rng import SplitMix64
 from .theory import generate_progression
+from .traditional import TUNES
 
 RECIPE_VERSION = 1
 
@@ -148,6 +149,11 @@ class Recipe:
     wobble: float
     progression: dict
     sections: list = field(default_factory=list)
+    # Slug of an encoded traditional tune (kcat.traditional.TUNES),
+    # carried only by MIN'YO recipes; None for fully generative
+    # tracks. Defaulted so recipe JSON written before tunes existed
+    # still loads.
+    tune: str | None = None
 
     def to_json(self) -> str:
         return json.dumps(asdict(self), indent=2, sort_keys=True)
@@ -160,17 +166,39 @@ class Recipe:
         return cls(**data)
 
 
-def generate_recipe(seed: int, channel: str) -> Recipe:
-    """Build the full recipe for a seed on a channel. Deterministic."""
+def generate_recipe(seed: int, channel: str,
+                    tune: str | None = None) -> Recipe:
+    """Build the full recipe for a seed on a channel. Deterministic.
+
+    On the minyo channel a recipe may carry a traditional tune (see
+    kcat.traditional): pass ``tune`` to force one, or leave it None
+    and the recipe RNG rolls 50/50 to feature one. A tuned recipe
+    takes the tune's native scale as its mode — decided before the
+    progression is generated, so the harmony fits the melody — and
+    is titled after the tune. Other channels never carry tunes.
+    """
     if channel not in CHANNELS:
         raise ValueError(f"unknown channel {channel!r}")
+    if tune is not None:
+        if channel != "minyo":
+            raise ValueError(
+                "traditional tunes only play on the minyo channel")
+        if tune not in TUNES:
+            raise ValueError(f"unknown tune {tune!r}")
     cfg = CHANNELS[channel]
     rng = SplitMix64(seed)
 
-    title = generate_title(rng, folk=(channel == "minyo"))
+    if channel == "minyo" and tune is None and rng.chance(0.5):
+        tune = rng.choice(sorted(TUNES))
+    tuned = tune is not None
+
+    if tuned:
+        title = f"{TUNES[tune]['name']} (traditional)"
+    else:
+        title = generate_title(rng, folk=(channel == "minyo"))
     tempo = rng.randint(*cfg["tempo"])
     key_root = rng.choice(cfg["keys"])
-    mode = rng.choice(cfg["modes"])
+    mode = TUNES[tune]["scale"] if tuned else rng.choice(cfg["modes"])
     swing = round(rng.uniform(*cfg["swing"]), 4)
     dust = round(rng.uniform(*cfg["dust"]), 4)
     wobble = round(rng.uniform(*cfg["wobble"]), 4)
@@ -192,4 +220,5 @@ def generate_recipe(seed: int, channel: str) -> Recipe:
         wobble=wobble,
         progression=progression,
         sections=sections,
+        tune=tune,
     )

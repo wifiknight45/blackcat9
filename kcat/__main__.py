@@ -10,6 +10,7 @@ import sys
 import time
 
 from .recipes import CHANNELS, generate_recipe
+from .traditional import TUNES
 
 
 def main(argv=None) -> int:
@@ -29,6 +30,10 @@ def main(argv=None) -> int:
     p_render.add_argument("--channel", choices=sorted(CHANNELS),
                           default="jazz-cat")
     p_render.add_argument("--bars", type=int, default=16)
+    p_render.add_argument("--tune", choices=sorted(TUNES), default=None,
+                          help="play this traditional tune (encoded in "
+                               "kcat/traditional.py) instead of a generated "
+                               "melody; forces --channel minyo")
     p_render.add_argument("--out", default=None,
                           help="output WAV path (default: renders/seed-<seed>-<channel>.wav)")
 
@@ -76,9 +81,10 @@ def main(argv=None) -> int:
 
         from .render import render_recipe, write_wav
 
-        recipe = generate_recipe(args.seed, args.channel)
+        channel = "minyo" if args.tune else args.channel
+        recipe = generate_recipe(args.seed, channel, tune=args.tune)
         buf = render_recipe(recipe, bars=args.bars)
-        out = args.out or f"renders/seed-{args.seed}-{args.channel}.wav"
+        out = args.out or f"renders/seed-{args.seed}-{channel}.wav"
         os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
         write_wav(out, buf)
         seconds = len(buf) / 44100

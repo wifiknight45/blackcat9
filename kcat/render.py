@@ -18,6 +18,7 @@ from .damage import apply_wobble, crackle
 from .dsp import SR, lowpass, normalize_peak, place, place_stereo, soft_clip
 from .recipes import CHANNELS, Recipe
 from .theory import SCALES, pc_of
+from .traditional import TUNES
 from .rng import SplitMix64
 
 # Stream tags: each subsystem gets its own deterministic stream so a
@@ -89,6 +90,37 @@ def _melody_events(recipe: Recipe, bars: int, intro_bars: int):
             dur_steps = max(1.5, min(float(gap), rng.uniform(2.5, 6.0) * note_len))
             events.append((bar * 16 + step, pool[idx], dur_steps,
                            rng.uniform(0.5, 0.78)))
+    return events
+
+
+def _tune_events(recipe: Recipe, bars: int, intro_bars: int):
+    """The encoded traditional melody (kcat.traditional), verbatim.
+
+    The tune's tonic lands on the recipe's key root: the base note is
+    the midi in the 69..80 window with the key root's pitch class,
+    and each encoded offset is added to it. One beat is 4 steps;
+    notes sound for 0.9 of their notated length. The tune loops
+    across the melody bars with a 2-beat breath between passes.
+    Returns the same (abs_step, midi, dur_steps, velocity) tuples as
+    _melody_events, so the placement code below is shared.
+    """
+    notes = TUNES[recipe.tune]["notes"]
+    root_pc = pc_of(recipe.key_root)
+    base = 69 + ((root_pc - 69) % 12)
+    tune_beats = sum(dur for _, dur in notes)
+    pass_beats = tune_beats + 2.0  # the breath between passes
+    total_beats = (bars - intro_bars) * 4
+    events = []
+    start_beat = 0.0
+    while start_beat < total_beats:
+        beat = start_beat
+        for offset, dur in notes:
+            if beat >= total_beats:
+                break
+            abs_step = (intro_bars * 4 + beat) * 4
+            events.append((abs_step, base + offset, dur * 4 * 0.9, 0.62))
+            beat += dur
+        start_beat += pass_beats
     return events
 
 
@@ -179,11 +211,18 @@ def render_recipe(recipe: Recipe, bars: int = 16,
             if step == 14 and not intro and not is_break and rng_drums.chance(0.45):
                 place(buf, drums.hat(noise, True, 0.7), start, pan=0.12, gain=0.32)
 
-    # --- the lead line, over the top; each station has its own voice
+    # --- the lead line, over the top; each station has its own voice.
+    # A tuned recipe plays its encoded traditional melody verbatim;
+    # anything else gets the generative walk. The placement code (and
+    # the channel's lead voice) is the same either way.
     if melody:
         voice = CHANNELS[recipe.channel].get("lead_voice", "vibes")
+        if recipe.tune:
+            lead_events = _tune_events(recipe, bars, intro_bars)
+        else:
+            lead_events = _melody_events(recipe, bars, intro_bars)
         prev_midi, prev_end = None, -99.0
-        for abs_step, midi, dur_steps, vel in _melody_events(recipe, bars, intro_bars):
+        for abs_step, midi, dur_steps, vel in lead_events:
             dur_s = dur_steps * step_s
             note_seed = (recipe.seed ^ _TAG_MELODY ^ int(abs_step)) & (2 ** 64 - 1)
             if voice == "pluck":

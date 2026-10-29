@@ -3,6 +3,9 @@
 ### ブラックキャット9 — 雨の東京のアパートから放送中
 *"Broadcasting from a rainy Tokyo apartment."*
 
+![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-audio_engine-013243?style=for-the-badge&logo=numpy&logoColor=white) ![Stations](https://img.shields.io/badge/Stations-5-E4405F?style=for-the-badge) ![Scales](https://img.shields.io/badge/Scales-11-FC4C02?style=for-the-badge) ![Minyo](https://img.shields.io/badge/%E6%B0%91%E8%AC%A1-MINYO_76.2-BC002D?style=for-the-badge) ![Tests](https://img.shields.io/badge/Tests-49%2B_passing-2EA043?style=for-the-badge) ![Seeds](https://img.shields.io/badge/Seeds-deterministic-7C4DFF?style=for-the-badge) ![License](https://img.shields.io/badge/License-Apache_2.0-D22128?style=for-the-badge&logo=apache&logoColor=white)
+
+
 A procedural lofi radio station broadcasting from a rainy Tokyo apartment
 in 1974. Every song is **synthesized from scratch** — no samples, no
 recordings — from a deterministic seed: the same seed always makes the
@@ -65,6 +68,13 @@ key, progression, feel knobs — fully describes a song as JSON. The
 Python engine renders it with numpy; the web engine (Web Audio) reads
 the same recipe and plays the same song. Seeds are the catalog:
 share a seed, share the song.
+
+## The console — design in progress
+
+The Moog-hearted web console — wood cheeks, chrome knobs, VU meters,
+Nine the cat asleep on the warm receiver, rain over Tokyo outside the
+window — is being designed now. Screenshots will land here as the
+design firms up; this section is the placeholder they'll replace.
 
 ## License
 

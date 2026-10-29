@@ -7,6 +7,42 @@ pushing.
 
 ## 2026-10-28
 
+### 00:00 PDT — Traditional tunes on MIN'YO (verified note-by-note)
+
+- `kcat/traditional.py`: real public-domain melodies, encoded as
+  (semitone offset from tonic, beats) so they transpose to any key.
+  Every note was verified against a published score — no tune was
+  encoded from memory.
+  - **Sakura Sakura** (さくら さくら): the complete 14-bar verse in
+    the `in` scale, transcribed note-by-note from a published score
+    (G. Tay) with ambiguous held notes resolved by notehead
+    measurement; form cross-checks against the documented ABBAC
+    structure. A provenance test pins the opening phrase.
+  - **Furusato** (ふるさと, 1914): first section (8 bars, both
+    phrases, ending on the tonic), from two concordant published
+    scores. Later bars diverge between arrangements, so they were
+    left out rather than guessed.
+  - **Kojo no Tsuki**: deliberately NOT shipped — no freely readable
+    note-level source could be secured and the historical versions
+    differ. It joins the station when a verifiable score does.
+- Recipes: minyo tracks roll a 50% chance of carrying a tune (a set
+  tune overrides the mode to its native scale and takes the title);
+  `Recipe.tune` is a new optional field, old JSON still loads.
+  Force one any time: `python3 -m kcat render --tune sakura`.
+- This patch also carries the README badges + console placeholder
+  from the previous entry (bundled per Aubrey's request).
+- 63/63 tests pass (49 + 14 new: scale-membership, provenance pins,
+  round-trips, tuned renders).
+
+### 23:55 PDT — README badges + console placeholder
+
+- Eight `for-the-badge` shields under the title (all verified live):
+  Python, NumPy, Stations 5, Scales 11, a 民謡 MIN'YO 76.2 badge in
+  Japan red, Tests 49+ passing, deterministic Seeds, Apache-2.0.
+- New README section "The console — design in progress": notes that
+  console screenshots/design will be added as the Moog console firms
+  up (per Aubrey's request).
+
 ### 23:39 PDT — S3: the radio (verified)
 
 - `kcat/radio.py`: session planner + continuous renderer. Every
