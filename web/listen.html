@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>blackcat9 — S4b listen test (not the console)</title>
+<style>
+  body { font-family: ui-monospace, Menlo, monospace; background: #14100b;
+         color: #e8dcc3; margin: 0; padding: 1.5rem 1rem; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 1.15rem; }
+  .sub { color: #b8a888; }
+  form { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; align-items: end; }
+  label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.8rem;
+          color: #b8a888; }
+  input, select, button { font: inherit; padding: 0.4rem 0.6rem;
+    background: #241c12; color: #e8dcc3; border: 1px solid #6b5836;
+    border-radius: 4px; }
+  button { cursor: pointer; background: #6b5836; }
+  button:disabled { opacity: 0.45; cursor: default; }
+  pre { background: #0e0a06; border: 1px solid #3a2d1a; border-radius: 6px;
+        padding: 0.9rem 1rem; font-size: 0.85rem; line-height: 1.5;
+        white-space: pre-wrap; }
+  .note { color: #8a7c60; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>blackcat9 — S4b listen test</h1>
+  <p class="sub">The Web Audio rendering twin, exercised raw. This is a
+     test bench, <strong>not</strong> the console (that's S5).</p>
+
+  <form id="controls">
+    <label>Station
+      <select id="channel"></select>
+    </label>
+    <label>Seed <input id="seed" type="number" value="42" step="1"></label>
+    <label>Tune (minyo only)
+      <select id="tune">
+        <option value="">— none —</option>
+        <option value="sakura">Sakura Sakura</option>
+        <option value="furusato">Furusato</option>
+      </select>
+    </label>
+    <label>Bars <input id="bars" type="number" value="16" min="1" max="48"></label>
+    <button type="button" id="play">▶ Play</button>
+    <button type="button" id="stop" disabled>■ Stop</button>
+    <button type="button" id="render">Render offline</button>
+  </form>
+
+  <pre id="readout">composing…</pre>
+  <p class="note">Counts are the composed event lists (compose.js) — the
+     same decisions the Python engine makes for the same recipe.</p>
+</main>
+
+<script type="module">
+  import { CHANNELS, generate_recipe } from "./js/recipes.js";
+  import { compose } from "./js/compose.js";
+  import { Player, renderOffline } from "./js/player.js";
+
+  const channelSel = document.getElementById("channel");
+  for (const [slug, cfg] of Object.entries(CHANNELS)) {
+    const opt = document.createElement("option");
+    opt.value = slug;
+    opt.textContent = cfg.label;
+    channelSel.appendChild(opt);
+  }
+  channelSel.value = "dusty";
+
+  const readout = document.getElementById("readout");
+  const playBtn = document.getElementById("play");
+  const stopBtn = document.getElementById("stop");
+
+  let audioCtx = null;
+  let player = null;
+
+  function currentRecipe() {
+    const seed = parseInt(document.getElementById("seed").value, 10) || 0;
+    const channel = channelSel.value;
+    const tuneSel = document.getElementById("tune").value;
+    const tune = channel === "minyo" && tuneSel ? tuneSel : null;
+    return generate_recipe(seed, channel, tune);
+  }
+
+  function currentBars() {
+    const v = parseInt(document.getElementById("bars").value, 10);
+    return Number.isFinite(v) ? Math.min(48, Math.max(1, v)) : 16;
+  }
+
+  function showCounts(recipe, composed, extra = "") {
+    const c = composed.counts;
+    readout.textContent =
+      `"${recipe.title}"\n` +
+      `${CHANNELS[recipe.channel].label}\n` +
+      `${recipe.tempo_bpm} BPM · ${recipe.key_root} ${recipe.mode} · ` +
+      `${composed.bars} bars · ${composed.durationS.toFixed(2)} s · ` +
+      `swing ${recipe.swing} · dust ${recipe.dust}` +
+      (recipe.tune ? ` · tune: ${recipe.tune}` : "") + "\n\n" +
+      `events  ep ${c.ep} · pad ${c.pad} · bass ${c.bass} · lead ${c.lead}\n` +
+      `drums   kick ${c.kick} · snare ${c.snare} · hat ${c.hat} · ` +
+      `open hat ${c.openhat} (total ${c.drums})` +
+      (extra ? `\n\n${extra}` : "");
+  }
+
+  function refresh() {
+    try {
+      const recipe = currentRecipe();
+      showCounts(recipe, compose(recipe, { bars: currentBars() }));
+    } catch (e) {
+      readout.textContent = `error: ${e.message}`;
+    }
+  }
+
+  for (const id of ["channel", "seed", "tune", "bars"]) {
+    document.getElementById(id).addEventListener("change", refresh);
+  }
+  refresh();
+
+  playBtn.addEventListener("click", async () => {
+    if (!audioCtx) audioCtx = new AudioContext();
+    await audioCtx.resume();
+    if (!player) {
+      player = new Player(audioCtx);
+      player.onended = () => {
+        playBtn.disabled = false;
+        stopBtn.disabled = true;
+      };
+    }
+    const recipe = currentRecipe();
+    const composed = player.play(recipe, { bars: currentBars() });
+    showCounts(recipe, composed, "playing…");
+    playBtn.disabled = true;
+    stopBtn.disabled = false;
+  });
+
+  stopBtn.addEventListener("click", () => {
+    if (player) player.stop();
+    playBtn.disabled = false;
+    stopBtn.disabled = true;
+    refresh();
+  });
+
+  document.getElementById("render").addEventListener("click", async () => {
+    const recipe = currentRecipe();
+    readout.textContent = "rendering offline…";
+    try {
+      const buf = await renderOffline(recipe, { bars: currentBars() });
+      let peak = 0.0, sumSq = 0.0, n = 0;
+      for (let ch = 0; ch < buf.numberOfChannels; ch++) {
+        const data = buf.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          const v = data[i];
+          if (Math.abs(v) > peak) peak = Math.abs(v);
+          sumSq += v * v;
+          n++;
+        }
+      }
+      const rms = Math.sqrt(sumSq / Math.max(1, n));
+      showCounts(recipe, compose(recipe, { bars: currentBars() }),
+        `offline render: ${buf.duration.toFixed(2)} s · ` +
+        `RMS ${rms.toFixed(4)} · peak ${peak.toFixed(4)}`);
+    } catch (e) {
+      readout.textContent = `render error: ${e.message}`;
+    }
+  });
+
+  // Exposed for the headless verification harness (and curious humans).
+  window.kcat = { generate_recipe, compose, renderOffline };
+</script>
+</body>
+</html>

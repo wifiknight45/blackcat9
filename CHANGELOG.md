@@ -7,6 +7,29 @@ pushing.
 
 ## 2026-10-29
 
+### 00:47 PDT — S4b: the web audio renderer (the browser sings)
+
+- `web/js/compose.js`: recipe → event lists, a statement-for-statement
+  port of `render.py`'s composition (swing, humanize, intro/break
+  bars, densities, the seeded melody walk, verbatim traditional
+  tunes). Composition is a pure function of the recipe —
+  `web/test/compose.test.mjs` proves compose-twice determinism.
+- `web/js/voices.js` / `drums.js` / `crackle.js` / `dsp.js`:
+  sample-level Web Audio twins of the Python voices with Python's
+  parameter values — additive EP, vibes, Karplus-Strong pluck, a
+  sample-by-sample reproduction of the Moog ladder for the lead,
+  synthesized kit, and the rebuilt vinyl crackle scaled by `dust`.
+- `web/js/player.js`: lookahead scheduler + `renderOffline()` (the
+  faithful master: warmth, wobble, peak-normalize 0.89, fades).
+  `web/listen.html` is the utilitarian test bench, not the console.
+- **Verified in headless Chromium**: seed 42 / dusty renders
+  52.603 s, RMS 0.238, peak 0.890 — real sound, no clipping, event
+  counts matching the Python arrangement (359 events).
+- Honest limits, also in the code: texture noise draws differ
+  (SplitMix64 vs numpy PCG64), zero-phase FFT filters are
+  approximated, panning law is equal-power. Identical recipes,
+  identical events, near-identical voices — a twin, not a clone.
+
 ### 00:40 PDT — S4a: the web engine twin (recipe parity proven)
 
 - `web/js/` (`rng.js`, `theory.js`, `recipes.js`, `traditional.js`):
