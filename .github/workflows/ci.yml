@@ -1,0 +1,59 @@
+# S6e: every push runs the whole hardening stack — lint, unit
+# tests, cross-engine parity, and bounded fuzz sweeps in both
+# engines. The browser smoke (web/test/smoke.mjs) is deliberately
+# NOT here: it needs a Chromium binary, and it stays a local /
+# on-demand check (`node web/test/smoke.mjs`) rather than a
+# 150 MB download on every push.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python deps + linter
+        run: pip install numpy ruff
+
+      - name: Ruff
+        run: ruff check kcat tests scripts
+
+      - name: Python unit tests
+        run: python -m unittest discover -s tests
+
+      - name: Python fuzz sweep (bounded)
+        run: python -m tests.fuzz --seeds 100 --fuzz-seed 1
+
+      # Pinned to 22: Node 20's test runner cannot expand the
+      # test-file set this repo relies on (visualizurrr CI lesson).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Web dev tooling
+        working-directory: web
+        run: npm install --no-audit --no-fund
+
+      - name: Syntax gate (node --check)
+        working-directory: web
+        run: npm run check
+
+      - name: ESLint
+        working-directory: web
+        run: npm run lint
+
+      - name: Web unit tests + Python parity
+        working-directory: web
+        run: npm test
+
+      - name: JS fuzz sweep (bounded)
+        working-directory: web
+        run: node test/fuzz.mjs --seeds 100 --fuzz-seed 1
