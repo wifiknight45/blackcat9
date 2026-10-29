@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kcat"
+version = "0.1.0"
+description = "K-CAT 99.9 — a procedural lofi radio: synthesized songs from deterministic seeds, a Moog-hearted engine, and a cat named Nine."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = ["numpy>=1.24"]
+
+[project.scripts]
+kcat = "kcat.__main__:main"
+
+[tool.setuptools]
+packages = ["kcat"]

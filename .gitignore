@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.DS_Store
+*.log
+renders/
+*.wav
+!tests/fixtures/*.wav
