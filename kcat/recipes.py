@@ -14,6 +14,13 @@ from .theory import generate_progression
 
 RECIPE_VERSION = 1
 
+# The signature track: the first sound the app makes. Aubrey picked
+# this render by ear on 2026-10-28 — seed 42 on DUST, "Shimokitazawa
+# Umbrellas". The web console boots on this recipe; the radio idles
+# here. Change it only on Aubrey's say-so.
+SIGNATURE_SEED = 42
+SIGNATURE_CHANNEL = "dusty"
+
 # Channel presets: the three stations on the TUNING dial. Ranges are
 # (min, max) drawn uniformly by the recipe RNG.
 CHANNELS = {
@@ -25,6 +32,11 @@ CHANNELS = {
         "swing": (0.18, 0.30),
         "dust": (0.70, 1.00),
         "wobble": (0.40, 0.80),
+        "melody_density": 0.50,
+        "pad_level": 0.07,
+        "drum_density": 1.0,
+        "lead_voice": "vibes",
+        "note_len": 1.0,
         "templates": ["lofi_minor_loop", "sad_city_vamp",
                       "midnight_turnaround"],
     },
@@ -36,7 +48,42 @@ CHANNELS = {
         "swing": (0.10, 0.22),
         "dust": (0.40, 0.80),
         "wobble": (0.30, 0.60),
+        "melody_density": 0.62,
+        "pad_level": 0.15,
+        "drum_density": 1.0,
+        "lead_voice": "vibes",
+        "note_len": 1.0,
         "templates": ["ii_V_I", "midnight_turnaround", "backdoor"],
+    },
+    "minyo": {
+        "label": "MIN'YO 76.2 — folk songs & field rain",
+        "tempo": (56, 72),
+        "modes": ["in", "yo", "ryukyu"],
+        "keys": ["A", "D", "G", "C", "E"],
+        "swing": (0.00, 0.06),
+        "dust": (0.50, 0.85),
+        "wobble": (0.30, 0.60),
+        "templates": ["folk_drift", "river_loop", "festival"],
+        "melody_density": 0.38,
+        "pad_level": 0.12,
+        "drum_density": 0.45,
+        "lead_voice": "pluck",
+        "note_len": 1.9,
+    },
+    "wa-jazz": {
+        "label": "KISSATEN 82.9 — jazz cafe & smoke",
+        "tempo": (84, 104),
+        "modes": ["dorian", "mixolydian", "lydian"],
+        "keys": ["F", "Bb", "Eb", "G", "D"],
+        "swing": (0.08, 0.18),
+        "dust": (0.25, 0.50),
+        "wobble": (0.20, 0.45),
+        "templates": ["ii_V_I", "backdoor", "midnight_turnaround"],
+        "melody_density": 0.70,
+        "pad_level": 0.10,
+        "drum_density": 1.0,
+        "lead_voice": "vibes",
+        "note_len": 0.8,
     },
     "sunrise": {
         "label": "SUNRISE 101.3 — warm & weightless",
@@ -46,6 +93,11 @@ CHANNELS = {
         "swing": (0.00, 0.08),
         "dust": (0.15, 0.45),
         "wobble": (0.20, 0.50),
+        "melody_density": 0.42,
+        "pad_level": 0.24,
+        "drum_density": 1.0,
+        "lead_voice": "moog",
+        "note_len": 1.1,
         "templates": ["sunrise_climb", "backdoor", "ii_V_I"],
     },
 }
@@ -62,15 +114,23 @@ _PLACES = ["Ikebukuro", "Shimokitazawa", "Koenji", "Nakameguro",
 _WEATHER = ["Rain", "Wet Neon", "Umbrellas", "Puddles", "Steam",
             "Drizzle", "After the Rain", "Night Rain"]
 _TIMES = ["3AM", "Midnight", "Dusk", "Last Train", "First Light"]
+_FOLK_PLACES = ["Sado Island", "Aizu", "Shirakawa-go", "the Mogami River",
+                "the Rice Fields", "Mount Asama", "Hida", "the Old Village"]
+_FOLK_IMAGES = ["Harvest Moon", "Fireflies", "First Snow", "River Mist",
+                "Bamboo Wind", "Lanterns", "Cicadas", "Pine Smoke"]
+_FOLK_TIMES = ["Planting Season", "Festival Night", "Dusk", "First Light"]
 
 
-def generate_title(rng: SplitMix64) -> str:
+def generate_title(rng: SplitMix64, folk: bool = False) -> str:
+    places = _FOLK_PLACES if folk else _PLACES
+    images = _FOLK_IMAGES if folk else _WEATHER
+    times = _FOLK_TIMES if folk else _TIMES
     shape = rng.randint(0, 2)
     if shape == 0:
-        return f"{rng.choice(_WEATHER)} over {rng.choice(_PLACES)}"
+        return f"{rng.choice(images)} over {rng.choice(places)}"
     if shape == 1:
-        return f"{rng.choice(_TIMES)} in {rng.choice(_PLACES)}"
-    return f"{rng.choice(_PLACES)} {rng.choice(_WEATHER)}"
+        return f"{rng.choice(times)} in {rng.choice(places)}"
+    return f"{rng.choice(places)} {rng.choice(images)}"
 
 
 @dataclass
@@ -107,7 +167,7 @@ def generate_recipe(seed: int, channel: str) -> Recipe:
     cfg = CHANNELS[channel]
     rng = SplitMix64(seed)
 
-    title = generate_title(rng)
+    title = generate_title(rng, folk=(channel == "minyo"))
     tempo = rng.randint(*cfg["tempo"])
     key_root = rng.choice(cfg["keys"])
     mode = rng.choice(cfg["modes"])

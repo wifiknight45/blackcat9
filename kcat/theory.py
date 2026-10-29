@@ -55,6 +55,12 @@ SCALES = {
     "harmonic_minor": [0, 2, 3, 5, 7, 8, 11],
     "major_pentatonic": [0, 2, 4, 7, 9],
     "minor_pentatonic": [0, 3, 5, 7, 10],
+    # Japanese scales. "in" (miyako-bushi) is the sound of Sakura:
+    # semitones tucked against the 4th and 5th. "yo" is the open,
+    # festival folk scale; "ryukyu" is Okinawa's bright island scale.
+    "in": [0, 1, 5, 7, 8],
+    "yo": [0, 2, 5, 7, 9],
+    "ryukyu": [0, 4, 5, 7, 11],
 }
 
 
@@ -97,6 +103,12 @@ DEGREE_QUALITIES = {
                        5: "dom9", 6: "maj9", 7: "dom9"},
     "dorian": {1: "min11", 2: "min7", 3: "maj9", 4: "dom9",
                5: "min9", 6: "min7", 7: "maj9"},
+    # Pentatonic modes have five degrees. Folk harmony under a
+    # pentatonic melody is mostly drones and suspensions — these
+    # qualities keep the EP close to the scale without going bland.
+    "in": {1: "min7", 2: "7sus", 3: "min9", 4: "7sus", 5: "maj9"},
+    "yo": {1: "maj9", 2: "min7", 3: "7sus", 4: "maj7", 5: "min7"},
+    "ryukyu": {1: "maj9", 2: "maj7", 3: "7sus", 4: "maj7", 5: "dom7"},
 }
 
 ROMAN = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII"}
@@ -163,6 +175,10 @@ PROGRESSION_TEMPLATES = {
     "sunrise_climb": [1, 5, 6, 4],
     "backdoor": [1, 4, 7, 3],
     "midnight_turnaround": [1, 6, 2, 5],
+    # Pentatonic-safe templates (degrees <= 5) for the folk station.
+    "folk_drift": [1, 1, 4, 5],
+    "river_loop": [1, 3, 4, 1],
+    "festival": [1, 5, 4, 5],
 }
 
 # Transition weights for the random-walk composer: from any degree,
@@ -171,9 +187,11 @@ _WALK_WEIGHTS = [3, 1, 1, 2, 2, 2, 1]
 
 
 def walk_progression(rng: SplitMix64, mode: str, length: int = 4) -> list:
+    n_degrees = len(SCALES[mode])
     degrees = [1]
     while len(degrees) < length:
-        nxt = rng.weighted_choice([1, 2, 3, 4, 5, 6, 7], _WALK_WEIGHTS)
+        nxt = rng.weighted_choice(list(range(1, n_degrees + 1)),
+                                  _WALK_WEIGHTS[:n_degrees])
         if nxt == degrees[-1] and rng.chance(0.7):
             continue  # usually avoid immediate repeats
         degrees.append(nxt)
