@@ -164,7 +164,7 @@ export class Player {
     const master = makeMaster(ctx, recipe.dust);
     const fade = ctx.createGain();
     master.out.connect(fade);
-    fade.connect(ctx.destination);
+    fade.connect(options.output || ctx.destination);
     this._nodes = [master.input, fade];
 
     const t0 = ctx.currentTime + 0.06;

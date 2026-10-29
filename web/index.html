@@ -2,93 +2,340 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>blackcat9 — K-CAT 99.9 · recipe engine (S4 proof)</title>
+<title>blackcat9 — K-CAT 99.9 · ブラックキャット9</title>
 <style>
-  body { font-family: Georgia, serif; background: #17130e; color: #e8dcc3;
-         margin: 0; padding: 2rem 1rem; }
-  main { max-width: 640px; margin: 0 auto; }
-  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
-  .sub { color: #b8a888; margin-top: 0; }
-  form { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.25rem 0; }
-  input, select, button { font: inherit; padding: 0.4rem 0.6rem;
-    background: #241c12; color: #e8dcc3; border: 1px solid #6b5836;
-    border-radius: 4px; }
-  button { cursor: pointer; background: #6b5836; }
-  .card { border: 1px solid #6b5836; border-radius: 6px; padding: 1rem 1.25rem;
-          background: #1f1810; }
-  .title { font-size: 1.3rem; margin: 0.2rem 0; }
-  .meta { color: #b8a888; }
-  .chords { font-size: 1.1rem; letter-spacing: 0.02em; }
-  .note { color: #8a7c60; font-size: 0.9rem; margin-top: 1.5rem; }
-  details { margin-top: 1rem; }
-  pre { overflow-x: auto; font-size: 0.75rem; background: #120e08;
-        padding: 0.75rem; border-radius: 4px; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0e0805; font-family:"Helvetica Neue", Arial, sans-serif; overflow:hidden; }
+  .scene { position:relative; width:1280px; height:800px; margin:0 auto; overflow:hidden;
+    background: url('tex/wall.jpg') center/cover; }
+  .scene::before { content:""; position:absolute; inset:0; z-index:1;
+    background:
+      radial-gradient(520px 380px at 13% 22%, rgba(255,176,92,.30), transparent 62%),
+      radial-gradient(700px 460px at 24% 30%, rgba(255,170,80,.13), transparent 60%),
+      radial-gradient(1150px 720px at 58% 118%, rgba(70,35,100,.20), transparent 62%),
+      linear-gradient(rgba(16,9,4,.22), rgba(10,5,2,.40)); }
+  .scene::after { content:""; position:absolute; inset:0; z-index:40; pointer-events:none;
+    background: radial-gradient(120% 92% at 50% 42%, transparent 56%, rgba(0,0,0,.52)); }
+  .grain { position:absolute; inset:0; z-index:41; pointer-events:none; opacity:.05; mix-blend-mode:overlay; }
+  /* ---------- window: night, from ref-04 ---------- */
+  .winframe { position:absolute; left:540px; top:14px; z-index:2; padding:14px;
+    background: linear-gradient(#261b11, #180f08); border-radius:5px;
+    box-shadow: 0 26px 60px rgba(0,0,0,.65), inset 0 0 0 2px rgba(0,0,0,.35), inset 0 2px 3px rgba(255,220,170,.25); }
+  .winphoto { position:relative; width:700px; height:538px; overflow:hidden;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,.55), inset 0 0 44px rgba(0,0,0,.35); }
+  .winphoto img.city { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .winphoto .mullion { position:absolute; left:33.5%; top:0; width:11px; height:100%; z-index:5;
+    background: url('tex/wood.jpg') center/cover; box-shadow: 0 0 8px rgba(0,0,0,.6); }
+  #rain { position:absolute; inset:0; z-index:3; }
+  .winphoto .sheen { position:absolute; inset:0; z-index:4; pointer-events:none;
+    background:
+      radial-gradient(320px 200px at 88% 96%, rgba(56,207,255,.10), transparent 70%),
+      radial-gradient(300px 220px at 60% 6%, rgba(255,79,195,.08), transparent 65%),
+      linear-gradient(112deg, rgba(255,255,255,.08), transparent 40%); }
+  .sill { position:absolute; left:524px; top:584px; width:744px; height:19px; z-index:3;
+    background: linear-gradient(#2b1e12, #1a110a); border-radius:3px;
+    box-shadow: 0 14px 28px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,220,170,.3); }
+  .sill::after { content:""; position:absolute; inset:0;
+    background: linear-gradient(90deg, rgba(255,79,195,.10), transparent 30%, rgba(56,207,255,.12) 75%, transparent); }
+  .curtain { position:absolute; left:512px; top:8px; width:58px; height:584px; z-index:4;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.42), rgba(255,255,255,.07) 22%, rgba(0,0,0,.18) 45%, rgba(255,255,255,.06) 68%, rgba(0,0,0,.45)),
+      url('tex/floral.jpg') center/180px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.5); border-radius:0 0 6px 6px; }
+  .curtain::after { content:""; position:absolute; left:0; right:0; top:60%; height:15px;
+    background: linear-gradient(rgba(60,30,10,.55), rgba(60,30,10,.25)); }
+  /* ---------- flip clock ---------- */
+  .flipclock { position:absolute; left:36px; top:40px; z-index:3; padding:13px 14px 9px;
+    background: linear-gradient(#3b2a18, #241708 70%); border-radius:10px; transform: rotate(-.5deg);
+    box-shadow: 0 18px 36px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,220,170,.25), inset 0 -3px 6px rgba(0,0,0,.5); }
+  .flipclock .row { display:flex; align-items:center; gap:5px; }
+  .fcard { position:relative; width:37px; height:54px; border-radius:5px; perspective:120px;
+    background:#232328; box-shadow: inset 0 0 0 1px rgba(0,0,0,.8), inset 0 2px 3px rgba(255,255,255,.09), 0 2px 4px rgba(0,0,0,.45); }
+  .fcard .half { position:absolute; left:0; width:100%; height:27px; overflow:hidden;
+    font-family:"Helvetica Neue", Arial, sans-serif; font-weight:700; font-size:37px; color:#f2e8d5; }
+  .fcard .half span { display:block; width:100%; height:54px; line-height:54px; text-align:center; }
+  .fcard .top { top:0; border-radius:5px 5px 0 0; background:linear-gradient(#2e2e34, #26262c); }
+  .fcard .bottom { bottom:0; border-radius:0 0 5px 5px; background:linear-gradient(#202025, #26262c); }
+  .fcard .bottom span { margin-top:-27px; }
+  .fcard .flap { position:absolute; left:0; top:0; width:100%; height:27px; overflow:hidden; z-index:3;
+    border-radius:5px 5px 0 0; background:linear-gradient(#2e2e34, #26262c);
+    font-family:"Helvetica Neue", Arial, sans-serif; font-weight:700; font-size:37px; color:#f2e8d5;
+    transform-origin:50% 100%; display:none; }
+  .fcard .flap span { display:block; width:100%; height:54px; line-height:54px; text-align:center; }
+  .fcard .flap.down { display:block; animation: flipdown .28s ease-in forwards; }
+  .fcard .flapb { top:auto; bottom:0; border-radius:0 0 5px 5px; transform-origin:50% 0%;
+    background:linear-gradient(#202025, #26262c); }
+  .fcard .flapb span { margin-top:-27px; }
+  .fcard .flapb.down { display:block; animation: flipdown2 .28s ease-out forwards; }
+  @keyframes flipdown { from { transform: rotateX(0); } to { transform: rotateX(-90deg); } }
+  @keyframes flipdown2 { from { transform: rotateX(90deg); } to { transform: rotateX(0); } }
+  .fcard::after { content:""; position:absolute; left:0; right:0; top:50%; height:1.6px; margin-top:-0.8px;
+    background:rgba(0,0,0,.85); z-index:4; }
+  .fcard::before { content:""; position:absolute; left:2.5px; top:50%; width:4px; height:4px; margin-top:-2px;
+    border-radius:50%; background:#0c0c0e; box-shadow: 30px 0 0 #0c0c0e; z-index:5; }
+  .colon { display:flex; flex-direction:column; gap:9px; padding:0 1px; }
+  .colon i { width:6px; height:6px; border-radius:50%; background:#f2e8d5; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity:.25; } }
+  .ampm { align-self:flex-start; margin-top:2px; font-size:9px; font-weight:800; letter-spacing:.14em;
+    color:#ffb85e; text-shadow:0 0 6px rgba(255,160,60,.6); }
+  .flipclock .brandline { margin-top:7px; text-align:center; font-size:7.5px; font-weight:800;
+    letter-spacing:.34em; color:rgba(255,225,180,.55); }
+  /* ---------- desk + photo console ---------- */
+  .desk { position:absolute; left:8px; bottom:92px; width:872px; height:17px; z-index:5;
+    background: url('tex/wood.jpg') center/cover; border-radius:3px;
+    box-shadow: 0 18px 34px rgba(0,0,0,.65), inset 0 1px 2px rgba(255,220,170,.3); }
+  .deskshadow { position:absolute; left:40px; bottom:52px; width:800px; height:56px; z-index:4;
+    border-radius:50%; background: radial-gradient(closest-side, rgba(0,0,0,.5), transparent); filter: blur(7px); }
+  .realconsole { position:absolute; left:24px; bottom:104px; width:816px; z-index:6;
+    border-radius:7px; overflow:hidden; background:#14100b;
+    box-shadow: 0 26px 50px rgba(0,0,0,.6), 0 4px 0 rgba(0,0,0,.35), inset 0 0 0 2px rgba(0,0,0,.3); }
+  .realconsole img { display:block; width:100%; }
+  .realconsole img.keys { margin-top:-2px; }
+  .realconsole .shade { position:absolute; inset:0; pointer-events:none; z-index:4;
+    background: linear-gradient(rgba(255,190,110,.08), transparent 26%, transparent 78%, rgba(10,4,0,.22)),
+      radial-gradient(560px 200px at 50% -40px, rgba(255,180,100,.10), transparent 70%); }
+  .rail-display { position:absolute; left:6%; top:221px; width:42%; height:26px; z-index:5; z-index:3;
+    border-radius:4px; overflow:hidden; display:flex; align-items:center; gap:9px; padding:0 9px;
+    background: linear-gradient(#2b1a08,#3d240b 60%,#33200a); cursor:pointer;
+    box-shadow: inset 0 0 10px rgba(0,0,0,.9), inset 0 0 26px rgba(255,150,40,.16), inset 0 2px 4px rgba(0,0,0,.8), 0 1px 0 rgba(255,230,190,.28);
+    font-family:"Courier New",monospace; color:#ffb347; text-shadow:0 0 6px rgba(255,150,50,.75); }
+  .rail-display::after { content:""; position:absolute; inset:0; pointer-events:none;
+    background: linear-gradient(112deg, rgba(255,255,255,.06), transparent 36%); }
+  .rail-display .dfreq { font-size:14px; font-weight:700; letter-spacing:.04em; flex:none; }
+  .rail-display .ttl { font-size:10.5px; letter-spacing:.06em; white-space:nowrap; overflow:hidden; flex:1; }
+  .rail-display .ttl span { display:inline-block; animation: scrolltxt 14s linear infinite; }
+  @keyframes scrolltxt { 0%,18% { transform:translateX(0); } 82%,100% { transform:translateX(-46%); } }
+  /* ---------- on top ---------- */
+  .catshadow { position:absolute; left:112px; bottom:483px; z-index:6; width:300px; height:24px;
+    border-radius:50%; background: radial-gradient(closest-side, rgba(0,0,0,.5), transparent); filter: blur(3px); }
+  .cat { position:absolute; left:96px; bottom:471px; z-index:7; width:348px;
+    animation: breathe 4.6s ease-in-out infinite; transform-origin:50% 100%; cursor:pointer;
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,.35)); }
+  @keyframes breathe { 0%,100%{transform:scaleY(1);} 50%{transform:scaleY(1.02);} }
+  .cat svg { overflow:visible; display:block; }
+  .cat .tail { transform-origin:12% 88%; animation: tailflick 9s ease-in-out infinite; }
+  @keyframes tailflick { 0%,72%,100%{transform:rotate(0);} 78%{transform:rotate(-7deg);} 85%{transform:rotate(3deg);} }
+  .cat .ear { transform-origin:78% 30%; animation: ear 7s ease-in-out infinite; }
+  @keyframes ear { 0%,88%,100%{transform:rotate(0);} 92%{transform:rotate(-9deg);} 96%{transform:rotate(4deg);} }
+  .zzz { position:absolute; left:470px; bottom:664px; z-index:7; color:rgba(255,220,170,0);
+    font-family:Georgia,serif; font-style:italic; animation: zzz 6s ease-in-out infinite; }
+  @keyframes zzz { 0%,55%{opacity:0; transform:translateY(6px);} 75%{opacity:.65;} 100%{opacity:0; transform:translateY(-10px);} }
+  .ash { position:absolute; right:88px; bottom:296px; z-index:7; width:212px; }
+  .smoke { position:absolute; right:172px; bottom:340px; z-index:7; opacity:.65;
+    animation: drift 5.5s ease-in-out infinite alternate; }
+  @keyframes drift { from{transform:translateX(0);} to{transform:translateX(7px);} }
+  .smoke path { stroke-dasharray:7 9; animation: rise 3.8s linear infinite; }
+  @keyframes rise { to { stroke-dashoffset:-64; } }
+  .tapestack { position:absolute; left:872px; bottom:212px; z-index:7; }
+  .tapestack .tp { width:124px; height:16px; border-radius:3px; margin-top:3px; position:relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,.45), inset 0 0 0 1.5px rgba(255,255,255,.14); }
+  .tapestack .tp span { position:absolute; left:7px; top:3px; font-size:7.5px; font-weight:800;
+    letter-spacing:.12em; color:rgba(255,244,220,.92); }
+  /* ---------- floor ---------- */
+  .floor { position:absolute; left:0; right:0; bottom:0; height:118px; z-index:1;
+    background: repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 2px, transparent 2px 92px),
+      url('tex/wood.jpg') center/cover; filter: brightness(.32); }
+  .caption { position:absolute; left:0; right:0; bottom:14px; text-align:center; z-index:9;
+    color:rgba(255,225,180,.55); font-size:11px; letter-spacing:.34em; font-weight:700;
+    text-shadow: 0 1px 3px rgba(0,0,0,.8); }
+
+  /* ---------- v8: poster / clock / neon / maneki ---------- */
+  .poster { position:absolute; left:30px; top:26px; z-index:2; padding:7px; background:#150e08;
+    box-shadow: 0 16px 34px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,220,170,.12); }
+  .poster img { display:block; }
+  .neon { position:absolute; z-index:4; border-radius:50%; mix-blend-mode:screen;
+    pointer-events:none; filter: blur(6px); }
+  .n-pink { left:55%; top:1%; width:310px; height:200px;
+    background: radial-gradient(closest-side, rgba(255,63,165,.85), rgba(255,63,165,.22) 55%, transparent 72%); }
+  .n-cyan { left:65%; top:25%; width:255px; height:255px;
+    background: radial-gradient(closest-side, rgba(56,190,255,.8), rgba(56,190,255,.2) 55%, transparent 72%); }
+  .n-amber { left:5%; top:3%; width:235px; height:175px;
+    background: radial-gradient(closest-side, rgba(255,150,60,.7), rgba(255,150,60,.18) 55%, transparent 72%); }
+  .spill { position:absolute; z-index:3; pointer-events:none; mix-blend-mode:screen;
+    border-radius:50%; filter: blur(10px); }
+  .spill-p { right:-30px; top:400px; width:480px; height:300px;
+    background: radial-gradient(closest-side, rgba(255,63,165,.20), transparent 70%); }
+  .spill-c { right:120px; top:520px; width:360px; height:220px;
+    background: radial-gradient(closest-side, rgba(56,190,255,.14), transparent 70%); }
+  @keyframes nbreathe { from { opacity:.45; transform:scale(.96); } to { opacity:.95; transform:scale(1.05); } }
+  @keyframes ndrift { from { filter: blur(6px) hue-rotate(-14deg); } to { filter: blur(6px) hue-rotate(40deg); } }
+  @keyframes nflick { 0%,100% { opacity:.9; } 3% { opacity:.25; } 5% { opacity:.85; } 7% { opacity:.4; }
+    9% { opacity:.9; } 46% { opacity:.9; } 48% { opacity:.3; } 50% { opacity:.95; } 74% { opacity:.55; } 76% { opacity:.92; } }
+  .va .neon, .va .spill { animation: nbreathe 6s ease-in-out infinite alternate; }
+  .vb .neon, .vb .spill { animation: nbreathe 9s ease-in-out infinite alternate, ndrift 18s ease-in-out infinite alternate; }
+  .vc .n-pink, .vc .spill-p { animation: nflick 7s linear infinite; }
+  .vc .n-cyan, .vc .n-amber, .vc .spill-c { animation: nbreathe 4.5s ease-in-out infinite alternate; }
+  .clockwrap { position:absolute; z-index:8; }
+  .clockwrap img { width:100%; display:block; filter: drop-shadow(0 10px 14px rgba(0,0,0,.55)); }
+  .clockwrap::after { content:""; position:absolute; left:6%; right:6%; bottom:-7px; height:16px; z-index:-1;
+    border-radius:50%; background: radial-gradient(closest-side, rgba(0,0,0,.55), transparent); }
+  .wrap-floor { right:28px; bottom:16px; width:264px; }
+  .wrap-floor-lg { right:18px; bottom:10px; width:310px; }
+  .wrap-sill { right:56px; bottom:205px; width:180px; }
+  .beckon { transform-box: fill-box; transform-origin: 50% 88%;
+    animation: beckon 2.3s ease-in-out infinite alternate; }
+  @keyframes beckon { from { transform: rotate(7deg); } to { transform: rotate(-9deg); } }
 </style>
-</head>
+<style>
+.loaf{position:absolute;z-index:14;width:200px;left:618px;bottom:470px}
+.loafshadow{position:absolute;z-index:13;left:640px;bottom:463px;width:158px;height:13px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.5),rgba(0,0,0,0) 70%)}
+.loafglow{position:absolute;z-index:13;left:596px;bottom:450px;width:245px;height:175px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,176,92,.26),rgba(255,176,92,0) 65%);filter:blur(7px)}
+</style></head>
 <body>
-<main>
-  <h1>blackcat9 — K-CAT 99.9 📻🐈‍⬛</h1>
-  <p class="sub">ブラックキャット9 — the recipe engine, live in your browser.
-     Same seed, same song as the Python engine — bit for bit.</p>
+<div class="scene va">
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
 
-  <form id="controls">
-    <label>Seed <input id="seed" type="number" value="42" step="1"></label>
-    <label>Station
-      <select id="channel"></select>
-    </label>
-    <button type="submit">Tune in</button>
-  </form>
+  <!-- the window at night: from ref-04 -->
+  <div class="winframe">
+    <div class="winphoto">
+      <img class="city" src="tex/window-night2.jpg" alt="Neon Shinjuku at night">
+      <canvas id="rain" width="700" height="538"></canvas>
+      <div class="sheen"></div>
+      <div class="neon n-pink"></div>
+      <div class="neon n-cyan"></div>
+      <div class="neon n-amber"></div>
+      <div class="mullion"></div>
+    </div>
+  </div>
+  <div class="sill"></div>
+  <div class="spill spill-p"></div>
+  <div class="spill spill-c"></div>
 
-  <div class="card" id="card" hidden>
-    <div class="meta" id="station"></div>
-    <p class="title" id="title"></p>
-    <p class="meta" id="meta"></p>
-    <p class="chords" id="chords"></p>
-    <details>
-      <summary>Full recipe JSON (identical to Python)</summary>
-      <pre id="json"></pre>
-    </details>
+  <!-- psychedelic poster, top-left -->
+  <div class="poster" style="transform: rotate(-1.4deg);"><img src="tex/poster-fillmore.jpg" style="width:196px" alt="Jefferson Airplane at the Fillmore, 1966 - public domain"></div>
+  <div class="poster" style="left:246px; top:42px; transform: rotate(1.1deg);"><img src="tex/poster-mantra.jpg" style="width:172px" alt="Mantra-Rock Dance, Avalon Ballroom 1967 - CC BY-SA"></div>
+
+  <!-- desk + console -->
+  <div class="deskshadow"></div>
+  <div class="desk"></div>
+  <div class="realconsole">
+    <img class="panel" src="tex/panel-real.jpg" alt="Minimoog panel - real photograph, CC BY">
+    <img class="keys" src="tex/keybed-real.jpg" alt="Minimoog keybed - real photograph, CC BY">
+    <div class="rail-display" id="display" title="Click to change station">
+      <span class="dfreq" id="freq">99.9</span>
+      <span class="ttl"><span id="ttl">K-CAT · NOW PLAYING: SHIMOKITAZAWA UMBRELLAS · SEED 42 · DUST 88.5 · · · K-CAT · NOW PLAYING: SHIMOKITAZAWA UMBRELLAS · SEED 42 · DUST 88.5 · · ·</span></span>
+    </div>
+    <div class="shade"></div>
   </div>
 
-  <p class="note">S4 proof page: recipe generation only. The Moog console —
-     audio, the room, Nine the cat — arrives in S5.</p>
-</main>
+<div class="loafglow"></div>
+<div class="loafshadow"></div>
+<img class="loaf" src="nine/K10-loafback-black.png" alt="Nine, the black cat, asleep on the console">
+  <div class="cat" style="display:none"></div>
+  <!-- tapes on the sill -->
+  <div class="tapestack">
+    <div class="tp" style="background:#31456e; transform:rotate(-1.6deg);"><span>SEED 42 · DUST</span></div>
+    <div class="tp" style="background:#6e2f3a; transform:rotate(.8deg);"><span>SAKURA · MIN'YO</span></div>
+    <div class="tp" style="background:#2f5d50; transform:rotate(-.6deg);"><span>SEED 7 · JAZZ CAT</span></div>
+  </div>
 
-<script type="module">
-  import { CHANNELS, generate_recipe, stringifyRecipe } from "./js/recipes.js";
 
-  const channelSel = document.getElementById("channel");
-  for (const [slug, cfg] of Object.entries(CHANNELS)) {
-    const opt = document.createElement("option");
-    opt.value = slug;
-    opt.textContent = cfg.label;
-    channelSel.appendChild(opt);
-  }
-  channelSel.value = "dusty";
+  <div class="clockwrap wrap-floor" style="width:198px; right:70px; bottom:12px;"><img src="tex/clock-seiko-pedestal.png" alt="1970s Seiko pedestal flip clock, head-on - auction photo, placeholder"></div>
+  <div class="floor"></div>
+  
+</div>
 
-  function render() {
-    const seed = parseInt(document.getElementById("seed").value, 10) || 0;
-    const channel = channelSel.value;
-    const recipe = generate_recipe(seed, channel);
-    document.getElementById("station").textContent = CHANNELS[channel].label;
-    document.getElementById("title").textContent =
-      "\u201C" + recipe.title + "\u201D";
-    document.getElementById("meta").textContent =
-      `${recipe.tempo_bpm} BPM · ${recipe.key_root} ${recipe.mode} · ` +
-      `${recipe.bars} bars · swing ${recipe.swing} · dust ${recipe.dust}` +
-      (recipe.tune ? ` · tune: ${recipe.tune}` : "");
-    document.getElementById("chords").textContent =
-      recipe.progression.chords.map((c) => c.symbol).join("  ·  ");
-    document.getElementById("json").textContent = stringifyRecipe(recipe);
-    document.getElementById("card").hidden = false;
-  }
+<script>
+  const cv = document.getElementById('rain'), ctx = cv.getContext('2d');
+  const drops = Array.from({length: 150}, () => ({
+    x: Math.random()*cv.width, y: Math.random()*cv.height,
+    l: 8 + Math.random()*15, s: 4.5 + Math.random()*7.5, o: .10 + Math.random()*.34 }));
+  const trails = Array.from({length: 15}, () => ({
+    x: Math.random()*cv.width, y: Math.random()*cv.height,
+    s: .3 + Math.random()*.8, r: 1 + Math.random()*1.5 }));
+  (function frame() {
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.lineWidth = 1.1; ctx.lineCap = 'round';
+    for (const d of drops) {
+      ctx.strokeStyle = `rgba(190,215,255,${d.o})`;
+      ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - 2, d.y + d.l); ctx.stroke();
+      d.y += d.s; d.x -= .6;
+      if (d.y > cv.height) { d.y = -20; d.x = Math.random()*cv.width; }
+    }
+    for (const t of trails) {
+      ctx.fillStyle = 'rgba(200,225,255,.5)';
+      ctx.beginPath(); ctx.arc(t.x, t.y, t.r, 0, 7); ctx.fill();
+      t.y += t.s; t.x += Math.sin(t.y * .05) * .3;
+      if (t.y > cv.height) { t.y = -4; t.x = Math.random()*cv.width; }
+    }
+    requestAnimationFrame(frame);
+  })();
 
-  document.getElementById("controls").addEventListener("submit", (e) => {
-    e.preventDefault();
-    render();
-  });
-  render();
 </script>
+
+<div id="controlbox">
+  <div class="cb-group">
+    <div id="power" class="rocker" title="Power — the tubes need a moment"><div class="rocker-cap"></div><div class="rocker-dot"></div></div>
+    <div class="cb-label">POWER</div>
+  </div>
+  <canvas id="vu" width="168" height="88" title="Output level"></canvas>
+  <div class="cb-group">
+    <div class="knob" id="kTune"><div class="knob-cap"><i></i></div></div>
+    <div class="cb-label">TUNING</div>
+    <div class="detents"><span>ALL</span><span>76.2</span><span>82.9</span><span>88.5</span><span>94.7</span><span>101.3</span></div>
+  </div>
+  <div class="cb-group">
+    <div class="knob" id="kVol"><div class="knob-cap"><i></i></div></div>
+    <div class="cb-label">VOLUME</div>
+  </div>
+  <div class="cb-group">
+    <div class="knob" id="kBass"><div class="knob-cap"><i></i></div></div>
+    <div class="cb-label">BASS</div>
+  </div>
+  <div class="cb-group">
+    <div class="knob" id="kTreble"><div class="knob-cap"><i></i></div></div>
+    <div class="cb-label">TREBLE</div>
+  </div>
+  <div class="cb-group">
+    <button id="recBtn" title="Record the current track to a tape">●</button>
+    <div class="cb-label">REC</div>
+  </div>
+  <div class="cb-group">
+    <button id="rackBtn" title="Your tape rack">TAPES</button>
+    <div class="cb-label">RACK</div>
+  </div>
+</div>
+<div id="rack" class="hidden">
+  <div class="rack-head"><span>TAPE RACK</span><span id="rackSession"></span><button id="rackClose" title="Close">✕</button></div>
+  <div id="tapeList"></div>
+  <div class="rack-note">A tape is a recipe — same seed, same song, re-rendered on play. REC saves the master WAV render. Playing a tape pauses the radio; it resumes when the tape ends.</div>
+  <div class="rack-note">Console: Minimoog photo, Buffalo Museum of Science (CC BY 2.0) via Wikimedia Commons. Posters: Jefferson Airplane, Fillmore 1966 (public domain); Mantra-Rock Dance 1967 (CC BY-SA 3.0). Nine after Utagawa Kuniyoshi (public domain). Clock photo is a placeholder, swapped before launch.</div>
+</div>
+<style>
+#controlbox{position:absolute;left:24px;bottom:10px;width:816px;height:88px;z-index:20;background:url(tex/wood.jpg) center/cover;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,220,160,.35),inset 0 -8px 18px rgba(0,0,0,.55),0 6px 14px rgba(0,0,0,.5);display:flex;align-items:center;gap:20px;padding:0 20px;box-sizing:border-box}
+.cb-group{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:54px}
+.cb-label{color:#f3e2b8;font:600 9px/1 sans-serif;letter-spacing:.18em;text-shadow:0 1px 2px #000}
+.rocker{width:34px;height:52px;border-radius:5px;background:linear-gradient(180deg,#3a332a,#17130e);box-shadow:inset 0 1px 3px rgba(255,255,255,.25),0 2px 5px rgba(0,0,0,.6);position:relative;cursor:pointer}
+.rocker-cap{position:absolute;left:3px;right:3px;top:3px;height:24px;border-radius:3px;background:linear-gradient(180deg,#575046,#2c261e);transition:top .12s ease,background .12s ease}
+.rocker.on .rocker-cap{top:25px;background:linear-gradient(180deg,#8a6a34,#5d4520)}
+.rocker-dot{position:absolute;left:50%;bottom:5px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3d2c14}
+.rocker.on .rocker-dot{background:#ffb347;box-shadow:0 0 7px #ffb347}
+.knob{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#5a5148,#241d15 68%,#0f0b07);box-shadow:0 3px 7px rgba(0,0,0,.65),inset 0 1px 2px rgba(255,255,255,.28);cursor:ns-resize;position:relative;touch-action:none}
+.knob-cap{position:absolute;inset:0;pointer-events:none}
+.knob-cap i{position:absolute;left:50%;top:4px;width:3px;height:17px;margin-left:-1.5px;border-radius:2px;background:#f3e2b8;box-shadow:0 0 3px rgba(0,0,0,.6)}
+.detents{display:flex;gap:5px;color:#d8c491;font:7.5px sans-serif;letter-spacing:.02em;text-shadow:0 1px 2px #000}
+#vu{border-radius:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55),0 2px 5px rgba(0,0,0,.5);background:#e9dab0}
+#recBtn{width:42px;height:42px;border-radius:50%;border:1px solid #2a0f0c;background:radial-gradient(circle at 35% 30%,#a03a30,#5d1710 70%);color:#ffd9c9;font-size:17px;cursor:pointer;box-shadow:0 3px 7px rgba(0,0,0,.6)}
+#recBtn.recording{animation:recpulse 1s ease-in-out infinite}
+@keyframes recpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,80,60,.55)}50%{box-shadow:0 0 0 9px rgba(255,80,60,0)}}
+#recBtn:disabled{opacity:.45;cursor:wait}
+#rackBtn{padding:9px 10px;border-radius:5px;border:1px solid #0f0b07;background:linear-gradient(180deg,#575046,#2c261e);color:#f3e2b8;font:600 10px sans-serif;letter-spacing:.12em;cursor:pointer;box-shadow:0 3px 7px rgba(0,0,0,.6)}
+#rack{position:absolute;right:16px;top:60px;width:348px;max-height:600px;overflow:auto;z-index:30;background:rgba(22,15,8,.97);border:1px solid #a5763a;border-radius:9px;padding:13px 15px;color:#e8dcc3;font-family:Georgia,serif;box-shadow:0 12px 32px rgba(0,0,0,.65)}
+#rack.hidden{display:none}
+.rack-head{display:flex;justify-content:space-between;align-items:center;font-weight:bold;letter-spacing:.08em;margin-bottom:9px}
+#rackSession{font-weight:normal;font-size:11px;color:#b8a888}
+#rackClose{background:none;border:1px solid #6b5836;border-radius:4px;color:#e8dcc3;cursor:pointer;padding:2px 8px}
+.tape{border-top:1px solid #46351d;padding:8px 0}
+.tape .tt{font-size:14.5px}
+.tape .tm{font-size:11px;color:#b8a888;margin:2px 0 6px}
+.tape button{background:#6b5836;color:#fff;border:0;border-radius:4px;padding:3px 10px;cursor:pointer;margin-right:6px;font-size:12px}
+.tape button.del{background:#4a2c22}
+.rack-note{font-size:11px;color:#8a7c60;margin-top:10px;line-height:1.45}
+.tape-empty{color:#b8a888;font-size:13px;padding:8px 0}
+#display.off{filter:brightness(.32) saturate(.4)}
+#display.warming{animation:dipflick .45s steps(2) 3}
+@keyframes dipflick{0%{filter:brightness(.3)}55%{filter:brightness(1.25)}100%{filter:brightness(.85)}}
+</style>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
