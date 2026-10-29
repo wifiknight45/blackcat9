@@ -2,11 +2,12 @@
   "name": "blackcat9-web",
   "private": true,
   "type": "module",
-  "description": "Dev tooling only — the console itself has no build step and ships as plain files.",
+  "description": "Dev tooling only \u2014 the console itself has no build step and ships as plain files.",
   "scripts": {
     "lint": "eslint js test",
     "check": "for f in js/*.js test/*.mjs; do node --check \"$f\" || exit 1; done",
-    "test": "node --test test/radio.test.mjs test/wav.test.mjs test/compose.test.mjs && node test/parity.mjs"
+    "test": "node --test test/radio.test.mjs test/wav.test.mjs test/compose.test.mjs && node test/parity.mjs",
+    "fuzz": "node test/fuzz.mjs"
   },
   "devDependencies": {
     "eslint": "^9.39.1",
