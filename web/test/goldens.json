@@ -1,0 +1,4887 @@
+{
+  "entries": [
+    {
+      "channel": "dusty",
+      "seed": 0,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.9315,\n  \"key_root\": \"C\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          60,\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          0,\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmin11\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"III\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          52,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"VI\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin7\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          51,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          3,\n          7\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"IV\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fdom9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      6,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 0,\n  \"swing\": 0.2009,\n  \"tempo_bpm\": 84,\n  \"title\": \"Asakusa Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.4983\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.9315,
+        "key_root": "C",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                60,
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                0,
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmin11"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "III",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                52,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min7",
+              "roman": "VI",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin7"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                51,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                3,
+                7
+              ],
+              "quality": "dom9",
+              "roman": "IV",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fdom9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            6,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 0,
+        "swing": 0.2009,
+        "tempo_bpm": 84,
+        "title": "Asakusa Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.4983
+      }
+    },
+    {
+      "channel": "dusty",
+      "seed": 1,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.8569,\n  \"key_root\": \"F\",\n  \"mode\": \"harmonic_minor\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          51,\n          53,\n          56,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"III\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmaj9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          58,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          10,\n          2\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"V\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cdom9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"IV\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      5,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 1,\n  \"swing\": 0.2853,\n  \"tempo_bpm\": 75,\n  \"title\": \"Last Train in Yanaka\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.5142\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.8569,
+        "key_root": "F",
+        "mode": "harmonic_minor",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                51,
+                53,
+                56,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7
+              ],
+              "quality": "min9",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "maj9",
+              "roman": "III",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmaj9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                58,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                10,
+                2
+              ],
+              "quality": "dom9",
+              "roman": "V",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cdom9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "IV",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            5,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 1,
+        "swing": 0.2853,
+        "tempo_bpm": 75,
+        "title": "Last Train in Yanaka",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.5142
+      }
+    },
+    {
+      "channel": "dusty",
+      "seed": 7,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.7984,\n  \"key_root\": \"F\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          53,\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin11\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          57,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"VI\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmin7\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"III\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmaj9\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VII\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      6,\n      3,\n      7\n    ],\n    \"source\": \"template:lofi_minor_loop\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 7,\n  \"swing\": 0.2362,\n  \"tempo_bpm\": 77,\n  \"title\": \"3AM in Sangenjaya\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.4537\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.7984,
+        "key_root": "F",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                53,
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin11"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                57,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "min7",
+              "roman": "VI",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmin7"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "maj9",
+              "roman": "III",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmaj9"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "VII",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            6,
+            3,
+            7
+          ],
+          "source": "template:lofi_minor_loop"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 7,
+        "swing": 0.2362,
+        "tempo_bpm": 77,
+        "title": "3AM in Sangenjaya",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.4537
+      }
+    },
+    {
+      "channel": "dusty",
+      "seed": 9,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.9951,\n  \"key_root\": \"Eb\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          65,\n          66,\n          70,\n          73,\n          80\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin11\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          65,\n          66,\n          70,\n          73,\n          80\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin11\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          60,\n          61,\n          65,\n          68,\n          75\n        ],\n        \"pcs\": [\n          1,\n          5,\n          8,\n          0,\n          3\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VII\",\n        \"root\": \"Db\",\n        \"root_pc\": 1,\n        \"symbol\": \"Dbmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      1,\n      7\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 9,\n  \"swing\": 0.2575,\n  \"tempo_bpm\": 81,\n  \"title\": \"Daikanyama Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.4876\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.9951,
+        "key_root": "Eb",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                65,
+                66,
+                70,
+                73,
+                80
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin11"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                65,
+                66,
+                70,
+                73,
+                80
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin11"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                60,
+                61,
+                65,
+                68,
+                75
+              ],
+              "pcs": [
+                1,
+                5,
+                8,
+                0,
+                3
+              ],
+              "quality": "maj9",
+              "roman": "VII",
+              "root": "Db",
+              "root_pc": 1,
+              "symbol": "Dbmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            1,
+            7
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "bridge",
+          "verse",
+          "outro"
+        ],
+        "seed": 9,
+        "swing": 0.2575,
+        "tempo_bpm": 81,
+        "title": "Daikanyama Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.4876
+      }
+    },
+    {
+      "channel": "dusty",
+      "seed": 42,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.9402,\n  \"key_root\": \"C\",\n  \"mode\": \"harmonic_minor\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          58,\n          60,\n          63,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          3,\n          7,\n          10,\n          2\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmin9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VI\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"III\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          57,\n          59,\n          63,\n          66,\n          73\n        ],\n        \"pcs\": [\n          11,\n          3,\n          6,\n          9,\n          1\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"VII\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"Bdom9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      6,\n      3,\n      7\n    ],\n    \"source\": \"template:lofi_minor_loop\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.2062,\n  \"tempo_bpm\": 73,\n  \"title\": \"Shimokitazawa Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.536\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.9402,
+        "key_root": "C",
+        "mode": "harmonic_minor",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                58,
+                60,
+                63,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                3,
+                7,
+                10,
+                2
+              ],
+              "quality": "min9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmin9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "maj9",
+              "roman": "VI",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "III",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                57,
+                59,
+                63,
+                66,
+                73
+              ],
+              "pcs": [
+                11,
+                3,
+                6,
+                9,
+                1
+              ],
+              "quality": "dom9",
+              "roman": "VII",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "Bdom9"
+            }
+          ],
+          "degrees": [
+            1,
+            6,
+            3,
+            7
+          ],
+          "source": "template:lofi_minor_loop"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.2062,
+        "tempo_bpm": 73,
+        "title": "Shimokitazawa Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.536
+      }
+    },
+    {
+      "channel": "dusty",
+      "seed": 123,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.8447,\n  \"key_root\": \"Bb\",\n  \"mode\": \"harmonic_minor\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"I\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          53,\n          54,\n          58,\n          61,\n          68\n        ],\n        \"pcs\": [\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VI\",\n        \"root\": \"Gb\",\n        \"root_pc\": 6,\n        \"symbol\": \"Gbmaj9\"\n      },\n      {\n        \"degree\": 2,\n        \"notes\": [\n          55,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"II\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          51,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          3,\n          7\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"V\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fdom9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      6,\n      2,\n      5\n    ],\n    \"source\": \"template:midnight_turnaround\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 123,\n  \"swing\": 0.3,\n  \"tempo_bpm\": 79,\n  \"title\": \"Yanaka After the Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.6479\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.8447,
+        "key_root": "Bb",
+        "mode": "harmonic_minor",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "I",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                53,
+                54,
+                58,
+                61,
+                68
+              ],
+              "pcs": [
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "maj9",
+              "roman": "VI",
+              "root": "Gb",
+              "root_pc": 6,
+              "symbol": "Gbmaj9"
+            },
+            {
+              "degree": 2,
+              "notes": [
+                55,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min7",
+              "roman": "II",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                51,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                3,
+                7
+              ],
+              "quality": "dom9",
+              "roman": "V",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fdom9"
+            }
+          ],
+          "degrees": [
+            1,
+            6,
+            2,
+            5
+          ],
+          "source": "template:midnight_turnaround"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 123,
+        "swing": 0.3,
+        "tempo_bpm": 79,
+        "title": "Yanaka After the Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.6479
+      }
+    },
+    {
+      "channel": "dusty",
+      "seed": 2024,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"dusty\",\n  \"dust\": 0.8789,\n  \"key_root\": \"Bb\",\n  \"mode\": \"natural_minor\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"I\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"I\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          61,\n          63,\n          66,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"IV\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          61,\n          63,\n          66,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"IV\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      1,\n      4,\n      4\n    ],\n    \"source\": \"template:sad_city_vamp\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 2024,\n  \"swing\": 0.1964,\n  \"tempo_bpm\": 69,\n  \"title\": \"3AM in Nakameguro\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.4675\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "dusty",
+        "dust": 0.8789,
+        "key_root": "Bb",
+        "mode": "natural_minor",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "I",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "I",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                61,
+                63,
+                66,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5
+              ],
+              "quality": "min9",
+              "roman": "IV",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                61,
+                63,
+                66,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5
+              ],
+              "quality": "min9",
+              "roman": "IV",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin9"
+            }
+          ],
+          "degrees": [
+            1,
+            1,
+            4,
+            4
+          ],
+          "source": "template:sad_city_vamp"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 2024,
+        "swing": 0.1964,
+        "tempo_bpm": 69,
+        "title": "3AM in Nakameguro",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.4675
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 0,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.7086,\n  \"key_root\": \"D\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          62,\n          64,\n          65,\n          69,\n          72,\n          79\n        ],\n        \"pcs\": [\n          2,\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmin11\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"III\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          54,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"VI\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"Bmin7\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          53,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          5,\n          9\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"IV\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gdom9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      6,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 0,\n  \"swing\": 0.1209,\n  \"tempo_bpm\": 90,\n  \"title\": \"Asakusa Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.3737\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.7086,
+        "key_root": "D",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                62,
+                64,
+                65,
+                69,
+                72,
+                79
+              ],
+              "pcs": [
+                2,
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmin11"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "III",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                54,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "min7",
+              "roman": "VI",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "Bmin7"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                53,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                5,
+                9
+              ],
+              "quality": "dom9",
+              "roman": "IV",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gdom9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            6,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 0,
+        "swing": 0.1209,
+        "tempo_bpm": 90,
+        "title": "Asakusa Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.3737
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 1,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.6092,\n  \"key_root\": \"Eb\",\n  \"mode\": \"mixolydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          61,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          1,\n          5\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebdom9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          50,\n          55,\n          58,\n          65\n        ],\n        \"pcs\": [\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          53,\n          58,\n          61,\n          68\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin7\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"IV\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      5,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 1,\n  \"swing\": 0.2053,\n  \"tempo_bpm\": 80,\n  \"title\": \"Last Train in Yanaka\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.3857\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.6092,
+        "key_root": "Eb",
+        "mode": "mixolydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                61,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                1,
+                5
+              ],
+              "quality": "dom9",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebdom9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                50,
+                55,
+                58,
+                65
+              ],
+              "pcs": [
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                53,
+                58,
+                61,
+                68
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min7",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin7"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "maj9",
+              "roman": "IV",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            5,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 1,
+        "swing": 0.2053,
+        "tempo_bpm": 80,
+        "title": "Last Train in Yanaka",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.3857
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 7,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.5312,\n  \"key_root\": \"Eb\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 2,\n        \"notes\": [\n          48,\n          53,\n          56,\n          63\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"II\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          65,\n          66,\n          70,\n          73,\n          80\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin11\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          65,\n          66,\n          70,\n          73,\n          80\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin11\"\n      }\n    ],\n    \"degrees\": [\n      2,\n      5,\n      1,\n      1\n    ],\n    \"source\": \"template:ii_V_I\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 7,\n  \"swing\": 0.1562,\n  \"tempo_bpm\": 83,\n  \"title\": \"3AM in Sangenjaya\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.3403\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.5312,
+        "key_root": "Eb",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 2,
+              "notes": [
+                48,
+                53,
+                56,
+                63
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3
+              ],
+              "quality": "min7",
+              "roman": "II",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                65,
+                66,
+                70,
+                73,
+                80
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin11"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                65,
+                66,
+                70,
+                73,
+                80
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin11"
+            }
+          ],
+          "degrees": [
+            2,
+            5,
+            1,
+            1
+          ],
+          "source": "template:ii_V_I"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 7,
+        "swing": 0.1562,
+        "tempo_bpm": 83,
+        "title": "3AM in Sangenjaya",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.3403
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 9,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.7934,\n  \"key_root\": \"F\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          53,\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin11\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          58,\n          60,\n          63,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          3,\n          7,\n          10,\n          2\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"V\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmin9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          53,\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin11\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VII\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      1,\n      7\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 9,\n  \"swing\": 0.1775,\n  \"tempo_bpm\": 86,\n  \"title\": \"Daikanyama Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.3657\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.7934,
+        "key_root": "F",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                53,
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin11"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                58,
+                60,
+                63,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                3,
+                7,
+                10,
+                2
+              ],
+              "quality": "min9",
+              "roman": "V",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmin9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                53,
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin11"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "VII",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            1,
+            7
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "bridge",
+          "verse",
+          "outro"
+        ],
+        "seed": 9,
+        "swing": 0.1775,
+        "tempo_bpm": 86,
+        "title": "Daikanyama Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.3657
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 42,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.7203,\n  \"key_root\": \"D\",\n  \"mode\": \"mixolydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 2,\n        \"notes\": [\n          59,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"II\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          52,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"V\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin7\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          60,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          0,\n          4\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Ddom9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          60,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          0,\n          4\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Ddom9\"\n      }\n    ],\n    \"degrees\": [\n      2,\n      5,\n      1,\n      1\n    ],\n    \"source\": \"template:ii_V_I\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.1262,\n  \"tempo_bpm\": 78,\n  \"title\": \"Shimokitazawa Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.402\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.7203,
+        "key_root": "D",
+        "mode": "mixolydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 2,
+              "notes": [
+                59,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "min7",
+              "roman": "II",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                52,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min7",
+              "roman": "V",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin7"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                60,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                0,
+                4
+              ],
+              "quality": "dom9",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Ddom9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                60,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                0,
+                4
+              ],
+              "quality": "dom9",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Ddom9"
+            }
+          ],
+          "degrees": [
+            2,
+            5,
+            1,
+            1
+          ],
+          "source": "template:ii_V_I"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.1262,
+        "tempo_bpm": 78,
+        "title": "Shimokitazawa Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.402
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 123,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.5929,\n  \"key_root\": \"C\",\n  \"mode\": \"mixolydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          58,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          10,\n          2\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cdom9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"IV\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          57,\n          58,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VII\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          59,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      4,\n      7,\n      3\n    ],\n    \"source\": \"template:backdoor\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 123,\n  \"swing\": 0.22,\n  \"tempo_bpm\": 85,\n  \"title\": \"Yanaka After the Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.486\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.5929,
+        "key_root": "C",
+        "mode": "mixolydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                58,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                10,
+                2
+              ],
+              "quality": "dom9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cdom9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "IV",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                57,
+                58,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "maj9",
+              "roman": "VII",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                59,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin7"
+            }
+          ],
+          "degrees": [
+            1,
+            4,
+            7,
+            3
+          ],
+          "source": "template:backdoor"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 123,
+        "swing": 0.22,
+        "tempo_bpm": 85,
+        "title": "Yanaka After the Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.486
+      }
+    },
+    {
+      "channel": "jazz-cat",
+      "seed": 2024,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"jazz-cat\",\n  \"dust\": 0.6385,\n  \"key_root\": \"C\",\n  \"mode\": \"major\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          55,\n          57,\n          60,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"VI\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin9\"\n      },\n      {\n        \"degree\": 2,\n        \"notes\": [\n          60,\n          62,\n          65,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          5,\n          9,\n          0,\n          4\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"II\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmin9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          53,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          5,\n          9\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"V\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gdom9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      6,\n      2,\n      5\n    ],\n    \"source\": \"template:midnight_turnaround\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 2024,\n  \"swing\": 0.1164,\n  \"tempo_bpm\": 74,\n  \"title\": \"3AM in Nakameguro\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.3507\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "jazz-cat",
+        "dust": 0.6385,
+        "key_root": "C",
+        "mode": "major",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                55,
+                57,
+                60,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7,
+                11
+              ],
+              "quality": "min9",
+              "roman": "VI",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin9"
+            },
+            {
+              "degree": 2,
+              "notes": [
+                60,
+                62,
+                65,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                5,
+                9,
+                0,
+                4
+              ],
+              "quality": "min9",
+              "roman": "II",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmin9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                53,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                5,
+                9
+              ],
+              "quality": "dom9",
+              "roman": "V",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gdom9"
+            }
+          ],
+          "degrees": [
+            1,
+            6,
+            2,
+            5
+          ],
+          "source": "template:midnight_turnaround"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 2024,
+        "swing": 0.1164,
+        "tempo_bpm": 74,
+        "title": "3AM in Nakameguro",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.3507
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 0,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.3815,\n  \"key_root\": \"C\",\n  \"mode\": \"major\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          59,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin7\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          55,\n          57,\n          60,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"VI\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"IV\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      6,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 0,\n  \"swing\": 0.0139,\n  \"tempo_bpm\": 100,\n  \"title\": \"Asakusa Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2737\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.3815,
+        "key_root": "C",
+        "mode": "major",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                59,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin7"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                55,
+                57,
+                60,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7,
+                11
+              ],
+              "quality": "min9",
+              "roman": "VI",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "IV",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            6,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 0,
+        "swing": 0.0139,
+        "tempo_bpm": 100,
+        "title": "Asakusa Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2737
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 1,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.3069,\n  \"key_root\": \"F\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          52,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          54,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"IV\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"Bmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      5,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 1,\n  \"swing\": 0.0702,\n  \"tempo_bpm\": 89,\n  \"title\": \"Last Train in Yanaka\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2857\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.3069,
+        "key_root": "F",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                52,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                54,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "min7",
+              "roman": "IV",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "Bmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            5,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 1,
+        "swing": 0.0702,
+        "tempo_bpm": 89,
+        "title": "Last Train in Yanaka",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2857
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 7,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.2484,\n  \"key_root\": \"F\",\n  \"mode\": \"major\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          58,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          10,\n          2\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"V\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cdom9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          60,\n          62,\n          65,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          5,\n          9,\n          0,\n          4\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"VI\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          57,\n          58,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"IV\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      6,\n      4\n    ],\n    \"source\": \"template:sunrise_climb\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 7,\n  \"swing\": 0.0374,\n  \"tempo_bpm\": 92,\n  \"title\": \"3AM in Sangenjaya\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2403\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.2484,
+        "key_root": "F",
+        "mode": "major",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                58,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                10,
+                2
+              ],
+              "quality": "dom9",
+              "roman": "V",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cdom9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                60,
+                62,
+                65,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                5,
+                9,
+                0,
+                4
+              ],
+              "quality": "min9",
+              "roman": "VI",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                57,
+                58,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "maj9",
+              "roman": "IV",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            6,
+            4
+          ],
+          "source": "template:sunrise_climb"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 7,
+        "swing": 0.0374,
+        "tempo_bpm": 92,
+        "title": "3AM in Sangenjaya",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2403
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 9,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.4451,\n  \"key_root\": \"D\",\n  \"mode\": \"major\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          61,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmaj9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          55,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"V\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Adom9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          61,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmaj9\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          56,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"VII\",\n        \"root\": \"Db\",\n        \"root_pc\": 1,\n        \"symbol\": \"Dbmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      1,\n      7\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 9,\n  \"swing\": 0.0517,\n  \"tempo_bpm\": 96,\n  \"title\": \"Daikanyama Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2657\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.4451,
+        "key_root": "D",
+        "mode": "major",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                61,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmaj9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                55,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                7,
+                11
+              ],
+              "quality": "dom9",
+              "roman": "V",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Adom9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                61,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmaj9"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                56,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "min7",
+              "roman": "VII",
+              "root": "Db",
+              "root_pc": 1,
+              "symbol": "Dbmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            1,
+            7
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "bridge",
+          "verse",
+          "outro"
+        ],
+        "seed": 9,
+        "swing": 0.0517,
+        "tempo_bpm": 96,
+        "title": "Daikanyama Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2657
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 42,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.3902,\n  \"key_root\": \"C\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          55,\n          57,\n          60,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"VI\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          49,\n          54,\n          57,\n          64\n        ],\n        \"pcs\": [\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"IV\",\n        \"root\": \"Gb\",\n        \"root_pc\": 6,\n        \"symbol\": \"Gbmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      6,\n      4\n    ],\n    \"source\": \"template:sunrise_climb\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.0175,\n  \"tempo_bpm\": 87,\n  \"title\": \"Shimokitazawa Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.302\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.3902,
+        "key_root": "C",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                55,
+                57,
+                60,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7,
+                11
+              ],
+              "quality": "min9",
+              "roman": "VI",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                49,
+                54,
+                57,
+                64
+              ],
+              "pcs": [
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "min7",
+              "roman": "IV",
+              "root": "Gb",
+              "root_pc": 6,
+              "symbol": "Gbmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            6,
+            4
+          ],
+          "source": "template:sunrise_climb"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.0175,
+        "tempo_bpm": 87,
+        "title": "Shimokitazawa Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.302
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 123,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.2947,\n  \"key_root\": \"G\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 2,\n        \"notes\": [\n          55,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"II\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Adom9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          61,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      }\n    ],\n    \"degrees\": [\n      2,\n      5,\n      1,\n      1\n    ],\n    \"source\": \"template:ii_V_I\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 123,\n  \"swing\": 0.08,\n  \"tempo_bpm\": 94,\n  \"title\": \"Yanaka After the Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.386\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.2947,
+        "key_root": "G",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 2,
+              "notes": [
+                55,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                7,
+                11
+              ],
+              "quality": "dom9",
+              "roman": "II",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Adom9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                61,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            }
+          ],
+          "degrees": [
+            2,
+            5,
+            1,
+            1
+          ],
+          "source": "template:ii_V_I"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 123,
+        "swing": 0.08,
+        "tempo_bpm": 94,
+        "title": "Yanaka After the Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.386
+      }
+    },
+    {
+      "channel": "sunrise",
+      "seed": 2024,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"sunrise\",\n  \"dust\": 0.3289,\n  \"key_root\": \"A\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          58,\n          63,\n          66,\n          73\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"IV\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin7\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          51,\n          56,\n          59,\n          66\n        ],\n        \"pcs\": [\n          8,\n          11,\n          3,\n          6\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"VII\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmin7\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          56,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"Db\",\n        \"root_pc\": 1,\n        \"symbol\": \"Dbmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      4,\n      7,\n      3\n    ],\n    \"source\": \"template:backdoor\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 2024,\n  \"swing\": 0.0109,\n  \"tempo_bpm\": 82,\n  \"title\": \"3AM in Nakameguro\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2507\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "sunrise",
+        "dust": 0.3289,
+        "key_root": "A",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                58,
+                63,
+                66,
+                73
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1
+              ],
+              "quality": "min7",
+              "roman": "IV",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin7"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                51,
+                56,
+                59,
+                66
+              ],
+              "pcs": [
+                8,
+                11,
+                3,
+                6
+              ],
+              "quality": "min7",
+              "roman": "VII",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmin7"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                56,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "Db",
+              "root_pc": 1,
+              "symbol": "Dbmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            4,
+            7,
+            3
+          ],
+          "source": "template:backdoor"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 2024,
+        "swing": 0.0109,
+        "tempo_bpm": 82,
+        "title": "3AM in Nakameguro",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2507
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 0,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.586,\n  \"key_root\": \"D\",\n  \"mode\": \"in\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          57,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          57,\n          58,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          52,\n          57,\n          62,\n          67\n        ],\n        \"pcs\": [\n          9,\n          2,\n          4,\n          7\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"IV\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"A7sus\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          57,\n          58,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      4,\n      5\n    ],\n    \"source\": \"template:festival\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 0,\n  \"swing\": 0.0463,\n  \"tempo_bpm\": 57,\n  \"title\": \"Planting Season in the Old Village\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.5856\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.586,
+        "key_root": "D",
+        "mode": "in",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                57,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                57,
+                58,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                52,
+                57,
+                62,
+                67
+              ],
+              "pcs": [
+                9,
+                2,
+                4,
+                7
+              ],
+              "quality": "7sus",
+              "roman": "IV",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "A7sus"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                57,
+                58,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            4,
+            5
+          ],
+          "source": "template:festival"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 0,
+        "swing": 0.0463,
+        "tempo_bpm": 57,
+        "title": "Planting Season in the Old Village",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.5856
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 1,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.5999,\n  \"key_root\": \"C\",\n  \"mode\": \"ryukyu\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          48,\n          53,\n          58,\n          63\n        ],\n        \"pcs\": [\n          5,\n          10,\n          0,\n          3\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"III\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"F7sus\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          50,\n          55,\n          59,\n          66\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6\n        ],\n        \"quality\": \"maj7\",\n        \"roman\": \"IV\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj7\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      4,\n      1\n    ],\n    \"source\": \"template:river_loop\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 1,\n  \"swing\": 0.0314,\n  \"tempo_bpm\": 63,\n  \"title\": \"the Old Village River Mist\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.5382\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.5999,
+        "key_root": "C",
+        "mode": "ryukyu",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                48,
+                53,
+                58,
+                63
+              ],
+              "pcs": [
+                5,
+                10,
+                0,
+                3
+              ],
+              "quality": "7sus",
+              "roman": "III",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "F7sus"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                50,
+                55,
+                59,
+                66
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6
+              ],
+              "quality": "maj7",
+              "roman": "IV",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj7"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            4,
+            1
+          ],
+          "source": "template:river_loop"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 1,
+        "swing": 0.0314,
+        "tempo_bpm": 63,
+        "title": "the Old Village River Mist",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.5382
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 7,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.5873,\n  \"key_root\": \"G\",\n  \"mode\": \"yo\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          57,\n          62,\n          66,\n          73\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          1\n        ],\n        \"quality\": \"maj7\",\n        \"roman\": \"IV\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmaj7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          59,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"V\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      1,\n      4,\n      5\n    ],\n    \"source\": \"template:folk_drift\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 7,\n  \"swing\": 0.0271,\n  \"tempo_bpm\": 71,\n  \"title\": \"Furusato (traditional)\",\n  \"tune\": \"furusato\",\n  \"version\": 1,\n  \"wobble\": 0.4404\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.5873,
+        "key_root": "G",
+        "mode": "yo",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                57,
+                62,
+                66,
+                73
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                1
+              ],
+              "quality": "maj7",
+              "roman": "IV",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmaj7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                59,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "min7",
+              "roman": "V",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin7"
+            }
+          ],
+          "degrees": [
+            1,
+            1,
+            4,
+            5
+          ],
+          "source": "template:folk_drift"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 7,
+        "swing": 0.0271,
+        "tempo_bpm": 71,
+        "title": "Furusato (traditional)",
+        "tune": "furusato",
+        "version": 1,
+        "wobble": 0.4404
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 9,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.5767,\n  \"key_root\": \"A\",\n  \"mode\": \"yo\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          59,\n          64,\n          68,\n          75\n        ],\n        \"pcs\": [\n          4,\n          8,\n          11,\n          3\n        ],\n        \"quality\": \"maj7\",\n        \"roman\": \"IV\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emaj7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          49,\n          54,\n          57,\n          64\n        ],\n        \"pcs\": [\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"V\",\n        \"root\": \"Gb\",\n        \"root_pc\": 6,\n        \"symbol\": \"Gbmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      1,\n      4,\n      5\n    ],\n    \"source\": \"template:folk_drift\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 9,\n  \"swing\": 0.059,\n  \"tempo_bpm\": 60,\n  \"title\": \"Shirakawa-go Cicadas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.5367\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.5767,
+        "key_root": "A",
+        "mode": "yo",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                59,
+                64,
+                68,
+                75
+              ],
+              "pcs": [
+                4,
+                8,
+                11,
+                3
+              ],
+              "quality": "maj7",
+              "roman": "IV",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emaj7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                49,
+                54,
+                57,
+                64
+              ],
+              "pcs": [
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "min7",
+              "roman": "V",
+              "root": "Gb",
+              "root_pc": 6,
+              "symbol": "Gbmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            1,
+            4,
+            5
+          ],
+          "source": "template:folk_drift"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 9,
+        "swing": 0.059,
+        "tempo_bpm": 60,
+        "title": "Shirakawa-go Cicadas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.5367
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 42,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.619,\n  \"key_root\": \"E\",\n  \"mode\": \"in\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin7\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          55,\n          57,\n          60,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"III\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          54,\n          59,\n          64,\n          69\n        ],\n        \"pcs\": [\n          11,\n          4,\n          6,\n          9\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"IV\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"B7sus\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      4,\n      1\n    ],\n    \"source\": \"template:river_loop\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.048,\n  \"tempo_bpm\": 56,\n  \"title\": \"First Snow over Shirakawa-go\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.4855\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.619,
+        "key_root": "E",
+        "mode": "in",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin7"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                55,
+                57,
+                60,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7,
+                11
+              ],
+              "quality": "min9",
+              "roman": "III",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                54,
+                59,
+                64,
+                69
+              ],
+              "pcs": [
+                11,
+                4,
+                6,
+                9
+              ],
+              "quality": "7sus",
+              "roman": "IV",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "B7sus"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin7"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            4,
+            1
+          ],
+          "source": "template:river_loop"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.048,
+        "tempo_bpm": 56,
+        "title": "First Snow over Shirakawa-go",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.4855
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 123,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.7169,\n  \"key_root\": \"C\",\n  \"mode\": \"ryukyu\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          54,\n          59,\n          63,\n          69\n        ],\n        \"pcs\": [\n          11,\n          3,\n          6,\n          9\n        ],\n        \"quality\": \"dom7\",\n        \"roman\": \"V\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"Bdom7\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      1,\n      1\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 123,\n  \"swing\": 0.0289,\n  \"tempo_bpm\": 67,\n  \"title\": \"Hida Lanterns\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.3422\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.7169,
+        "key_root": "C",
+        "mode": "ryukyu",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                54,
+                59,
+                63,
+                69
+              ],
+              "pcs": [
+                11,
+                3,
+                6,
+                9
+              ],
+              "quality": "dom7",
+              "roman": "V",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "Bdom7"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            1,
+            1
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 123,
+        "swing": 0.0289,
+        "tempo_bpm": 67,
+        "title": "Hida Lanterns",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.3422
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 2024,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.5591,\n  \"key_root\": \"G\",\n  \"mode\": \"in\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          50,\n          55,\n          58,\n          65\n        ],\n        \"pcs\": [\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          57,\n          62,\n          67,\n          72\n        ],\n        \"pcs\": [\n          2,\n          7,\n          9,\n          0\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"IV\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"D7sus\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      4,\n      5\n    ],\n    \"source\": \"template:festival\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 2024,\n  \"swing\": 0.0358,\n  \"tempo_bpm\": 70,\n  \"title\": \"First Snow over Sado Island\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.4281\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.5591,
+        "key_root": "G",
+        "mode": "in",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                50,
+                55,
+                58,
+                65
+              ],
+              "pcs": [
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                57,
+                62,
+                67,
+                72
+              ],
+              "pcs": [
+                2,
+                7,
+                9,
+                0
+              ],
+              "quality": "7sus",
+              "roman": "IV",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "D7sus"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            4,
+            5
+          ],
+          "source": "template:festival"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 2024,
+        "swing": 0.0358,
+        "tempo_bpm": 70,
+        "title": "First Snow over Sado Island",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.4281
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 0,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.4429,\n  \"key_root\": \"F\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          53,\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin11\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"III\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmaj9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          57,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"VI\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmin7\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          56,\n          58,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          2,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"IV\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbdom9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      6,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 0,\n  \"swing\": 0.0974,\n  \"tempo_bpm\": 104,\n  \"title\": \"Asakusa Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2614\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.4429,
+        "key_root": "F",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                53,
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin11"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "maj9",
+              "roman": "III",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmaj9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                57,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "min7",
+              "roman": "VI",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmin7"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                56,
+                58,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                2,
+                5,
+                8,
+                0
+              ],
+              "quality": "dom9",
+              "roman": "IV",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbdom9"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            6,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 0,
+        "swing": 0.0974,
+        "tempo_bpm": 104,
+        "title": "Asakusa Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2614
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 1,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.3808,\n  \"key_root\": \"Eb\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          62,\n          63,\n          67,\n          70,\n          77\n        ],\n        \"pcs\": [\n          3,\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          50,\n          55,\n          58,\n          65\n        ],\n        \"pcs\": [\n          7,\n          10,\n          2,\n          5\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          57,\n          58,\n          62,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          2,\n          5,\n          9,\n          0\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmaj9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          52,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"IV\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      5,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 1,\n  \"swing\": 0.1677,\n  \"tempo_bpm\": 93,\n  \"title\": \"Last Train in Yanaka\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2714\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.3808,
+        "key_root": "Eb",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                62,
+                63,
+                67,
+                70,
+                77
+              ],
+              "pcs": [
+                3,
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                50,
+                55,
+                58,
+                65
+              ],
+              "pcs": [
+                7,
+                10,
+                2,
+                5
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                57,
+                58,
+                62,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                2,
+                5,
+                9,
+                0
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmaj9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                52,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min7",
+              "roman": "IV",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin7"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            5,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 1,
+        "swing": 0.1677,
+        "tempo_bpm": 93,
+        "title": "Last Train in Yanaka",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2714
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 7,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.332,\n  \"key_root\": \"Eb\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 2,\n        \"notes\": [\n          48,\n          53,\n          56,\n          63\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"II\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          56,\n          58,\n          61,\n          65,\n          72\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"V\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          65,\n          66,\n          70,\n          73,\n          80\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin11\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          65,\n          66,\n          70,\n          73,\n          80\n        ],\n        \"pcs\": [\n          3,\n          6,\n          10,\n          1,\n          5,\n          8\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Eb\",\n        \"root_pc\": 3,\n        \"symbol\": \"Ebmin11\"\n      }\n    ],\n    \"degrees\": [\n      2,\n      5,\n      1,\n      1\n    ],\n    \"source\": \"template:ii_V_I\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 7,\n  \"swing\": 0.1268,\n  \"tempo_bpm\": 96,\n  \"title\": \"3AM in Sangenjaya\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2336\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.332,
+        "key_root": "Eb",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 2,
+              "notes": [
+                48,
+                53,
+                56,
+                63
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3
+              ],
+              "quality": "min7",
+              "roman": "II",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                56,
+                58,
+                61,
+                65,
+                72
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0
+              ],
+              "quality": "min9",
+              "roman": "V",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                65,
+                66,
+                70,
+                73,
+                80
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin11"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                65,
+                66,
+                70,
+                73,
+                80
+              ],
+              "pcs": [
+                3,
+                6,
+                10,
+                1,
+                5,
+                8
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Eb",
+              "root_pc": 3,
+              "symbol": "Ebmin11"
+            }
+          ],
+          "degrees": [
+            2,
+            5,
+            1,
+            1
+          ],
+          "source": "template:ii_V_I"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 7,
+        "swing": 0.1268,
+        "tempo_bpm": 96,
+        "title": "3AM in Sangenjaya",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2336
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 9,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.4959,\n  \"key_root\": \"Bb\",\n  \"mode\": \"dorian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          58,\n          60,\n          61,\n          65,\n          68,\n          75\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0,\n          3\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin11\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          51,\n          53,\n          56,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"V\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          58,\n          60,\n          61,\n          65,\n          68,\n          75\n        ],\n        \"pcs\": [\n          10,\n          1,\n          5,\n          8,\n          0,\n          3\n        ],\n        \"quality\": \"min11\",\n        \"roman\": \"I\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bbmin11\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          55,\n          56,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          8,\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VII\",\n        \"root\": \"Ab\",\n        \"root_pc\": 8,\n        \"symbol\": \"Abmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      1,\n      7\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 9,\n  \"swing\": 0.1446,\n  \"tempo_bpm\": 100,\n  \"title\": \"Daikanyama Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2548\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.4959,
+        "key_root": "Bb",
+        "mode": "dorian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                58,
+                60,
+                61,
+                65,
+                68,
+                75
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0,
+                3
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin11"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                51,
+                53,
+                56,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7
+              ],
+              "quality": "min9",
+              "roman": "V",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                58,
+                60,
+                61,
+                65,
+                68,
+                75
+              ],
+              "pcs": [
+                10,
+                1,
+                5,
+                8,
+                0,
+                3
+              ],
+              "quality": "min11",
+              "roman": "I",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bbmin11"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                55,
+                56,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                8,
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "maj9",
+              "roman": "VII",
+              "root": "Ab",
+              "root_pc": 8,
+              "symbol": "Abmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            1,
+            7
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "bridge",
+          "verse",
+          "outro"
+        ],
+        "seed": 9,
+        "swing": 0.1446,
+        "tempo_bpm": 100,
+        "title": "Daikanyama Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2548
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 42,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.4502,\n  \"key_root\": \"F\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 2,\n        \"notes\": [\n          53,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          5,\n          9\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"II\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gdom9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          52,\n          53,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmaj9\"\n      }\n    ],\n    \"degrees\": [\n      2,\n      5,\n      1,\n      1\n    ],\n    \"source\": \"template:ii_V_I\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.1018,\n  \"tempo_bpm\": 91,\n  \"title\": \"Shimokitazawa Umbrellas\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.285\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.4502,
+        "key_root": "F",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 2,
+              "notes": [
+                53,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                5,
+                9
+              ],
+              "quality": "dom9",
+              "roman": "II",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gdom9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                52,
+                53,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmaj9"
+            }
+          ],
+          "degrees": [
+            2,
+            5,
+            1,
+            1
+          ],
+          "source": "template:ii_V_I"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.1018,
+        "tempo_bpm": 91,
+        "title": "Shimokitazawa Umbrellas",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.285
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 123,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.3706,\n  \"key_root\": \"G\",\n  \"mode\": \"lydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      },\n      {\n        \"degree\": 6,\n        \"notes\": [\n          62,\n          64,\n          67,\n          71,\n          78\n        ],\n        \"pcs\": [\n          4,\n          7,\n          11,\n          2,\n          6\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"VI\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emin9\"\n      },\n      {\n        \"degree\": 2,\n        \"notes\": [\n          55,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          7,\n          11\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"II\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Adom9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          61,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"V\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Dmaj9\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      6,\n      2,\n      5\n    ],\n    \"source\": \"template:midnight_turnaround\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 123,\n  \"swing\": 0.18,\n  \"tempo_bpm\": 98,\n  \"title\": \"Yanaka After the Rain\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.355\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.3706,
+        "key_root": "G",
+        "mode": "lydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            },
+            {
+              "degree": 6,
+              "notes": [
+                62,
+                64,
+                67,
+                71,
+                78
+              ],
+              "pcs": [
+                4,
+                7,
+                11,
+                2,
+                6
+              ],
+              "quality": "min9",
+              "roman": "VI",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emin9"
+            },
+            {
+              "degree": 2,
+              "notes": [
+                55,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                7,
+                11
+              ],
+              "quality": "dom9",
+              "roman": "II",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Adom9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                61,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "maj9",
+              "roman": "V",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Dmaj9"
+            }
+          ],
+          "degrees": [
+            1,
+            6,
+            2,
+            5
+          ],
+          "source": "template:midnight_turnaround"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 123,
+        "swing": 0.18,
+        "tempo_bpm": 98,
+        "title": "Yanaka After the Rain",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.355
+      }
+    },
+    {
+      "channel": "wa-jazz",
+      "seed": 2024,
+      "tune": null,
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"wa-jazz\",\n  \"dust\": 0.3991,\n  \"key_root\": \"D\",\n  \"mode\": \"mixolydian\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          60,\n          62,\n          66,\n          69,\n          76\n        ],\n        \"pcs\": [\n          2,\n          6,\n          9,\n          0,\n          4\n        ],\n        \"quality\": \"dom9\",\n        \"roman\": \"I\",\n        \"root\": \"D\",\n        \"root_pc\": 2,\n        \"symbol\": \"Ddom9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          54,\n          55,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          7,\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"IV\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"Gmaj9\"\n      },\n      {\n        \"degree\": 7,\n        \"notes\": [\n          59,\n          60,\n          64,\n          67,\n          74\n        ],\n        \"pcs\": [\n          0,\n          4,\n          7,\n          11,\n          2\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"VII\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmaj9\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          49,\n          54,\n          57,\n          64\n        ],\n        \"pcs\": [\n          6,\n          9,\n          1,\n          4\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"III\",\n        \"root\": \"Gb\",\n        \"root_pc\": 6,\n        \"symbol\": \"Gbmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      4,\n      7,\n      3\n    ],\n    \"source\": \"template:backdoor\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 2024,\n  \"swing\": 0.0937,\n  \"tempo_bpm\": 86,\n  \"title\": \"3AM in Nakameguro\",\n  \"tune\": null,\n  \"version\": 1,\n  \"wobble\": 0.2422\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "wa-jazz",
+        "dust": 0.3991,
+        "key_root": "D",
+        "mode": "mixolydian",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                60,
+                62,
+                66,
+                69,
+                76
+              ],
+              "pcs": [
+                2,
+                6,
+                9,
+                0,
+                4
+              ],
+              "quality": "dom9",
+              "roman": "I",
+              "root": "D",
+              "root_pc": 2,
+              "symbol": "Ddom9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                54,
+                55,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                7,
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "maj9",
+              "roman": "IV",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "Gmaj9"
+            },
+            {
+              "degree": 7,
+              "notes": [
+                59,
+                60,
+                64,
+                67,
+                74
+              ],
+              "pcs": [
+                0,
+                4,
+                7,
+                11,
+                2
+              ],
+              "quality": "maj9",
+              "roman": "VII",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmaj9"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                49,
+                54,
+                57,
+                64
+              ],
+              "pcs": [
+                6,
+                9,
+                1,
+                4
+              ],
+              "quality": "min7",
+              "roman": "III",
+              "root": "Gb",
+              "root_pc": 6,
+              "symbol": "Gbmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            4,
+            7,
+            3
+          ],
+          "source": "template:backdoor"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 2024,
+        "swing": 0.0937,
+        "tempo_bpm": 86,
+        "title": "3AM in Nakameguro",
+        "tune": null,
+        "version": 1,
+        "wobble": 0.2422
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 9,
+      "tune": "sakura",
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.7747,\n  \"key_root\": \"C\",\n  \"mode\": \"in\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          55,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmin7\"\n      },\n      {\n        \"degree\": 3,\n        \"notes\": [\n          51,\n          53,\n          56,\n          60,\n          67\n        ],\n        \"pcs\": [\n          5,\n          8,\n          0,\n          3,\n          7\n        ],\n        \"quality\": \"min9\",\n        \"roman\": \"III\",\n        \"root\": \"F\",\n        \"root_pc\": 5,\n        \"symbol\": \"Fmin9\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          50,\n          55,\n          60,\n          65\n        ],\n        \"pcs\": [\n          7,\n          0,\n          2,\n          5\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"IV\",\n        \"root\": \"G\",\n        \"root_pc\": 7,\n        \"symbol\": \"G7sus\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          55,\n          60,\n          63,\n          70\n        ],\n        \"pcs\": [\n          0,\n          3,\n          7,\n          10\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"C\",\n        \"root_pc\": 0,\n        \"symbol\": \"Cmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      3,\n      4,\n      1\n    ],\n    \"source\": \"template:river_loop\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"outro\"\n  ],\n  \"seed\": 9,\n  \"swing\": 0.0159,\n  \"tempo_bpm\": 67,\n  \"title\": \"Sakura Sakura (traditional)\",\n  \"tune\": \"sakura\",\n  \"version\": 1,\n  \"wobble\": 0.3788\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.7747,
+        "key_root": "C",
+        "mode": "in",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                55,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmin7"
+            },
+            {
+              "degree": 3,
+              "notes": [
+                51,
+                53,
+                56,
+                60,
+                67
+              ],
+              "pcs": [
+                5,
+                8,
+                0,
+                3,
+                7
+              ],
+              "quality": "min9",
+              "roman": "III",
+              "root": "F",
+              "root_pc": 5,
+              "symbol": "Fmin9"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                50,
+                55,
+                60,
+                65
+              ],
+              "pcs": [
+                7,
+                0,
+                2,
+                5
+              ],
+              "quality": "7sus",
+              "roman": "IV",
+              "root": "G",
+              "root_pc": 7,
+              "symbol": "G7sus"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                55,
+                60,
+                63,
+                70
+              ],
+              "pcs": [
+                0,
+                3,
+                7,
+                10
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "C",
+              "root_pc": 0,
+              "symbol": "Cmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            3,
+            4,
+            1
+          ],
+          "source": "template:river_loop"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "verse",
+          "bridge",
+          "outro"
+        ],
+        "seed": 9,
+        "swing": 0.0159,
+        "tempo_bpm": 67,
+        "title": "Sakura Sakura (traditional)",
+        "tune": "sakura",
+        "version": 1,
+        "wobble": 0.3788
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 42,
+      "tune": "sakura",
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.6205,\n  \"key_root\": \"A\",\n  \"mode\": \"in\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          52,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin7\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          52,\n          57,\n          60,\n          67\n        ],\n        \"pcs\": [\n          9,\n          0,\n          4,\n          7\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amin7\"\n      },\n      {\n        \"degree\": 2,\n        \"notes\": [\n          53,\n          58,\n          63,\n          68\n        ],\n        \"pcs\": [\n          10,\n          3,\n          5,\n          8\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"II\",\n        \"root\": \"Bb\",\n        \"root_pc\": 10,\n        \"symbol\": \"Bb7sus\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          59,\n          64,\n          69,\n          74\n        ],\n        \"pcs\": [\n          4,\n          9,\n          11,\n          2\n        ],\n        \"quality\": \"7sus\",\n        \"roman\": \"IV\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"E7sus\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      1,\n      2,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.0167,\n  \"tempo_bpm\": 68,\n  \"title\": \"Sakura Sakura (traditional)\",\n  \"tune\": \"sakura\",\n  \"version\": 1,\n  \"wobble\": 0.3114\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.6205,
+        "key_root": "A",
+        "mode": "in",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                52,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin7"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                52,
+                57,
+                60,
+                67
+              ],
+              "pcs": [
+                9,
+                0,
+                4,
+                7
+              ],
+              "quality": "min7",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amin7"
+            },
+            {
+              "degree": 2,
+              "notes": [
+                53,
+                58,
+                63,
+                68
+              ],
+              "pcs": [
+                10,
+                3,
+                5,
+                8
+              ],
+              "quality": "7sus",
+              "roman": "II",
+              "root": "Bb",
+              "root_pc": 10,
+              "symbol": "Bb7sus"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                59,
+                64,
+                69,
+                74
+              ],
+              "pcs": [
+                4,
+                9,
+                11,
+                2
+              ],
+              "quality": "7sus",
+              "roman": "IV",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "E7sus"
+            }
+          ],
+          "degrees": [
+            1,
+            1,
+            2,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "bridge",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.0167,
+        "tempo_bpm": 68,
+        "title": "Sakura Sakura (traditional)",
+        "tune": "sakura",
+        "version": 1,
+        "wobble": 0.3114
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 4,
+      "tune": "furusato",
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.6721,\n  \"key_root\": \"E\",\n  \"mode\": \"yo\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          63,\n          64,\n          68,\n          71,\n          78\n        ],\n        \"pcs\": [\n          4,\n          8,\n          11,\n          3,\n          6\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emaj9\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          56,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"V\",\n        \"root\": \"Db\",\n        \"root_pc\": 1,\n        \"symbol\": \"Dbmin7\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          54,\n          59,\n          63,\n          70\n        ],\n        \"pcs\": [\n          11,\n          3,\n          6,\n          10\n        ],\n        \"quality\": \"maj7\",\n        \"roman\": \"IV\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"Bmaj7\"\n      },\n      {\n        \"degree\": 5,\n        \"notes\": [\n          56,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"V\",\n        \"root\": \"Db\",\n        \"root_pc\": 1,\n        \"symbol\": \"Dbmin7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      5,\n      4,\n      5\n    ],\n    \"source\": \"template:festival\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 4,\n  \"swing\": 0.0515,\n  \"tempo_bpm\": 63,\n  \"title\": \"Furusato (traditional)\",\n  \"tune\": \"furusato\",\n  \"version\": 1,\n  \"wobble\": 0.4184\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.6721,
+        "key_root": "E",
+        "mode": "yo",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                63,
+                64,
+                68,
+                71,
+                78
+              ],
+              "pcs": [
+                4,
+                8,
+                11,
+                3,
+                6
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emaj9"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                56,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "min7",
+              "roman": "V",
+              "root": "Db",
+              "root_pc": 1,
+              "symbol": "Dbmin7"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                54,
+                59,
+                63,
+                70
+              ],
+              "pcs": [
+                11,
+                3,
+                6,
+                10
+              ],
+              "quality": "maj7",
+              "roman": "IV",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "Bmaj7"
+            },
+            {
+              "degree": 5,
+              "notes": [
+                56,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "min7",
+              "roman": "V",
+              "root": "Db",
+              "root_pc": 1,
+              "symbol": "Dbmin7"
+            }
+          ],
+          "degrees": [
+            1,
+            5,
+            4,
+            5
+          ],
+          "source": "template:festival"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "bridge",
+          "verse",
+          "verse",
+          "outro"
+        ],
+        "seed": 4,
+        "swing": 0.0515,
+        "tempo_bpm": 63,
+        "title": "Furusato (traditional)",
+        "tune": "furusato",
+        "version": 1,
+        "wobble": 0.4184
+      }
+    },
+    {
+      "channel": "minyo",
+      "seed": 42,
+      "tune": "furusato",
+      "json": "{\n  \"bars\": 48,\n  \"channel\": \"minyo\",\n  \"dust\": 0.6205,\n  \"key_root\": \"A\",\n  \"mode\": \"yo\",\n  \"progression\": {\n    \"chords\": [\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amaj9\"\n      },\n      {\n        \"degree\": 1,\n        \"notes\": [\n          56,\n          57,\n          61,\n          64,\n          71\n        ],\n        \"pcs\": [\n          9,\n          1,\n          4,\n          8,\n          11\n        ],\n        \"quality\": \"maj9\",\n        \"roman\": \"I\",\n        \"root\": \"A\",\n        \"root_pc\": 9,\n        \"symbol\": \"Amaj9\"\n      },\n      {\n        \"degree\": 2,\n        \"notes\": [\n          54,\n          59,\n          62,\n          69\n        ],\n        \"pcs\": [\n          11,\n          2,\n          6,\n          9\n        ],\n        \"quality\": \"min7\",\n        \"roman\": \"II\",\n        \"root\": \"B\",\n        \"root_pc\": 11,\n        \"symbol\": \"Bmin7\"\n      },\n      {\n        \"degree\": 4,\n        \"notes\": [\n          59,\n          64,\n          68,\n          75\n        ],\n        \"pcs\": [\n          4,\n          8,\n          11,\n          3\n        ],\n        \"quality\": \"maj7\",\n        \"roman\": \"IV\",\n        \"root\": \"E\",\n        \"root_pc\": 4,\n        \"symbol\": \"Emaj7\"\n      }\n    ],\n    \"degrees\": [\n      1,\n      1,\n      2,\n      4\n    ],\n    \"source\": \"walk\"\n  },\n  \"sections\": [\n    \"intro\",\n    \"verse\",\n    \"verse\",\n    \"bridge\",\n    \"verse\",\n    \"outro\"\n  ],\n  \"seed\": 42,\n  \"swing\": 0.0167,\n  \"tempo_bpm\": 68,\n  \"title\": \"Furusato (traditional)\",\n  \"tune\": \"furusato\",\n  \"version\": 1,\n  \"wobble\": 0.3114\n}",
+      "recipe": {
+        "bars": 48,
+        "channel": "minyo",
+        "dust": 0.6205,
+        "key_root": "A",
+        "mode": "yo",
+        "progression": {
+          "chords": [
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amaj9"
+            },
+            {
+              "degree": 1,
+              "notes": [
+                56,
+                57,
+                61,
+                64,
+                71
+              ],
+              "pcs": [
+                9,
+                1,
+                4,
+                8,
+                11
+              ],
+              "quality": "maj9",
+              "roman": "I",
+              "root": "A",
+              "root_pc": 9,
+              "symbol": "Amaj9"
+            },
+            {
+              "degree": 2,
+              "notes": [
+                54,
+                59,
+                62,
+                69
+              ],
+              "pcs": [
+                11,
+                2,
+                6,
+                9
+              ],
+              "quality": "min7",
+              "roman": "II",
+              "root": "B",
+              "root_pc": 11,
+              "symbol": "Bmin7"
+            },
+            {
+              "degree": 4,
+              "notes": [
+                59,
+                64,
+                68,
+                75
+              ],
+              "pcs": [
+                4,
+                8,
+                11,
+                3
+              ],
+              "quality": "maj7",
+              "roman": "IV",
+              "root": "E",
+              "root_pc": 4,
+              "symbol": "Emaj7"
+            }
+          ],
+          "degrees": [
+            1,
+            1,
+            2,
+            4
+          ],
+          "source": "walk"
+        },
+        "sections": [
+          "intro",
+          "verse",
+          "verse",
+          "bridge",
+          "verse",
+          "outro"
+        ],
+        "seed": 42,
+        "swing": 0.0167,
+        "tempo_bpm": 68,
+        "title": "Furusato (traditional)",
+        "tune": "furusato",
+        "version": 1,
+        "wobble": 0.3114
+      }
+    }
+  ]
+}

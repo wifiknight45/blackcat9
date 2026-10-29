@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>blackcat9 — K-CAT 99.9 · recipe engine (S4 proof)</title>
+<style>
+  body { font-family: Georgia, serif; background: #17130e; color: #e8dcc3;
+         margin: 0; padding: 2rem 1rem; }
+  main { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .sub { color: #b8a888; margin-top: 0; }
+  form { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.25rem 0; }
+  input, select, button { font: inherit; padding: 0.4rem 0.6rem;
+    background: #241c12; color: #e8dcc3; border: 1px solid #6b5836;
+    border-radius: 4px; }
+  button { cursor: pointer; background: #6b5836; }
+  .card { border: 1px solid #6b5836; border-radius: 6px; padding: 1rem 1.25rem;
+          background: #1f1810; }
+  .title { font-size: 1.3rem; margin: 0.2rem 0; }
+  .meta { color: #b8a888; }
+  .chords { font-size: 1.1rem; letter-spacing: 0.02em; }
+  .note { color: #8a7c60; font-size: 0.9rem; margin-top: 1.5rem; }
+  details { margin-top: 1rem; }
+  pre { overflow-x: auto; font-size: 0.75rem; background: #120e08;
+        padding: 0.75rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>blackcat9 — K-CAT 99.9 📻🐈‍⬛</h1>
+  <p class="sub">ブラックキャット9 — the recipe engine, live in your browser.
+     Same seed, same song as the Python engine — bit for bit.</p>
+
+  <form id="controls">
+    <label>Seed <input id="seed" type="number" value="42" step="1"></label>
+    <label>Station
+      <select id="channel"></select>
+    </label>
+    <button type="submit">Tune in</button>
+  </form>
+
+  <div class="card" id="card" hidden>
+    <div class="meta" id="station"></div>
+    <p class="title" id="title"></p>
+    <p class="meta" id="meta"></p>
+    <p class="chords" id="chords"></p>
+    <details>
+      <summary>Full recipe JSON (identical to Python)</summary>
+      <pre id="json"></pre>
+    </details>
+  </div>
+
+  <p class="note">S4 proof page: recipe generation only. The Moog console —
+     audio, the room, Nine the cat — arrives in S5.</p>
+</main>
+
+<script type="module">
+  import { CHANNELS, generate_recipe, stringifyRecipe } from "./js/recipes.js";
+
+  const channelSel = document.getElementById("channel");
+  for (const [slug, cfg] of Object.entries(CHANNELS)) {
+    const opt = document.createElement("option");
+    opt.value = slug;
+    opt.textContent = cfg.label;
+    channelSel.appendChild(opt);
+  }
+  channelSel.value = "dusty";
+
+  function render() {
+    const seed = parseInt(document.getElementById("seed").value, 10) || 0;
+    const channel = channelSel.value;
+    const recipe = generate_recipe(seed, channel);
+    document.getElementById("station").textContent = CHANNELS[channel].label;
+    document.getElementById("title").textContent =
+      "\u201C" + recipe.title + "\u201D";
+    document.getElementById("meta").textContent =
+      `${recipe.tempo_bpm} BPM · ${recipe.key_root} ${recipe.mode} · ` +
+      `${recipe.bars} bars · swing ${recipe.swing} · dust ${recipe.dust}` +
+      (recipe.tune ? ` · tune: ${recipe.tune}` : "");
+    document.getElementById("chords").textContent =
+      recipe.progression.chords.map((c) => c.symbol).join("  ·  ");
+    document.getElementById("json").textContent = stringifyRecipe(recipe);
+    document.getElementById("card").hidden = false;
+  }
+
+  document.getElementById("controls").addEventListener("submit", (e) => {
+    e.preventDefault();
+    render();
+  });
+  render();
+</script>
+</body>
+</html>

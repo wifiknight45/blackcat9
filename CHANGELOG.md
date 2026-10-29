@@ -5,6 +5,22 @@ first. Times are America/Los_Angeles. This file is updated after every
 verified stage of work. Aubrey pushes from bash and reviews after
 pushing.
 
+## 2026-10-29
+
+### 00:40 PDT — S4a: the web engine twin (recipe parity proven)
+
+- `web/js/` (`rng.js`, `theory.js`, `recipes.js`, `traditional.js`):
+  a dependency-free JavaScript mirror of the Python recipe brain —
+  SplitMix64 via BigInt, same draw order, same channels, same
+  traditional-tune integration, same signature constants.
+- `scripts/gen_goldens.py` generates `web/test/goldens.json` from the
+  Python engine (5 channels × 7 seeds, plus forced-tune recipes);
+  `web/test/parity.mjs` compares the JS output against those goldens.
+- **Result: 39/39 recipes deep-identical and byte-identical JSON.**
+  A seed means the same song in the browser as in Python.
+- `web/index.html`: plain proof page (seed + channel → recipe); the
+  real console is S5's job. Python suite untouched: 63/63 still green.
+
 ## 2026-10-28
 
 ### 00:00 PDT — Traditional tunes on MIN'YO (verified note-by-note)
