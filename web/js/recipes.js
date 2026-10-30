@@ -8,7 +8,7 @@
 //  - a tuned recipe draws NO mode (the mode is the tune's scale).
 
 import { SplitMix64 } from "./rng.js";
-import { generate_progression } from "./theory.js";
+import { NOTE_TO_PC, SCALES, generate_progression } from "./theory.js";
 import { TUNES } from "./traditional.js";
 
 export const RECIPE_VERSION = 1;
@@ -142,14 +142,14 @@ export function pyRound4(x) {
 }
 
 export function generate_recipe(seed, channel, tune = null) {
-  if (!(channel in CHANNELS)) {
+  if (!Object.hasOwn(CHANNELS, channel)) {
     throw new Error(`unknown channel ${JSON.stringify(channel)}`);
   }
   if (tune !== null && tune !== undefined) {
     if (channel !== "minyo") {
       throw new Error("traditional tunes only play on the minyo channel");
     }
-    if (!(tune in TUNES)) {
+    if (!Object.hasOwn(TUNES, tune)) {
       throw new Error(`unknown tune ${JSON.stringify(tune)}`);
     }
   } else {
@@ -195,6 +195,103 @@ export function generate_recipe(seed, channel, tune = null) {
     sections: sections,
     tune: tune,
   };
+}
+
+// Parse + validate a recipe JSON payload — the mirror of
+// Recipe.from_json in kcat/recipes.py (S7a bug #7). Every problem
+// throws an Error naming the field and the offending value, so a
+// bad payload fails at load time, not deep inside a renderer. The
+// allowed key set is the recipe shape itself; `sections` and `tune`
+// are the only fields a payload may omit.
+const RECIPE_FIELDS = ["version", "seed", "channel", "title", "tempo_bpm",
+  "key_root", "mode", "bars", "swing", "dust", "wobble", "progression",
+  "sections", "tune"];
+const SECTION_NAMES = new Set(["intro", "verse", "bridge", "outro"]);
+
+export function recipeFromJson(text) {
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch (e) {
+    throw new Error(`invalid recipe JSON: ${e.message}`);
+  }
+  if (data === null || typeof data !== "object" || Array.isArray(data)) {
+    throw new Error(`recipe JSON must be an object, got ${Array.isArray(data) ? "array" : typeof data}`);
+  }
+  const known = new Set(RECIPE_FIELDS);
+  const unknown = Object.keys(data).filter((k) => !known.has(k)).sort();
+  if (unknown.length) {
+    throw new Error(`unknown recipe field(s): ${unknown.join(", ")}`);
+  }
+  const optional = new Set(["sections", "tune"]);
+  const missing = RECIPE_FIELDS
+    .filter((k) => !(k in data) && !optional.has(k)).sort();
+  if (missing.length) {
+    throw new Error(`missing recipe field(s): ${missing.join(", ")}`);
+  }
+  const show = (v) => JSON.stringify(v) ?? String(v);
+  const needInt = (name) => {
+    if (!Number.isInteger(data[name])) {
+      throw new Error(`recipe field '${name}' must be an integer, got ${show(data[name])}`);
+    }
+  };
+  const needNum = (name) => {
+    if (typeof data[name] !== "number" || !Number.isFinite(data[name])) {
+      throw new Error(`recipe field '${name}' must be a number, got ${show(data[name])}`);
+    }
+  };
+  const needStr = (name) => {
+    if (typeof data[name] !== "string" || !data[name]) {
+      throw new Error(`recipe field '${name}' must be a non-empty string, got ${show(data[name])}`);
+    }
+  };
+  needInt("version");
+  if (data.version !== RECIPE_VERSION) {
+    throw new Error(`unsupported recipe version ${show(data.version)}`);
+  }
+  needInt("seed");
+  needInt("tempo_bpm");
+  if (data.tempo_bpm <= 0) {
+    throw new Error(`recipe field 'tempo_bpm' must be positive, got ${show(data.tempo_bpm)}`);
+  }
+  needInt("bars");
+  if (data.bars <= 0) {
+    throw new Error(`recipe field 'bars' must be positive, got ${show(data.bars)}`);
+  }
+  for (const name of ["swing", "dust", "wobble"]) needNum(name);
+  needStr("channel");
+  if (!Object.hasOwn(CHANNELS, data.channel)) {
+    throw new Error(`unknown channel ${show(data.channel)} in recipe field 'channel'`);
+  }
+  needStr("title");
+  needStr("key_root");
+  if (!Object.hasOwn(NOTE_TO_PC, data.key_root)) {
+    throw new Error(`unknown key_root ${show(data.key_root)} in recipe field 'key_root'`);
+  }
+  needStr("mode");
+  if (!Object.hasOwn(SCALES, data.mode)) {
+    throw new Error(`unknown mode ${show(data.mode)} in recipe field 'mode'`);
+  }
+  const sections = data.sections === undefined ? [] : data.sections;
+  if (!Array.isArray(sections) || sections.some((s) => !SECTION_NAMES.has(s))) {
+    throw new Error(`recipe field 'sections' must be a list drawn from ${JSON.stringify([...SECTION_NAMES].sort())}, got ${show(sections)}`);
+  }
+  const tune = data.tune === undefined ? null : data.tune;
+  if (tune !== null && !Object.hasOwn(TUNES, tune)) {
+    throw new Error(`unknown tune ${show(tune)} in recipe field 'tune'`);
+  }
+  const progression = data.progression;
+  if (progression === null || typeof progression !== "object" || Array.isArray(progression)) {
+    throw new Error(`recipe field 'progression' must be an object, got ${show(progression)}`);
+  }
+  const chords = progression.chords;
+  if (!Array.isArray(chords) || !chords.length ||
+      chords.some((c) => c === null || typeof c !== "object" ||
+        !Array.isArray(c.notes) || !c.notes.length ||
+        c.notes.some((n) => !Number.isInteger(n)))) {
+    throw new Error("recipe field 'progression.chords' must be a non-empty list of chords, each with a non-empty integer 'notes' list");
+  }
+  return { ...data, sections, tune };
 }
 
 // Serialize like Python's json.dumps(obj, indent=2, sort_keys=True):

@@ -7,6 +7,70 @@ pushing.
 
 ## 2026-10-29
 
+### 20:30 PDT — S7a: the external-review bugs, reproduced then fixed
+
+Baseline on a fresh clone of remote main (96e3b2f): 69 Python tests,
+ruff + ESLint clean, recipe parity 39/39 — the review's numbers were
+exact. Every confirmed bug was reproduced on the pristine tree
+*before* fixing (browser boots with corrupted shelves, node compose
+lengths, CLI tracebacks, planner/validator probes).
+
+- **#1 Corrupted tape shelf bricks the console** — `web/js/app.js`
+  now validates `kcat.tapes.v1` on load (`sanitizeTapes`): non-array
+  payloads, unknown channels, non-string titles, null/partial
+  entries are dropped, never thrown on. Covers `addSpine` and
+  `renderRack` too (the audit's B5 crash path). Six corruption
+  shapes that bricked boot in Chromium now boot clean.
+- **#2 Tapes bypass POWER** — tape playback is stored (`tapeSrc`),
+  routed through `radioBus` upstream of the `warm` gain (POWER
+  governs tapes like the radio), replaced rather than overlapped by
+  a second play, stopped by POWER off / retune / radio start, and
+  `tapePlaying` resets on every exit path including a failed render.
+  Playing a tape with the console off powers it on.
+- **#3 Tape buffer leak** — deleting a tape now `tapeBufs.delete(t)`
+  (each cached 48-bar render is ~15–20 MB); deleting the playing
+  tape stops it first.
+- **#4 Web played 16 bars, CLI plays `recipe.bars`** — the web
+  player, tape renders and REC now all pass `bars: recipe.bars`
+  (seed 42: 52.6 s → 157.8 s, the same piece as the CLI's).
+- **#5 CLI tracebacks** — `--bars`/`--tracks` use an argparse
+  positive-int type: exit 2 with a readable message, no traceback.
+- **#6 Pinned channel opened with the signature** — Python
+  `plan_session` now skips the signature when a channel is pinned,
+  matching the JS `Session`; goldens on both sides now pin the same
+  full pinned sequences (minyo/9, jazz-cat/5).
+- **#7 `Recipe.from_json` didn't validate** — full shape validation
+  in Python *and* a new JS mirror (`recipeFromJson`): unknown
+  mode/channel/key/tune, unknown keys, missing fields and wrong
+  types all raise errors naming the field and value. Valid recipes
+  round-trip exactly (parity untouched).
+- Regression coverage: `tests/test_s7a_regressions.py`,
+  `web/test/recipes.test.mjs`, extended radio goldens both sides,
+  and `web/test/tapes.mjs` (browser: 9 shelf shapes + power/delete
+  behaviour, 16/16 green).
+- **Verified:** Python 84/84 (69 + 15 new), JS unit 14/14, parity
+  39/39 deep + byte-identical, ruff clean, ESLint clean, JS fuzz
+  (bounded) green, tapes browser test green.
+
+### 20:20 PDT — Cross-browser / mobile audit (report, no code changed)
+
+- Full audit of the console on desktop + mobile engines/viewports
+  landed at `~/workspace/blackcat9-cross-browser-audit/REPORT.md`
+  (21 screenshots; Chromium + Firefox measured, WebKit/DDG by code
+  inspection — WebKit could not run on the VM). Headlines: no
+  viewport meta (phones render the 1280-px layout at ~0.31×);
+  `#controlbox`/`#rack` sit outside `.scene` and never scale, so on
+  Aubrey's iPhone 15 (DuckDuckGo iOS) the controls detach ~1,200 px
+  from the console; `fit()` clips the scene below 1280 px wide; a
+  malformed tape entry crashes boot (fixed in S7a above).
+- DuckDuckGo's Fire Button wipes localStorage tapes *by design* —
+  the workaround is fireproofing the site; §6 of the report is an
+  on-device retest checklist.
+- The audit's Stage 1 (viewport + fit geometry + pointer fixes)
+  folds into S7c; its Stage 2 responsive redesign (hybrid layout
+  recommended) is **Aubrey's design decision — deferred**, not
+  implemented in S7.
+
 ### 00:47 PDT — S4b: the web audio renderer (the browser sings)
 
 - `web/js/compose.js`: recipe → event lists, a statement-for-statement

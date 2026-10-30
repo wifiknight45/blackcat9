@@ -32,18 +32,32 @@ class TestGoldenPlans(unittest.TestCase):
             with self.subTest(session_seed=seed):
                 self.assertEqual(seq(plan_session(seed, "all", tracks=8)), want)
 
-    def test_single_station_plan_opens_with_signature_in_python(self):
-        # Python's plan_session(signature=True) puts the signature first
-        # even on a pinned station. The web Session deliberately skips
-        # it there (tuning to a station starts that station) — the web
-        # golden therefore equals this plan minus its first entry.
+    def test_pinned_station_skips_the_signature(self):
+        # S7a bug #6: pre-fix, a pinned plan opened with the DUST
+        # signature track; the web Session never did. Now both agree:
+        # pinning a station starts that station, and the plan equals
+        # the web golden sequence exactly (no entry dropped).
         plan = seq(plan_session(9, "minyo", tracks=8))
-        self.assertEqual(plan[0], ("dusty", 42))
-        self.assertTrue(all(ch == "minyo" for ch, _ in plan[1:]))
-        self.assertEqual(plan[1:], [("minyo", 469201), ("minyo", 354295),
-                                    ("minyo", 807525), ("minyo", 232724),
-                                    ("minyo", 141872), ("minyo", 958796),
-                                    ("minyo", 347755)])
+        self.assertTrue(all(ch == "minyo" for ch, _ in plan))
+        self.assertEqual(plan, [("minyo", 469201), ("minyo", 354295),
+                                ("minyo", 807525), ("minyo", 232724),
+                                ("minyo", 141872), ("minyo", 958796),
+                                ("minyo", 347755), ("minyo", 823174)])
+
+    def test_pinned_jazz_cat_plan_matches_the_review_case(self):
+        # The exact case from the S7 review: plan_session(5, "jazz-cat")
+        # opened with a DUST track before the fix.
+        plan = seq(plan_session(5, "jazz-cat", tracks=5))
+        self.assertEqual(plan, [("jazz-cat", 71655), ("jazz-cat", 518906),
+                                ("jazz-cat", 741116), ("jazz-cat", 712264),
+                                ("jazz-cat", 817817)])
+
+    def test_signature_flag_still_controls_the_open_dial(self):
+        self.assertEqual(seq(plan_session(9, "all", tracks=8))[0],
+                         ("dusty", 42))
+        plan = seq(plan_session(9, "all", tracks=8, signature=False))
+        self.assertNotEqual(plan[0], ("dusty", 42))
+        self.assertEqual(len(plan), 8)
 
 
 if __name__ == "__main__":

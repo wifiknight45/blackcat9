@@ -21,13 +21,16 @@ test("all-mode sessions match the Python golden plans", () => {
   }
 });
 
-test("channel mode: same stream as Python, minus its signature opener", () => {
-  // Python plan_session(9, "minyo") opens with the signature; the web
-  // Session deliberately starts the station itself. Everything after
-  // that first entry must match Python's plan exactly.
-  assert.deepEqual(seq(new Session(9, "minyo"), 7),
+test("channel mode: pinned sessions skip the signature, exactly like Python", () => {
+  // S7a bug #6: Python's plan_session used to open a pinned session
+  // with the DUST signature while the web Session skipped it. Python
+  // was fixed to match — both goldens are now the same full sequence.
+  assert.deepEqual(seq(new Session(9, "minyo"), 8),
     [["minyo", 469201], ["minyo", 354295], ["minyo", 807525], ["minyo", 232724],
-     ["minyo", 141872], ["minyo", 958796], ["minyo", 347755]]);
+     ["minyo", 141872], ["minyo", 958796], ["minyo", 347755], ["minyo", 823174]]);
+  assert.deepEqual(seq(new Session(5, "jazz-cat"), 5),
+    [["jazz-cat", 71655], ["jazz-cat", 518906], ["jazz-cat", 741116],
+     ["jazz-cat", 712264], ["jazz-cat", 817817]]);
 });
 
 test("deterministic: same session seed, same sequence", () => {

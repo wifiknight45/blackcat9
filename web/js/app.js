@@ -75,9 +75,14 @@ let power = false, session = null, sessionSeed = 0;
 let currentRecipe = null, tuneIdx = 0, serial = 0, tapePlaying = false;
 
 function playRecipe(r) {
+  stopTape();
   currentRecipe = r;
   setTrackDisplay(r);
-  player.play(r, { output: radioBus });
+  // S7a bug #4: pass the recipe's own bar count, like the CLI radio
+  // does (render_session renders recipe.bars). Without it the web
+  // played compose()'s 16-bar default — a REC tape of a seed was a
+  // different, shorter piece than the CLI's tape of the same seed.
+  player.play(r, { output: radioBus, bars: r.bars });
 }
 async function bridgeToNext() {
   const s = ++serial;
@@ -94,6 +99,7 @@ async function retune(idx) {
   tuneIdx = idx;
   if (!power) return;
   const s = ++serial;
+  stopTape();
   player.stop();
   session = new Session(sessionSeed, TUNES[idx]);
   const next = session.next();
@@ -130,6 +136,7 @@ async function setPower(on) {
     if (s !== serial || !power) return;
     playRecipe(first);
   } else {
+    stopTape();  // S7a bug #2: POWER off silences AND stops tapes.
     warm.gain.setTargetAtTime(0, ctx.currentTime, 0.07);
     setTimeout(() => { if (!power && player) player.stop(); }, 220);
     dispEl.classList.add("off");
@@ -247,7 +254,30 @@ vuX.fillStyle = "rgba(10,6,2,.55)"; vuX.fillRect(0, 0, 168, 88);
 /* ------------------------------------------------ tapes */
 let tapes = [];
 const tapeBufs = new Map();
-try { tapes = JSON.parse(localStorage.getItem("kcat.tapes.v1") || "[]"); } catch { tapes = []; }
+// S7a bug #1: the shelf is browser-controlled storage — privacy
+// browsers (DuckDuckGo's Fire Button / auto-clear, private modes)
+// truncate or corrupt it, and pre-fix a malformed entry bricked the
+// whole console at startup: only JSON.parse was guarded, then
+// tapes.forEach hit addSpine's t.title.slice and renderRack's
+// CHANNELS[t.channel].label on unvalidated data. Validate the shape
+// on load instead: keep only entries the rack can actually render,
+// drop the rest, never throw. (Audit B5 reproduced the same crash
+// from a partial [{"seed":42}] entry.)
+function sanitizeTapes(raw) {
+  if (!Array.isArray(raw)) return [];
+  const out = [];
+  for (const t of raw) {
+    if (!t || typeof t !== "object") continue;
+    if (!Number.isInteger(t.seed)) continue;
+    if (typeof t.channel !== "string" || !Object.hasOwn(CHANNELS, t.channel)) continue;
+    if (typeof t.title !== "string" || !t.title) continue;
+    const dur = (typeof t.dur === "number" && Number.isFinite(t.dur) && t.dur > 0)
+      ? t.dur : null;
+    out.push({ seed: t.seed, channel: t.channel, title: t.title, dur });
+  }
+  return out;
+}
+try { tapes = sanitizeTapes(JSON.parse(localStorage.getItem("kcat.tapes.v1") || "[]")); } catch { tapes = []; }
 function persistTapes() {
   try {
     localStorage.setItem("kcat.tapes.v1", JSON.stringify(tapes.map((t) => ({ seed: t.seed, channel: t.channel, title: t.title, dur: t.dur }))));
@@ -255,6 +285,7 @@ function persistTapes() {
 }
 const SPINE_COLS = ["#8a3324", "#20504a", "#71591c", "#3d4d8a", "#5d2f52", "#7a4a1f"];
 function addSpine(t) {
+  if (!t || typeof t.title !== "string") return;  // belt & braces (bug #1)
   const stack = document.querySelector(".tapestack");
   if (!stack || stack.children.length > 9) return;
   const d = document.createElement("div");
@@ -286,7 +317,9 @@ function renderRack() {
     dl.addEventListener("click", () => downloadTape(t));
     const del = document.createElement("button"); del.textContent = "✕"; del.className = "del";
     del.addEventListener("click", () => {
+      if (tapeSrc && tapeEntry === t) stopTape();
       tapes = tapes.filter((x) => x !== t);
+      tapeBufs.delete(t);  // S7a bug #3: free the cached render (~15-20 MB)
       persistTapes(); renderRack();
     });
     row.append(play, dl, del);
@@ -298,25 +331,66 @@ $("rackClose").addEventListener("click", () => rack.classList.add("hidden"));
 
 async function tapeBuffer(t) {
   if (tapeBufs.has(t)) return tapeBufs.get(t);
-  const buf = await renderOffline(generate_recipe(t.seed, t.channel));
+  const recipe = generate_recipe(t.seed, t.channel);
+  // Bug #4 again: render the recipe's full bar count, as the CLI does.
+  const buf = await renderOffline(recipe, { bars: recipe.bars });
   tapeBufs.set(t, buf);
   return buf;
+}
+
+// S7a bug #2, the whole fix: tape playback is part of the console,
+// not a side channel. Pre-fix the tape source connected to `inp` —
+// *after* the `warm` gain — so POWER didn't silence it; the source
+// wasn't stored, so nothing could stop it; a second play overlapped
+// the first; and `tapePlaying` was set before the async render, so
+// a failed render left it true forever and stalled the radio (the
+// player's onended bridge is gated on !tapePlaying). Now: the source
+// is stored, routed through radioBus (upstream of `warm`, so POWER
+// governs it exactly like the radio), replaced — never overlapped —
+// by a second play, stopped by POWER off / retune / radio start, and
+// tapePlaying is reset on every exit path.
+let tapeSrc = null, tapeEntry = null;
+function stopTape() {
+  if (tapeSrc) {
+    tapeSrc.onended = null;
+    try { tapeSrc.stop(); } catch { /* already stopped */ }
+    try { tapeSrc.disconnect(); } catch { /* noop */ }
+    tapeSrc = null;
+    tapeEntry = null;
+  }
+  tapePlaying = false;
 }
 async function playTape(t) {
   initAudio();
   await ctx.resume();
+  if (!power) await setPower(true);  // tapes sound through POWER now
+  stopTape();
   if (player) player.stop();
-  serial++;
+  const s = ++serial;
   tapePlaying = true;
+  tapeEntry = t;
   setDisplay(FREQ[t.channel], `TAPE · ${t.title} · SEED ${t.seed} · ${CHANNELS[t.channel].label}`);
-  const buf = await tapeBuffer(t);
+  let buf;
+  try {
+    buf = await tapeBuffer(t);
+  } catch {
+    tapePlaying = false;  // a failed render must never stall the radio
+    tapeEntry = null;
+    return;
+  }
+  if (s !== serial) {  // powered off / retuned / superseded mid-render
+    tapePlaying = false;
+    tapeEntry = null;
+    return;
+  }
   const src = ctx.createBufferSource();
   src.buffer = buf;
-  src.connect(inp);
+  src.connect(radioBus);
+  tapeSrc = src;
   src.onended = () => {
+    if (tapeSrc === src) { tapeSrc = null; tapeEntry = null; }
     tapePlaying = false;
     if (power && session) playRecipe(session.next());
-    else setTrackDisplay(currentRecipe || t);
   };
   src.start();
 }
@@ -337,7 +411,7 @@ $("recBtn").addEventListener("click", async () => {
   const btn = $("recBtn");
   btn.classList.add("recording"); btn.disabled = true;
   try {
-    const buf = await renderOffline(currentRecipe);
+    const buf = await renderOffline(currentRecipe, { bars: currentRecipe.bars });
     const t = { seed: currentRecipe.seed, channel: currentRecipe.channel, title: currentRecipe.title, dur: buf.duration };
     tapeBufs.set(t, buf);
     tapes.unshift(t);
@@ -356,5 +430,7 @@ window.KCAT = {
   get recipe() { return currentRecipe; },
   get tapes() { return tapes; },
   get tune() { return TUNES[tuneIdx]; },
-  setPower, retune,
+  get tapePlaying() { return tapePlaying; },
+  get tapeBufCount() { return tapeBufs.size; },
+  setPower, retune, playTape, stopTape,
 };

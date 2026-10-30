@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint js test",
     "check": "for f in js/*.js test/*.mjs; do node --check \"$f\" || exit 1; done",
-    "test": "node --test test/radio.test.mjs test/wav.test.mjs test/compose.test.mjs && node test/parity.mjs",
+    "test": "node --test test/radio.test.mjs test/wav.test.mjs test/compose.test.mjs test/recipes.test.mjs && node test/parity.mjs",
     "fuzz": "node test/fuzz.mjs"
   },
   "devDependencies": {

@@ -7,10 +7,10 @@ Recipes serialize to JSON and round-trip exactly.
 """
 
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, fields
 
 from .rng import SplitMix64
-from .theory import generate_progression
+from .theory import NOTE_TO_PC, SCALES, generate_progression
 from .traditional import TUNES
 
 RECIPE_VERSION = 1
@@ -103,6 +103,8 @@ CHANNELS = {
     },
 }
 
+_SECTION_NAMES = {"intro", "verse", "bridge", "outro"}
+
 SECTION_FORMS = [
     ["intro", "verse", "verse", "bridge", "verse", "outro"],
     ["intro", "verse", "bridge", "verse", "verse", "outro"],
@@ -160,9 +162,112 @@ class Recipe:
 
     @classmethod
     def from_json(cls, text: str) -> "Recipe":
-        data = json.loads(text)
-        if data.get("version") != RECIPE_VERSION:
-            raise ValueError(f"unsupported recipe version {data.get('version')}")
+        """Parse a recipe, validating the whole shape.
+
+        Every problem raises ValueError naming the field and the
+        offending value — an unknown mode, a mistyped tempo, or a
+        stray extra key must fail here, at load time, not deep inside
+        a renderer. (Pre-S7 this accepted mode="nope" and
+        tempo_bpm="fast", and unknown keys raised a bare TypeError
+        from the dataclass constructor.) The allowed key set is the
+        dataclass itself; `sections` and `tune` are the only fields
+        a payload may omit (they carry defaults). Mirrored by
+        recipeFromJson in web/js/recipes.js — keep the two in step.
+        """
+        try:
+            data = json.loads(text)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"invalid recipe JSON: {e}") from e
+        if not isinstance(data, dict):
+            raise ValueError(
+                f"recipe JSON must be an object, got {type(data).__name__}")
+        known = {f.name for f in fields(cls)}
+        unknown = sorted(set(data) - known)
+        if unknown:
+            raise ValueError(
+                f"unknown recipe field(s): {', '.join(unknown)}")
+        optional = {"sections", "tune"}
+        missing = sorted(known - set(data) - optional)
+        if missing:
+            raise ValueError(
+                f"missing recipe field(s): {', '.join(missing)}")
+
+        def _int(name):
+            v = data[name]
+            if isinstance(v, bool) or not isinstance(v, int):
+                raise ValueError(
+                    f"recipe field {name!r} must be an integer, got {v!r}")
+            return v
+
+        def _num(name):
+            v = data[name]
+            if isinstance(v, bool) or not isinstance(v, (int, float)):
+                raise ValueError(
+                    f"recipe field {name!r} must be a number, got {v!r}")
+            return v
+
+        def _str(name):
+            v = data[name]
+            if not isinstance(v, str) or not v:
+                raise ValueError(
+                    f"recipe field {name!r} must be a non-empty string, "
+                    f"got {v!r}")
+            return v
+
+        version = data["version"]
+        if isinstance(version, bool) or not isinstance(version, int):
+            raise ValueError(
+                f"recipe field 'version' must be an integer, got {version!r}")
+        if version != RECIPE_VERSION:
+            raise ValueError(f"unsupported recipe version {version!r}")
+        _int("seed")
+        if _int("tempo_bpm") <= 0:
+            raise ValueError(
+                f"recipe field 'tempo_bpm' must be positive, "
+                f"got {data['tempo_bpm']!r}")
+        if _int("bars") <= 0:
+            raise ValueError(
+                f"recipe field 'bars' must be positive, got {data['bars']!r}")
+        for name in ("swing", "dust", "wobble"):
+            _num(name)
+        channel = _str("channel")
+        if channel not in CHANNELS:
+            raise ValueError(
+                f"unknown channel {channel!r} in recipe field 'channel'")
+        _str("title")
+        key_root = _str("key_root")
+        if key_root not in NOTE_TO_PC:
+            raise ValueError(
+                f"unknown key_root {key_root!r} in recipe field 'key_root'")
+        mode = _str("mode")
+        if mode not in SCALES:
+            raise ValueError(
+                f"unknown mode {mode!r} in recipe field 'mode'")
+        sections = data.get("sections", [])
+        if (not isinstance(sections, list)
+                or any(not isinstance(s, str) for s in sections)
+                or any(s not in _SECTION_NAMES for s in sections)):
+            raise ValueError(
+                f"recipe field 'sections' must be a list drawn from "
+                f"{sorted(_SECTION_NAMES)}, got {sections!r}")
+        tune = data.get("tune")
+        if tune is not None and tune not in TUNES:
+            raise ValueError(
+                f"unknown tune {tune!r} in recipe field 'tune'")
+        progression = data["progression"]
+        if not isinstance(progression, dict):
+            raise ValueError(
+                f"recipe field 'progression' must be an object, "
+                f"got {progression!r}")
+        chords = progression.get("chords")
+        if (not isinstance(chords, list) or not chords
+                or any(not isinstance(c, dict) for c in chords)
+                or any(not isinstance(c.get("notes"), list) or not c["notes"]
+                       or any(isinstance(n, bool) or not isinstance(n, int)
+                              for n in c["notes"]) for c in chords)):
+            raise ValueError(
+                "recipe field 'progression.chords' must be a non-empty "
+                "list of chords, each with a non-empty integer 'notes' list")
         return cls(**data)
 
 

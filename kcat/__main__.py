@@ -13,6 +13,23 @@ from .recipes import CHANNELS, generate_recipe
 from .traditional import TUNES
 
 
+def _positive_int(text: str) -> int:
+    """argparse type for counts that must be >= 1 (bars, tracks).
+
+    Pre-S7 these were plain int, so `--tracks 0` / `--bars -1`
+    sailed through parsing and died as raw tracebacks deep in the
+    renderer. As an ArgumentTypeError they fail at parse time:
+    readable message, exit code 2, no traceback."""
+    try:
+        value = int(text)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"not an integer: {text!r}") from None
+    if value < 1:
+        raise argparse.ArgumentTypeError(f"must be >= 1, got {value}")
+    return value
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(prog="kcat", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -29,7 +46,7 @@ def main(argv=None) -> int:
     p_render.add_argument("--seed", type=int, required=True)
     p_render.add_argument("--channel", choices=sorted(CHANNELS),
                           default="jazz-cat")
-    p_render.add_argument("--bars", type=int, default=16)
+    p_render.add_argument("--bars", type=_positive_int, default=16)
     p_render.add_argument("--tune", choices=sorted(TUNES), default=None,
                           help="play this traditional tune (encoded in "
                                "kcat/traditional.py) instead of a generated "
@@ -42,7 +59,7 @@ def main(argv=None) -> int:
                          help="session seed: the same seed replays the same broadcast")
     p_radio.add_argument("--channel", default="all",
                          help="a station name, or 'all' to wander the dial")
-    p_radio.add_argument("--tracks", type=int, default=6)
+    p_radio.add_argument("--tracks", type=_positive_int, default=6)
     p_radio.add_argument("--no-signature", action="store_true",
                          help="don't open with the signature track")
     p_radio.add_argument("--tape-dir", default=None,

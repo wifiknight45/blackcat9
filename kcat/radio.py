@@ -79,12 +79,18 @@ def ident_for(recipe: Recipe) -> np.ndarray:
 def plan_session(session_seed: int, channel: str = "all",
                  tracks: int = 6, signature: bool = True) -> list:
     """The tracklist for a session. Deterministic in the session seed.
-    `channel` is a station name, or "all" to wander the whole dial."""
+    `channel` is a station name, or "all" to wander the whole dial.
+
+    The signature opener only plays on the open dial: when a channel
+    is pinned, the session starts on that station — the web Session
+    (web/js/radio.js) has always behaved this way, and pre-S7 Python
+    disagreed, opening a pinned jazz-cat session with the DUST
+    signature track."""
     if channel != "all" and channel not in CHANNELS:
         raise ValueError(f"unknown channel {channel!r}")
     rng = SplitMix64(session_seed ^ _TAG_SESSION)
     plan = []
-    if signature:
+    if signature and channel == "all":
         plan.append(generate_recipe(SIGNATURE_SEED, SIGNATURE_CHANNEL))
     stations = sorted(CHANNELS)
     while len(plan) < tracks:
