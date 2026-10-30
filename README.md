@@ -3,7 +3,7 @@
 ### ブラックキャット9 — 雨の東京のアパートから放送中
 *"Broadcasting from a rainy Tokyo apartment."*
 
-![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-audio_engine-013243?style=for-the-badge&logo=numpy&logoColor=white) ![Stations](https://img.shields.io/badge/Stations-5-E4405F?style=for-the-badge) ![Scales](https://img.shields.io/badge/Scales-11-FC4C02?style=for-the-badge) ![Minyo](https://img.shields.io/badge/%E6%B0%91%E8%AC%A1-MINYO_76.2-BC002D?style=for-the-badge) ![Tests](https://img.shields.io/badge/Tests-84%2B_passing-2EA043?style=for-the-badge) ![Seeds](https://img.shields.io/badge/Seeds-deterministic-7C4DFF?style=for-the-badge) ![License](https://img.shields.io/badge/License-Apache_2.0-D22128?style=for-the-badge&logo=apache&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-audio_engine-013243?style=for-the-badge&logo=numpy&logoColor=white) ![Stations](https://img.shields.io/badge/Stations-5-E4405F?style=for-the-badge) ![Scales](https://img.shields.io/badge/Scales-11-FC4C02?style=for-the-badge) ![Minyo](https://img.shields.io/badge/%E6%B0%91%E8%AC%A1-MINYO_76.2-BC002D?style=for-the-badge) ![Tests](https://img.shields.io/badge/Tests-93%2B_passing-2EA043?style=for-the-badge) ![Seeds](https://img.shields.io/badge/Seeds-deterministic-7C4DFF?style=for-the-badge) ![License](https://img.shields.io/badge/License-Apache_2.0-D22128?style=for-the-badge&logo=apache&logoColor=white)
 
 **▶ Listen live: [wifiknight45.github.io/blackcat9](https://wifiknight45.github.io/blackcat9/)**
 
@@ -119,7 +119,8 @@ every session draws fresh ones, forever.
 - Console face: Minimoog (Buffalo Museum of Science) via Wikimedia
   Commons — CC BY 2.0.
 - Posters: Jefferson Airplane, Fillmore 1966 — public domain;
-  Mantra-Rock Dance 1967, photo Harvey W. Cohen — CC BY-SA 3.0.
+  Mantra-Rock Dance 1967, photo Harvey W. Cohen — CC BY-SA 3.0
+  (creativecommons.org/licenses/by-sa/3.0).
 - Nine: after Utagawa Kuniyoshi's cat prints — public domain.
 - Flip clock: auction listing photo, used as a design placeholder
   and slated for replacement with a licensed image.

@@ -7,6 +7,8 @@ generate raw noise inside voices, which is texture, not composition.
 
 Per-song arrangement for the slice: the first four bars are an intro
 (EP + bass + hats, no kick drive or snare) when the render is 8+ bars.
+Since S7c the recipe's sections drive the wider arrangement (break
+bars, pad, lead rests) — see section_at / is_break_bar below.
 """
 
 import wave
@@ -55,6 +57,60 @@ def _bass_root_midi(root_pc: int) -> int:
     return min(candidates, key=lambda m: abs(m - 38))
 
 
+# ------------------------------------------------------------ S7c
+# Sections-driven arrangement. A recipe's sections (intro / verse /
+# bridge / outro, 8 bars each — bars == 8 * len(sections)) used to
+# be inert metadata: breaks were hard-coded at bars 11 and 15, so a
+# 48-bar track was static after bar 16. Now the sections drive the
+# arrangement, identically in both engines (web/js/compose.js
+# mirrors these functions; arrangement goldens pin the agreement):
+#
+#   * a bar is a BREAK bar (drums stripped to the downbeat, no
+#     snare) when its section is intro or outro, or when it is the
+#     last bar of a bridge section (the turnaround);
+#   * the pad stays out of outro bars (the wind-down);
+#   * the lead rests on the third bar of each verse section, and
+#     through the outro except for a closing phrase on the final
+#     bar. (Pre-S7c it rested every bar % 4 == 2.)
+# Renders shorter than 8 bars are fragments: no section breaks.
+
+def section_at(recipe: Recipe, bar: int) -> str:
+    sections = recipe.sections or []
+    if not sections:
+        return "verse"
+    return sections[min(bar // 8, len(sections) - 1)]
+
+
+def bar_in_section(recipe: Recipe, bar: int) -> int:
+    sections = recipe.sections or []
+    if not sections:
+        return bar
+    return bar - min(bar // 8, len(sections) - 1) * 8
+
+
+def is_break_bar(recipe: Recipe, bar: int, bars: int) -> bool:
+    if bars < 8:
+        return False
+    section = section_at(recipe, bar)
+    if section in ("intro", "outro"):
+        return True
+    return section == "bridge" and bar_in_section(recipe, bar) == 7
+
+
+def melody_rests(recipe: Recipe, bar: int, bars: int) -> bool:
+    section = section_at(recipe, bar)
+    if section == "outro":
+        return bar != bars - 1
+    return section == "verse" and bar_in_section(recipe, bar) == 2
+
+
+def arrangement_flags(recipe: Recipe, bars: int) -> list:
+    """Per-bar (section, is_break, melody_rests) — the golden-tested
+    shape of the arrangement, shared by render and the tests."""
+    return [(section_at(recipe, bar), is_break_bar(recipe, bar, bars),
+             melody_rests(recipe, bar, bars)) for bar in range(bars)]
+
+
 
 def _melody_events(recipe: Recipe, bars: int, intro_bars: int):
     """A seeded lead line: random walk over the mode's scale, snapping
@@ -71,7 +127,7 @@ def _melody_events(recipe: Recipe, bars: int, intro_bars: int):
     events = []
     idx = min(range(len(pool)), key=lambda i: abs(pool[i] - 76))
     for bar in range(intro_bars, bars):
-        if bar % 4 == 2 and bar != bars - 1:
+        if melody_rests(recipe, bar, bars):
             continue
         chord = chords[bar % len(chords)]
         tones = {i for i, m in enumerate(pool) if m % 12 in chord["pcs"]}
@@ -163,7 +219,7 @@ def render_recipe(recipe: Recipe, bars: int = 16,
         chord = chords[bar % len(chords)]
         bar_t = bar * bar_s
         intro = bar < intro_bars
-        is_break = bars >= 16 and bar in (11, 15)
+        is_break = is_break_bar(recipe, bar, bars)
 
         # --- electric piano: long hit + seeded stabs + a top-note peek
         sig = voices.ep_chord(chord["notes"], bar_s * 0.95, velocity=0.9)
@@ -179,8 +235,9 @@ def render_recipe(recipe: Recipe, bars: int = 16,
                                   velocity=0.5)
             place(buf, peek, int(t * SR), pan=-0.1, gain=0.35)
 
-        # --- pad: warm stereo bed under the second half
-        if pad and not intro:
+        # --- pad: warm stereo bed under the second half; it leaves
+        # with the outro (S7c sections arrangement).
+        if pad and not intro and section_at(recipe, bar) != "outro":
             pad_sig = voices.pad_chord(chord["notes"], bar_s * 1.02)
             place_stereo(buf, pad_sig, int(bar_t * SR),
                          gain=CHANNELS[recipe.channel]["pad_level"])

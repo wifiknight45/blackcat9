@@ -32,7 +32,7 @@
 //   melody stream (seed ^ 0xE001): per played bar — note-count draw,
 //     8 shuffle draws, then per note: walk choice (skipped on a
 //     chord-tone snap), duration draw, velocity draw. Resting bars
-//     (bar % 4 == 2, except the last) draw nothing.
+//     (S7c sections rule — see melodyRests below) draw nothing.
 //   tune events draw NOTHING (the melody is encoded verbatim).
 //
 // DELIBERATE DIVERGENCES from render.py:
@@ -81,6 +81,43 @@ const STAB_PATTERNS = [  // in beats within the bar
   [0.75, 2.5],
 ];
 
+// ------------------------------------------------------------ S7c
+// Sections-driven arrangement — statement-for-statement mirror of
+// render.py's section_at / bar_in_section / is_break_bar /
+// melody_rests. Breaks used to be hard-coded at bars 11 and 15;
+// now: a bar is a break when its section is intro or outro, or it
+// is the last bar of a bridge; the pad leaves for the outro; the
+// lead rests on the third bar of each verse and through the outro
+// except the final bar. Fragments (< 8 bars) get no section breaks.
+export function sectionAt(recipe, bar) {
+  const sections = recipe.sections || [];
+  if (!sections.length) return "verse";
+  return sections[Math.min(Math.trunc(bar / 8), sections.length - 1)];
+}
+export function barInSection(recipe, bar) {
+  const sections = recipe.sections || [];
+  if (!sections.length) return bar;
+  return bar - Math.min(Math.trunc(bar / 8), sections.length - 1) * 8;
+}
+export function isBreakBar(recipe, bar, bars) {
+  if (bars < 8) return false;
+  const section = sectionAt(recipe, bar);
+  if (section === "intro" || section === "outro") return true;
+  return section === "bridge" && barInSection(recipe, bar) === 7;
+}
+export function melodyRests(recipe, bar, bars) {
+  const section = sectionAt(recipe, bar);
+  if (section === "outro") return bar !== bars - 1;
+  return section === "verse" && barInSection(recipe, bar) === 2;
+}
+export function arrangementFor(recipe, bars) {
+  return Array.from({ length: bars }, (_, bar) => ({
+    section: sectionAt(recipe, bar),
+    isBreak: isBreakBar(recipe, bar, bars),
+    melodyRests: melodyRests(recipe, bar, bars),
+  }));
+}
+
 function bassRootMidi(rootPc) {
   // Python: min over range(30, 49) by |m - 38|, first wins on ties.
   let best = null;
@@ -114,7 +151,7 @@ function melodyEvents(recipe, bars, introBars, _stepS) {
     if (d < bestDist) { bestDist = d; idx = i; }
   });
   for (let bar = introBars; bar < bars; bar++) {
-    if (bar % 4 === 2 && bar !== bars - 1) continue;  // resting bar
+    if (melodyRests(recipe, bar, bars)) continue;  // resting bar (S7c sections)
     const chord = chords[bar % chords.length];
     const tones = new Set();
     pool.forEach((m, i) => { if (chord.pcs.includes(m % 12)) tones.add(i); });
@@ -240,7 +277,7 @@ export function compose(recipe, options = {}) {
     const chord = chords[bar % chords.length];
     const barT = bar * barS;
     const intro = bar < introBars;
-    const isBreak = bars >= 16 && (bar === 11 || bar === 15);
+    const isBreak = isBreakBar(recipe, bar, bars);
 
     // --- electric piano: long hit + seeded stabs + a top-note peek
     ep.push({
@@ -264,8 +301,9 @@ export function compose(recipe, options = {}) {
       });
     }
 
-    // --- pad: warm stereo bed under the second half
-    if (padOn && !intro) {
+    // --- pad: warm stereo bed under the second half; it leaves
+    // with the outro (S7c sections arrangement).
+    if (padOn && !intro && sectionAt(recipe, bar) !== "outro") {
       padEv.push({
         t: barT, durS: barS * 1.02, midis: chord.notes.slice(),
         velocity: 1.0, gain: cfg.pad_level,

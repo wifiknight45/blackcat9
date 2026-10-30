@@ -7,6 +7,56 @@ pushing.
 
 ## 2026-10-29
 
+### 20:45 PDT — S7c: enhancements (sections, audio goldens, accessibility, mobile Stage 1)
+
+- **Sections drive the arrangement now** — the recipe's sections
+  (intro/verse/bridge/outro) were inert while breaks sat hard-coded
+  at bars 11 and 15. In both engines, identically: intro and outro
+  sections are break bars (plus the last bar of a bridge — the
+  turnaround), the pad leaves for the outro, and the lead rests on
+  each verse's third bar and through the outro except a closing
+  phrase on the final bar. A 48-bar track now develops past bar 16.
+  Seed 42 breaks: bars 0–7, 23, 40–47. Cross-engine agreement is
+  pinned by arrangement goldens (`scripts/gen_arrangement_goldens.py`
+  → `web/test/arrangement_goldens.json`) plus event-level tests;
+  the stale "break bars 11 and 15" assertion in compose.test was
+  updated to the sections rule (bar 11 is a verse bar now, and the
+  snare plays there — asserted).
+- **Audio regression goldens** — `tests/test_render_goldens.py`
+  renders short slices for 5 seed/channel cases and pins exact
+  length, peak (±0.02, normalize-anchored) and RMS (±5%, the
+  numpy/FFT variance band). The render path is covered now; the
+  fuzzers' "0 renders" is no longer the whole story. (JS renders
+  remain covered by the Chromium smoke/tapes checks — node has no
+  OfflineAudioContext.)
+- **Accessibility** — POWER is a real `<button>` (`aria-pressed`,
+  keyboard-operable); knobs are `role="slider"` with
+  aria-valuemin/max/now/text, focusable, with arrow/PageUp/PageDown/
+  Home/End keys; `pointercancel` cleans up without committing and
+  pointer handlers check `pointerId` / wrap `setPointerCapture`
+  (audit M4/M5/M9); visible focus outlines; `prefers-reduced-motion`
+  stills the looping animations and the rain (single still frame),
+  and the rain loop pauses while the tab is hidden.
+- **Mobile minimum = the audit's Stage 1** — viewport meta added;
+  `fit()` now scales and centres one `#stage` wrapper holding the
+  scene, control box and rack (they were unscaled siblings that
+  detached by ~1,200 px on phones and clipped below 1280 px).
+  Verified in Chromium at 1920/1440-class, 1024×768, 768 portrait,
+  iPhone-15 393×852 and landscape: stage fully in viewport and
+  controls attached at every size, design position at 1280×800
+  unchanged. The audit's Stage 2 responsive redesign (hybrid
+  recommended) stays **deferred — Aubrey's design decision**.
+- **Licensing** — credits verified in-repo: Minimoog CC BY 2.0,
+  Mantra-Rock (Harvey W. Cohen) CC BY-SA 3.0 are consistent between
+  README and the console; README now carries the BY-SA licence URL
+  and the poster alt text the full "CC BY-SA 3.0". The flip-clock
+  auction photo remains an **open item** — no licensed replacement
+  exists yet; it is flagged in the README and the credits note.
+- README test badge updated to the real count (93+).
+- **Verified:** Python 93/93 (69 baseline + 24 across S7), JS unit
+  19/19, parity 39/39, arrangement goldens agree, ruff + ESLint
+  clean (final full-chain verification in the S7 report).
+
 ### 20:37 PDT — S7b: hardening (likely problems + smaller fixes)
 
 - **Rack XSS hygiene** — `renderRack` builds rows with DOM calls and

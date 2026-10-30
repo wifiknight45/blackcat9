@@ -34,15 +34,27 @@ const nextPaint = () => new Promise((resolve) => {
 });
 
 /* ------------------------------------------------ fit the room */
-const scene = document.querySelector(".scene");
+// S7c (audit Stage 1): scale ONE wrapper — #stage holds the scene,
+// the control box and the rack — and centre it with explicit
+// translate math. Pre-fix only .scene was scaled, with transform-
+// origin "top center" on a 1280-px layout box: below 1280 px wide
+// the room slid off-screen right (audit B3), the unscaled controls
+// detached from the console by ~1,200 px on phones (B2), and above
+// 1280 px the controls stopped aligning with the console (B4).
+// The full responsive layout is the audit's Stage 2 — Aubrey's
+// design call, deliberately not in this patch.
+const stage = document.getElementById("stage");
 function fit() {
   const s = Math.min(innerWidth / 1280, innerHeight / 800);
-  scene.style.transformOrigin = "top center";
-  scene.style.transform = `scale(${s})`;
-  document.body.style.height = 800 * s + "px";
+  const x = (innerWidth - 1280 * s) / 2;
+  const y = (innerHeight - 800 * s) / 2;
+  stage.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
   document.body.style.margin = "0";
 }
-addEventListener("resize", fit); fit();
+addEventListener("resize", fit);
+addEventListener("orientationchange", fit);
+if (window.visualViewport) window.visualViewport.addEventListener("resize", fit);
+fit();
 
 /* ------------------------------------------------ display */
 const dispEl = $("display"), freqEl = $("freq"), ttlEl = $("ttl");
@@ -151,6 +163,7 @@ async function setPower(on) {
   await ctx.resume();
   power = on;
   rocker.classList.toggle("on", on);
+  rocker.setAttribute("aria-pressed", String(on));
   serial++;
   if (on) {
     sessionSeed = (Date.now() % 900000) + 1000;
@@ -182,48 +195,100 @@ async function setPower(on) {
 rocker.addEventListener("click", () => setPower(!power));
 
 /* ------------------------------------------------ knobs */
-function makeKnob(el, { min, max, value, onInput, onCommit, wheelStep }) {
+// S7c accessibility + audit M4/M5/M9: each knob is a real slider
+// widget — role="slider", focusable, aria-valuemin/max/now/text,
+// arrow / PageUp / PageDown / Home / End keys. Pointer handling:
+// setPointerCapture is wrapped (Gecko throws for a synthetic or
+// inactive pointer, which used to abort the whole drag), move/up
+// check the captured pointerId, and pointercancel cleans up like
+// pointerup but WITHOUT committing — a cancelled TUNING drag must
+// not retune to wherever the finger happened to be.
+function makeKnob(el, { min, max, value, onInput, onCommit, wheelStep, label, valueText }) {
   const cap = el.querySelector(".knob-cap");
   let v = value;
-  const render = () => { cap.style.transform = `rotate(${-135 + 270 * (v - min) / (max - min)}deg)`; };
+  const clamp = (nv) => Math.max(min, Math.min(max, nv));
+  const shown = () => String(Math.round(v * 100) / 100);
+  el.setAttribute("role", "slider");
+  el.setAttribute("tabindex", "0");
+  if (label) el.setAttribute("aria-label", label);
+  el.setAttribute("aria-valuemin", String(min));
+  el.setAttribute("aria-valuemax", String(max));
+  const render = () => {
+    cap.style.transform = `rotate(${-135 + 270 * (v - min) / (max - min)}deg)`;
+    el.setAttribute("aria-valuenow", shown());
+    el.setAttribute("aria-valuetext", valueText ? valueText(v) : shown());
+  };
   render();
-  const api = { get: () => v, set: (nv) => { v = Math.max(min, Math.min(max, nv)); render(); } };
+  const api = { get: () => v, set: (nv) => { v = clamp(nv); render(); } };
+  const step = wheelStep ?? (max - min) / 50;
   el.addEventListener("pointerdown", (e) => {
-    el.setPointerCapture(e.pointerId);
+    try { el.setPointerCapture(e.pointerId); } catch { /* audit M9 */ }
+    const pid = e.pointerId;
     const y0 = e.clientY, v0 = v;
     const move = (ev) => {
-      v = Math.max(min, Math.min(max, v0 + (y0 - ev.clientY) / 130 * (max - min)));
+      if (ev.pointerId !== pid) return;
+      v = clamp(v0 + (y0 - ev.clientY) / 130 * (max - min));
       render(); onInput && onInput(v);
     };
-    const up = () => {
+    const cleanup = () => {
       el.removeEventListener("pointermove", move);
       el.removeEventListener("pointerup", up);
+      el.removeEventListener("pointercancel", cancel);
+    };
+    const up = (ev) => {
+      if (ev.pointerId !== pid) return;
+      cleanup();
       onCommit && onCommit(v);
+    };
+    const cancel = (ev) => {
+      if (ev.pointerId !== pid) return;
+      cleanup();
     };
     el.addEventListener("pointermove", move);
     el.addEventListener("pointerup", up);
+    el.addEventListener("pointercancel", cancel);
   });
   el.addEventListener("wheel", (e) => {
     e.preventDefault();
-    v = Math.max(min, Math.min(max, v + (e.deltaY < 0 ? 1 : -1) * (wheelStep ?? (max - min) / 18)));
+    v = clamp(v + (e.deltaY < 0 ? 1 : -1) * (wheelStep ?? (max - min) / 18));
     render(); onInput && onInput(v); onCommit && onCommit(v);
   }, { passive: false });
+  el.addEventListener("keydown", (e) => {
+    let nv = null;
+    if (e.key === "ArrowUp" || e.key === "ArrowRight") nv = v + step;
+    else if (e.key === "ArrowDown" || e.key === "ArrowLeft") nv = v - step;
+    else if (e.key === "PageUp") nv = v + step * 10;
+    else if (e.key === "PageDown") nv = v - step * 10;
+    else if (e.key === "Home") nv = min;
+    else if (e.key === "End") nv = max;
+    if (nv === null) return;
+    e.preventDefault();
+    v = clamp(nv);
+    render(); onInput && onInput(v); onCommit && onCommit(v);
+  });
   return api;
 }
 makeKnob($("kVol"), {
-  min: 0, max: 1, value: 0.8,
+  min: 0, max: 1, value: 0.8, label: "Volume",
+  valueText: (v) => `${Math.round(v * 100)} percent`,
   onInput: (v) => { if (volG) volG.gain.setTargetAtTime(Math.pow(v, 1.6) * 1.15, ctx.currentTime, 0.03); },
 });
 makeKnob($("kBass"), {
-  min: -12, max: 12, value: 0,
+  min: -12, max: 12, value: 0, label: "Bass",
+  valueText: (v) => `${v > 0 ? "+" : ""}${Math.round(v)} dB`,
   onInput: (v) => { if (bassF) bassF.gain.setTargetAtTime(Math.abs(v) < 1 ? 0 : v, ctx.currentTime, 0.03); },
 });
 makeKnob($("kTreble"), {
-  min: -12, max: 12, value: 0,
+  min: -12, max: 12, value: 0, label: "Treble",
+  valueText: (v) => `${v > 0 ? "+" : ""}${Math.round(v)} dB`,
   onInput: (v) => { if (trebleF) trebleF.gain.setTargetAtTime(Math.abs(v) < 1 ? 0 : v, ctx.currentTime, 0.03); },
 });
 makeKnob($("kTune"), {
-  min: 0, max: TUNES.length - 1, value: 0, wheelStep: 1,
+  min: 0, max: TUNES.length - 1, value: 0, wheelStep: 1, label: "Tuning",
+  valueText: (v) => {
+    const d = Math.round(v);
+    return d === 0 ? "All stations" : CHANNELS[TUNES[d]].label;
+  },
   onInput: (v) => {
     const d = Math.round(v);
     if (d === 0) setDisplay("99.9", "TUNING · · · ALL STATIONS · · · THE WHOLE DIAL");

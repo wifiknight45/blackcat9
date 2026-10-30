@@ -65,13 +65,18 @@ check(c.ep === a.events.ep.length && c.pad === a.events.pad.length &&
 
 // Arrangement rules from render.py, observable in the events:
 // intro bars (0..3) have no snare and no pad; kick in the intro only
-// ever lands on bar starts; break bars 11 and 15 have no snare.
+// ever lands on bar starts. Break bars come from the recipe's
+// sections since S7c (seed 42: intro section = bars 0..7) — the old
+// hard-coded breaks at bars 11 and 15 are gone; bar 11 is a verse
+// bar now and the snare plays there.
 const barOf = (t) => Math.floor(t / a.barS + 1e-6);
 const snares = a.events.drums.filter((d) => d.type === "snare");
 check(snares.every((d) => barOf(d.t) >= 4), "no snare during the 4-bar intro");
 check(a.events.pad.every((p) => barOf(p.t) >= 4), "no pad during the intro");
-check(snares.every((d) => barOf(d.t) !== 11 && barOf(d.t) !== 15),
-  "no snare in break bars 11 and 15");
+check(snares.every((d) => barOf(d.t) >= 8),
+  "no snare in the intro-section break bars (0..7, S7c sections)");
+check(snares.some((d) => barOf(d.t) === 11),
+  "snare sounds at bar 11 now — it is a verse bar, not a hard-coded break");
 check(c.kick >= 16 && c.snare >= 20 && c.hat >= 60,
   `drum counts sane (kick ${c.kick}, snare ${c.snare}, hat ${c.hat})`);
 check(c.lead >= 20, `lead events ${c.lead} >= 20 across 12 melody bars`);

@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>blackcat9 — K-CAT 99.9 · ブラックキャット9</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:#0e0805; font-family:"Helvetica Neue", Arial, sans-serif; overflow:hidden; }
-  .scene { position:relative; width:1280px; height:800px; margin:0 auto; overflow:hidden;
+  #stage { position:absolute; left:0; top:0; width:1280px; height:800px; transform-origin:0 0; }
+  .scene { position:absolute; left:0; top:0; width:1280px; height:800px; margin:0; overflow:hidden;
     background: url('tex/wall.jpg') center/cover; }
   .scene::before { content:""; position:absolute; inset:0; z-index:1;
     background:
@@ -182,6 +184,7 @@
 .loafglow{position:absolute;z-index:13;left:596px;bottom:450px;width:245px;height:175px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,176,92,.26),rgba(255,176,92,0) 65%);filter:blur(7px)}
 </style></head>
 <body>
+<div id="stage">
 <div class="scene va">
   <svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
 
@@ -203,7 +206,7 @@
 
   <!-- psychedelic poster, top-left -->
   <div class="poster" style="transform: rotate(-1.4deg);"><img src="tex/poster-fillmore.jpg" style="width:196px" alt="Jefferson Airplane at the Fillmore, 1966 - public domain"></div>
-  <div class="poster" style="left:246px; top:42px; transform: rotate(1.1deg);"><img src="tex/poster-mantra.jpg" style="width:172px" alt="Mantra-Rock Dance, Avalon Ballroom 1967 - CC BY-SA"></div>
+  <div class="poster" style="left:246px; top:42px; transform: rotate(1.1deg);"><img src="tex/poster-mantra.jpg" style="width:172px" alt="Mantra-Rock Dance, Avalon Ballroom 1967 - CC BY-SA 3.0"></div>
 
   <!-- desk + console -->
   <div class="deskshadow"></div>
@@ -243,7 +246,12 @@
   const trails = Array.from({length: 15}, () => ({
     x: Math.random()*cv.width, y: Math.random()*cv.height,
     s: .3 + Math.random()*.8, r: 1 + Math.random()*1.5 }));
-  (function frame() {
+  // S7c: the rain loop pauses while the tab is hidden (audit m1)
+  // and renders a single still frame under prefers-reduced-motion.
+  const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let rainRunning = false;
+  function frame() {
+    if (document.hidden) { rainRunning = false; return; }
     ctx.clearRect(0, 0, cv.width, cv.height);
     ctx.lineWidth = 1.1; ctx.lineCap = 'round';
     for (const d of drops) {
@@ -258,14 +266,22 @@
       t.y += t.s; t.x += Math.sin(t.y * .05) * .3;
       if (t.y > cv.height) { t.y = -4; t.x = Math.random()*cv.width; }
     }
+    if (!REDUCED) requestAnimationFrame(frame);
+    else rainRunning = false;
+  }
+  function startRain() {
+    if (rainRunning || document.hidden) return;
+    rainRunning = true;
     requestAnimationFrame(frame);
-  })();
+  }
+  document.addEventListener("visibilitychange", startRain);
+  startRain();
 
 </script>
 
 <div id="controlbox">
   <div class="cb-group">
-    <div id="power" class="rocker" title="Power — the tubes need a moment"><div class="rocker-cap"></div><div class="rocker-dot"></div></div>
+    <button type="button" id="power" class="rocker" aria-pressed="false" aria-label="Power" title="Power — the tubes need a moment"><div class="rocker-cap"></div><div class="rocker-dot"></div></button>
     <div class="cb-label">POWER</div>
   </div>
   <canvas id="vu" width="168" height="88" title="Output level"></canvas>
@@ -302,11 +318,12 @@
   <div class="rack-note">Tapes live in this browser's storage. If your browser clears site data — private windows, or DuckDuckGo's Fire Button / auto-clear — the shelf will be emptied. Download the WAV of any tape you want to keep for good.</div>
   <div class="rack-note">Console: Minimoog photo, Buffalo Museum of Science (CC BY 2.0) via Wikimedia Commons. Posters: Jefferson Airplane, Fillmore 1966 (public domain); Mantra-Rock Dance 1967 (CC BY-SA 3.0). Nine after Utagawa Kuniyoshi (public domain). Clock photo is a placeholder, swapped before launch.</div>
 </div>
+</div><!-- /#stage -->
 <style>
 #controlbox{position:absolute;left:24px;bottom:10px;width:816px;height:88px;z-index:20;background:url(tex/wood.jpg) center/cover;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,220,160,.35),inset 0 -8px 18px rgba(0,0,0,.55),0 6px 14px rgba(0,0,0,.5);display:flex;align-items:center;gap:20px;padding:0 20px;box-sizing:border-box}
 .cb-group{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:54px}
 .cb-label{color:#f3e2b8;font:600 9px/1 sans-serif;letter-spacing:.18em;text-shadow:0 1px 2px #000}
-.rocker{width:34px;height:52px;border-radius:5px;background:linear-gradient(180deg,#3a332a,#17130e);box-shadow:inset 0 1px 3px rgba(255,255,255,.25),0 2px 5px rgba(0,0,0,.6);position:relative;cursor:pointer}
+.rocker{border:0;padding:0;font:inherit;width:34px;height:52px;border-radius:5px;background:linear-gradient(180deg,#3a332a,#17130e);box-shadow:inset 0 1px 3px rgba(255,255,255,.25),0 2px 5px rgba(0,0,0,.6);position:relative;cursor:pointer}
 .rocker-cap{position:absolute;left:3px;right:3px;top:3px;height:24px;border-radius:3px;background:linear-gradient(180deg,#575046,#2c261e);transition:top .12s ease,background .12s ease}
 .rocker.on .rocker-cap{top:25px;background:linear-gradient(180deg,#8a6a34,#5d4520)}
 .rocker-dot{position:absolute;left:50%;bottom:5px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3d2c14}
@@ -323,6 +340,10 @@
 #rackBtn{padding:9px 10px;border-radius:5px;border:1px solid #0f0b07;background:linear-gradient(180deg,#575046,#2c261e);color:#f3e2b8;font:600 10px sans-serif;letter-spacing:.12em;cursor:pointer;box-shadow:0 3px 7px rgba(0,0,0,.6)}
 #rack{position:absolute;right:16px;top:60px;width:348px;max-height:600px;overflow:auto;z-index:30;background:rgba(22,15,8,.97);border:1px solid #a5763a;border-radius:9px;padding:13px 15px;color:#e8dcc3;font-family:Georgia,serif;box-shadow:0 12px 32px rgba(0,0,0,.65)}
 #rack.hidden{display:none}
+.knob:focus-visible,.rocker:focus-visible,#recBtn:focus-visible,#rackBtn:focus-visible,#rackClose:focus-visible{outline:2px solid #ffb347;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){
+  .cat,.cat .tail,.cat .ear,.colon i,.rail-display .ttl span,#recBtn.recording,#display.warming,.neon{animation:none !important}
+}
 .rack-head{display:flex;justify-content:space-between;align-items:center;font-weight:bold;letter-spacing:.08em;margin-bottom:9px}
 #rackSession{font-weight:normal;font-size:11px;color:#b8a888}
 #rackClose{background:none;border:1px solid #6b5836;border-radius:4px;color:#e8dcc3;cursor:pointer;padding:2px 8px}
