@@ -71,8 +71,9 @@ function placeEvent(outL, outR, sig, pos, pan) {
 }
 
 // generateCrackleSamples(sr, durationS, dust, seed) -> [L, R]
-// seed is the combined stream seed (recipe seed ^ TAG_NOISE), the
-// same value render.py passes to damage.crackle.
+// seed is the combined stream seed (recipe seed ^ TAG_CRACKLE
+// since S7b; it shared the drum kit's TAG_NOISE stream before),
+// the same value render.py passes to damage.crackle.
 export function generateCrackleSamples(sr, durationS, dust, seed) {
   const n = Math.trunc(durationS * sr);
   const outL = new Float32Array(n);

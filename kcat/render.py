@@ -27,6 +27,12 @@ _TAG_DRUMS = 0xD001
 _TAG_CHORDS = 0xC001
 _TAG_BASS = 0xB001
 _TAG_NOISE = 0xF001
+# S7b: the crackle bed used to share _TAG_NOISE with the drum kit's
+# noise stream (both derived from seed ^ 0xF001), so the two textures
+# were the same stream wearing two hats. Crackle has its own tag
+# now; drum noise is unchanged. Renders differ from pre-S7b in their
+# noise components only — composition is untouched.
+_TAG_CRACKLE = 0xF002
 _TAG_MELODY = 0xE001
 
 _KICK_PATTERNS = [
@@ -241,7 +247,7 @@ def render_recipe(recipe: Recipe, bars: int = 16,
             prev_midi, prev_end = midi, abs_step + dur_steps
 
     # --- the room: crackle bed over everything
-    buf += crackle(total_s, recipe.dust, recipe.seed ^ _TAG_NOISE)
+    buf += crackle(total_s, recipe.dust, recipe.seed ^ _TAG_CRACKLE)
 
     # --- master: warmth, wobble, gentle saturation, normalize, fades
     cutoff = 7000.0 + (4200.0 - 7000.0) * recipe.dust

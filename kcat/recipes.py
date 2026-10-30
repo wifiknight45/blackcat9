@@ -22,7 +22,7 @@ RECIPE_VERSION = 1
 SIGNATURE_SEED = 42
 SIGNATURE_CHANNEL = "dusty"
 
-# Channel presets: the three stations on the TUNING dial. Ranges are
+# Channel presets: the five stations on the TUNING dial. Ranges are
 # (min, max) drawn uniformly by the recipe RNG.
 CHANNELS = {
     "dusty": {

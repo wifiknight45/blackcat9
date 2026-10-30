@@ -33,6 +33,19 @@ test("channel mode: pinned sessions skip the signature, exactly like Python", ()
      ["jazz-cat", 712264], ["jazz-cat", 817817]]);
 });
 
+test("peekNext returns next()'s recipe without consuming it (S7b prefetch)", () => {
+  for (const mode of ["all", "minyo", "jazz-cat"]) {
+    const s = new Session(1234, mode);
+    for (let i = 0; i < 6; i++) {
+      const peeked = s.peekNext();
+      assert.deepEqual(s.peekNext(), peeked, "peek is idempotent");
+      const drawn = s.next();
+      assert.equal(drawn.channel, peeked.channel);
+      assert.equal(drawn.seed, peeked.seed);
+    }
+  }
+});
+
 test("deterministic: same session seed, same sequence", () => {
   assert.deepEqual(seq(new Session(777, "all"), 25), seq(new Session(777, "all"), 25));
 });

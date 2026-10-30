@@ -16,6 +16,16 @@ export class Session {
     this.lastKey = null;
     this.started = false;
   }
+  // The recipe next() would return, without advancing the stream
+  // (S7b: the console prefetches/prepares it during the current
+  // track). SplitMix64's whole state is one BigInt, so a peek is a
+  // save / draw / restore.
+  peekNext() {
+    const state = this.rng.state, lastKey = this.lastKey, started = this.started;
+    const r = this.next();
+    this.rng.state = state; this.lastKey = lastKey; this.started = started;
+    return r;
+  }
   next() {
     if (!this.started) {
       this.started = true;
@@ -65,7 +75,14 @@ export function playStatic(ctx, dest, dur = 0.9, level = 0.4) {
     g.gain.value = level;
     src.connect(bp); bp.connect(g); g.connect(dest);
     src.start();
-    setTimeout(resolve, dur * 1000);
+    // S7b: resolve on the audio clock (the source's own end), not a
+    // wall-clock timer — setTimeout is throttled in background tabs
+    // and drifted the bridge; onended tracks actual playback. The
+    // timer stays as a fallback for a suspended/interrupted context.
+    let done = false;
+    const finish = () => { if (!done) { done = true; resolve(); } };
+    src.onended = finish;
+    setTimeout(finish, dur * 1000 + 350);
   });
 }
 
@@ -82,8 +99,10 @@ export function playIdent(ctx, dest, recipe, dur = 1.6) {
     const mf = (m) => 440 * Math.pow(2, (m - 69) / 12);
     const chord = recipe.progression.chords[0];
     const swellNotes = chord.notes;
+    let endSrc = null;
     for (const m of swellNotes) {
       const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = mf(m);
+      if (!endSrc) endSrc = o;  // first swell osc carries the end cue (S7b)
       const og = ctx.createGain();
       og.gain.setValueAtTime(0, t0);
       og.gain.linearRampToValueAtTime(0.045, t0 + 0.3);
@@ -101,6 +120,11 @@ export function playIdent(ctx, dest, recipe, dur = 1.6) {
       og.gain.exponentialRampToValueAtTime(0.0008, s + 0.55);
       o.connect(og); og.connect(lp); o.start(s); o.stop(s + 0.6);
     });
-    setTimeout(resolve, dur * 1000);
+    // S7b: as in playStatic — resolve when the swell actually ends
+    // on the audio clock (t0 + dur + its stop tail), timer fallback.
+    let done = false;
+    const finish = () => { if (!done) { done = true; resolve(); } };
+    if (endSrc) endSrc.onended = finish;
+    setTimeout(finish, dur * 1000 + 400);
   });
 }

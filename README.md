@@ -3,14 +3,19 @@
 ### ブラックキャット9 — 雨の東京のアパートから放送中
 *"Broadcasting from a rainy Tokyo apartment."*
 
-![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-audio_engine-013243?style=for-the-badge&logo=numpy&logoColor=white) ![Stations](https://img.shields.io/badge/Stations-5-E4405F?style=for-the-badge) ![Scales](https://img.shields.io/badge/Scales-11-FC4C02?style=for-the-badge) ![Minyo](https://img.shields.io/badge/%E6%B0%91%E8%AC%A1-MINYO_76.2-BC002D?style=for-the-badge) ![Tests](https://img.shields.io/badge/Tests-63%2B_passing-2EA043?style=for-the-badge) ![Seeds](https://img.shields.io/badge/Seeds-deterministic-7C4DFF?style=for-the-badge) ![License](https://img.shields.io/badge/License-Apache_2.0-D22128?style=for-the-badge&logo=apache&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-audio_engine-013243?style=for-the-badge&logo=numpy&logoColor=white) ![Stations](https://img.shields.io/badge/Stations-5-E4405F?style=for-the-badge) ![Scales](https://img.shields.io/badge/Scales-11-FC4C02?style=for-the-badge) ![Minyo](https://img.shields.io/badge/%E6%B0%91%E8%AC%A1-MINYO_76.2-BC002D?style=for-the-badge) ![Tests](https://img.shields.io/badge/Tests-84%2B_passing-2EA043?style=for-the-badge) ![Seeds](https://img.shields.io/badge/Seeds-deterministic-7C4DFF?style=for-the-badge) ![License](https://img.shields.io/badge/License-Apache_2.0-D22128?style=for-the-badge&logo=apache&logoColor=white)
 
 **▶ Listen live: [wifiknight45.github.io/blackcat9](https://wifiknight45.github.io/blackcat9/)**
 
 A procedural lofi radio station broadcasting from a rainy Tokyo apartment
 in 1974. Every song is **synthesized from scratch** — no samples, no
-recordings — from a deterministic seed: the same seed always makes the
-same song, on any machine, forever.
+recordings — from a deterministic seed: the same seed always makes
+the same *recipe* — the song's DNA (notes, timing, arrangement) is
+bit-identical on any machine, and a parity test proves the Python
+and JS engines agree on it exactly. The rendered audio is a faithful
+performance of that recipe; its exact samples can vary slightly
+with numpy/FFT versions, so "same seed, same song" is guaranteed at
+the recipe level, not sample-for-sample forever.
 
 Five stations on the TUNING dial:
 

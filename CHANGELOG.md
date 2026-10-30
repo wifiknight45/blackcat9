@@ -7,6 +7,42 @@ pushing.
 
 ## 2026-10-29
 
+### 20:37 PDT — S7b: hardening (likely problems + smaller fixes)
+
+- **Rack XSS hygiene** — `renderRack` builds rows with DOM calls and
+  `textContent` throughout; no localStorage-derived value reaches
+  `innerHTML` any more.
+- **Noise streams split** — the drum kit and the crackle bed both
+  derived from `seed ^ 0xF001`; crackle now has its own tag
+  (`_TAG_CRACKLE` / `TAG_CRACKLE` = 0xF002) in both engines, drums
+  unchanged. Composition is untouched; renders for a seed differ
+  from pre-S7b only in their noise components.
+- **Bridge timing** — `playStatic`/`playIdent` resolve on the audio
+  clock (the source's `onended`) instead of `setTimeout`, with the
+  timer kept as a fallback for a suspended context. Smoke-verified
+  end to end.
+- **Main-thread freezes, pragmatic half** — REC and tape playback
+  now yield two frames (`nextPaint`) so their state paints before
+  the synchronous render; the console prefetches the next track
+  mid-playback (`Session.peekNext` + `prepareTrack` bundle), so the
+  track-change boundary no longer pays the synthesis cost. The full
+  Worker migration is deferred (see S7 report).
+- **Smaller fixes** — stale "three stations" comment corrected to
+  five; `web/package-lock.json` generated and included (`npm ci`
+  verified from a clean copy); README test badge updated to the real
+  count (84+); the "same seed, same song, forever" claim softened —
+  recipes are bit-identical across engines, rendered samples can
+  vary slightly with numpy/FFT versions.
+- **DuckDuckGo honesty note** — the rack now says tapes live in
+  browser storage and are emptied when a browser clears site data
+  (DDG Fire Button / private windows); WAV download is the durable
+  copy. (The audit's §5 finding; persistence itself is by design
+  and not code-fixable.)
+- **Verified:** Python 84/84, JS unit 15/15 (+ peek test), parity
+  39/39, ruff + ESLint clean, browser smoke on air, `npm ci` clean.
+  Python fuzz still reports "0 renders" — the render path gets its
+  goldens in S7c.
+
 ### 20:30 PDT — S7a: the external-review bugs, reproduced then fixed
 
 Baseline on a fresh clone of remote main (96e3b2f): 69 Python tests,

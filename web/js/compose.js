@@ -60,6 +60,10 @@ const TAG_DRUMS = 0xD001n;
 const TAG_CHORDS = 0xC001n;
 const TAG_BASS = 0xB001n;
 export const TAG_NOISE = 0xF001n;
+// S7b: crackle's own stream tag (render.py's _TAG_CRACKLE) — it used
+// to share TAG_NOISE with the drum kit, so both textures drew from
+// the same stream. Drum noise still uses TAG_NOISE.
+export const TAG_CRACKLE = 0xF002n;
 const TAG_MELODY = 0xE001n;
 const MASK64 = (1n << 64n) - 1n;
 

@@ -6,7 +6,7 @@
 // play. BASS/TREBLE drive real filters; the VU needles read the
 // live output. Nine supervises. She is asleep. She is always asleep.
 import { CHANNELS, generate_recipe } from "./recipes.js";
-import { Player, renderOffline } from "./player.js";
+import { Player, prepareTrack, renderOffline } from "./player.js";
 import { Session, playStatic, playIdent } from "./radio.js";
 import { bufferToWavBlob } from "./wav.js";
 
@@ -23,6 +23,15 @@ const TUNES = ["all", ...STATIONS.map((s) => s.slug)];
   if (det) det.innerHTML = TUNES.map((t) => `<span>${t === "all" ? "ALL" : FREQ[t]}</span>`).join("");
 }
 const $ = (id) => document.getElementById(id);
+
+// S7b: yield two frames so a state change (REC's "recording" pulse,
+// a tape's display line) actually paints before a long synchronous
+// render blocks the main thread. Pre-fix the REC press could freeze
+// the page inside renderOffline's event preparation without the
+// button state ever appearing.
+const nextPaint = () => new Promise((resolve) => {
+  requestAnimationFrame(() => requestAnimationFrame(resolve));
+});
 
 /* ------------------------------------------------ fit the room */
 const scene = document.querySelector(".scene");
@@ -74,6 +83,28 @@ function initAudio() {
 let power = false, session = null, sessionSeed = 0;
 let currentRecipe = null, tuneIdx = 0, serial = 0, tapePlaying = false;
 
+// S7b prefetch: preparing a track (compose + voice synthesis) is
+// synchronous main-thread work; doing it at the track boundary
+// froze the page on every change. Instead, ~3 s into each track we
+// prepare the session's *next* recipe (peeked, not consumed) and
+// playRecipe hands the bundle to the player. The cost moves to a
+// mid-track moment; the boundary itself becomes cheap. A full
+// Worker migration remains the future fix (see S7 report).
+let prefetch = null;
+const recipeKey = (r) => r.channel + ":" + r.seed;
+function schedulePrefetch() {
+  prefetch = null;
+  if (!power || !session || !player) return;
+  const s = serial;
+  setTimeout(() => {
+    if (!power || !session || s !== serial) return;
+    try {
+      const next = session.peekNext();
+      prefetch = { key: recipeKey(next), bundle: prepareTrack(ctx, next, { bars: next.bars }) };
+    } catch { prefetch = null; }
+  }, 3000);
+}
+
 function playRecipe(r) {
   stopTape();
   currentRecipe = r;
@@ -82,7 +113,10 @@ function playRecipe(r) {
   // does (render_session renders recipe.bars). Without it the web
   // played compose()'s 16-bar default — a REC tape of a seed was a
   // different, shorter piece than the CLI's tape of the same seed.
-  player.play(r, { output: radioBus, bars: r.bars });
+  const bundle = (prefetch && prefetch.key === recipeKey(r)) ? prefetch.bundle : null;
+  prefetch = null;
+  player.play(r, { output: radioBus, bars: r.bars, bundle });
+  schedulePrefetch();
 }
 async function bridgeToNext() {
   const s = ++serial;
@@ -137,6 +171,7 @@ async function setPower(on) {
     playRecipe(first);
   } else {
     stopTape();  // S7a bug #2: POWER off silences AND stops tapes.
+    prefetch = null;
     warm.gain.setTargetAtTime(0, ctx.currentTime, 0.07);
     setTimeout(() => { if (!power && player) player.stop(); }, 220);
     dispEl.classList.add("off");
@@ -300,17 +335,28 @@ tapes.forEach(addSpine);
 
 const rack = $("rack"), tapeList = $("tapeList");
 function renderRack() {
-  tapeList.innerHTML = "";
+  // S7b: build the rack with DOM calls + textContent throughout.
+  // Pre-fix the meta line went in via innerHTML — its values come
+  // from localStorage (sanitized on load, but the rack should never
+  // be one sanitizer slip away from markup injection).
+  tapeList.replaceChildren();
   if (!tapes.length) {
-    tapeList.innerHTML = '<div class="tape-empty">No tapes yet. Power on, find a track you love, press ● REC.</div>';
+    const empty = document.createElement("div");
+    empty.className = "tape-empty";
+    empty.textContent = "No tapes yet. Power on, find a track you love, press ● REC.";
+    tapeList.appendChild(empty);
     return;
   }
   for (const t of tapes) {
     const row = document.createElement("div");
     row.className = "tape";
-    const meta = `${CHANNELS[t.channel].label} · SEED ${t.seed}${t.dur ? " · " + Math.round(t.dur) + "s" : ""}`;
-    row.innerHTML = `<div class="tt"></div><div class="tm">${meta}</div>`;
-    row.querySelector(".tt").textContent = t.title;
+    const tt = document.createElement("div");
+    tt.className = "tt";
+    tt.textContent = t.title;
+    const tm = document.createElement("div");
+    tm.className = "tm";
+    tm.textContent = `${CHANNELS[t.channel].label} · SEED ${t.seed}${t.dur ? " · " + Math.round(t.dur) + "s" : ""}`;
+    row.append(tt, tm);
     const play = document.createElement("button"); play.textContent = "▶ play";
     play.addEventListener("click", () => playTape(t));
     const dl = document.createElement("button"); dl.textContent = "↓ WAV";
@@ -370,6 +416,7 @@ async function playTape(t) {
   tapePlaying = true;
   tapeEntry = t;
   setDisplay(FREQ[t.channel], `TAPE · ${t.title} · SEED ${t.seed} · ${CHANNELS[t.channel].label}`);
+  await nextPaint();  // let the TAPE display paint before the render (S7b)
   let buf;
   try {
     buf = await tapeBuffer(t);
@@ -410,6 +457,7 @@ $("recBtn").addEventListener("click", async () => {
   recBusy = true;
   const btn = $("recBtn");
   btn.classList.add("recording"); btn.disabled = true;
+  await nextPaint();  // the "recording" state must paint before the render (S7b)
   try {
     const buf = await renderOffline(currentRecipe, { bars: currentRecipe.bars });
     const t = { seed: currentRecipe.seed, channel: currentRecipe.channel, title: currentRecipe.title, dur: buf.duration };

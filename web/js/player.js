@@ -32,7 +32,7 @@
 //    curve. The offline path's voices were already rendered with
 //    zero-phase helpers where Python used them per-voice.
 
-import { compose, TAG_NOISE } from "./compose.js";
+import { compose, TAG_CRACKLE, TAG_NOISE } from "./compose.js";
 import {
   bassNoteSamples, epChordSamples, epNoteSamples, leadNoteSamples,
   moogLeadSamples, padChordSamples, pluckSamples,
@@ -124,8 +124,18 @@ export function prepareEvents(ctx, recipe, composed) {
   }
 
   const crackle = generateCrackleBuffer(ctx, composed.durationS,
-    recipe.dust, (BigInt(recipe.seed) ^ TAG_NOISE) & MASK64);
+    recipe.dust, (BigInt(recipe.seed) ^ TAG_CRACKLE) & MASK64);
   return { crackleBuffer: crackle };
+}
+
+// Compose + prepare a track without playing it (S7b prefetch: the
+// console prepares the *next* track during the current one, so the
+// track change itself doesn't pay the synchronous synthesis cost).
+// Player.play accepts the bundle via options.bundle.
+export function prepareTrack(ctx, recipe, options = {}) {
+  const composed = compose(recipe, options);
+  const prepared = prepareEvents(ctx, recipe, composed);
+  return { composed, prepared };
 }
 
 // One merged timeline, sorted by time (stable: compose order breaks
@@ -159,8 +169,7 @@ export class Player {
   play(recipe, options = {}) {
     this.stop();
     const ctx = this.ctx;
-    const composed = compose(recipe, options);
-    const prepared = prepareEvents(ctx, recipe, composed);
+    const { composed, prepared } = options.bundle || prepareTrack(ctx, recipe, options);
     const master = makeMaster(ctx, recipe.dust);
     const fade = ctx.createGain();
     master.out.connect(fade);
